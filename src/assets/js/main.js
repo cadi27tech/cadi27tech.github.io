@@ -56,6 +56,31 @@
     });
   }
 
+  // ---------- Testimonial wall: native sideways scroll, plus mouse drag, step buttons and a progress bar ----------
+  $$('.qwall').forEach((wall) => {
+    const sec = wall.closest('section'), btns = $('.qwall-btns', sec), bar = $('.rail-bar', sec);
+    const upd = () => bar && bar.style.setProperty('--p', Math.max(0.08, (wall.scrollLeft + wall.clientWidth) / wall.scrollWidth).toFixed(3));
+    wall.addEventListener('scroll', upd, { passive: true }); upd();
+    if (btns) {
+      btns.hidden = false;
+      btns.addEventListener('click', (e) => { const b = e.target.closest('[data-step]'); if (b) wall.scrollBy({ left: +b.dataset.step * wall.clientWidth * 0.8, behavior: reduce ? 'auto' : 'smooth' }); });
+    }
+    let x0 = 0, s0 = 0, drag = false, moved = false;
+    wall.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      drag = true; moved = false; x0 = e.clientX; s0 = wall.scrollLeft;
+    });
+    addEventListener('pointermove', (e) => {
+      if (!drag) return;
+      const dx = e.clientX - x0;
+      if (!moved && Math.abs(dx) > 5) { moved = true; wall.classList.add('is-drag'); }
+      if (moved) wall.scrollLeft = s0 - dx;
+    });
+    addEventListener('pointerup', () => { drag = false; wall.classList.remove('is-drag'); });
+    // A drag that ends on a link must not follow it.
+    wall.addEventListener('click', (e) => { if (moved) { e.preventDefault(); moved = false; } }, true);
+  });
+
   // ---------- Header hides on scroll down, returns on scroll up ----------
   const head = $('.site-head');
   let lastY = scrollY;

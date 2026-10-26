@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync } fr
 import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { site, mailto, proof, builds, method, principles, pipeline, press, upwork, work, cvArcs, recognition } from './content.mjs';
+import { site, mailto, proof, builds, method, principles, pipeline, press, upwork, work, cvArcs, recognition, testimonials, recommendations } from './content.mjs';
 
 const SRC = dirname(fileURLToPath(import.meta.url));
 const OUT = join(SRC, '..', 'dist');
@@ -189,12 +189,15 @@ const pageHero = (h, lede, extra = '') => `<section class="hero page-hero"><div 
 ${lede ? `<p class="lede hero-fade" style="--d:.45s">${lede}</p>` : ''}${extra}
 </div></section>`;
 
+const isLive = (w) => /^(live|operating)/i.test(w.facts.Status);
 const card = (w, i) => {
   const no = pad(i + 1);
   return `<li class="card"><a href="/work/${w.slug}/" data-cursor="View case">
-<span class="card-top mono"><span>DWG AC-1${no}</span><span class="card-status${/^(live|operating)/i.test(w.facts.Status) ? ' is-live' : ''}">${esc(w.facts.Status.split(/[.,;]/)[0])}</span></span>
+<span class="card-top mono"><span>DWG AC-1${no}</span><span class="card-status${isLive(w) ? ' is-live' : ''}">${esc(w.facts.Status.split(/[.,;]/)[0])}</span></span>
 <span class="plate" style="view-transition-name:c-${w.slug}"><span class="num"${count(w.fig)}>${esc(w.fig)}</span><span class="plate-l mono">${esc(w.figLabel)}</span></span>
 <span class="card-body"><h3>${esc(w.card)}</h3><span class="card-sum">${esc(w.summary)}</span><span class="card-client">${esc(w.facts.Client || w.facts.Company)}</span></span>
+<span class="card-key"><span class="num"${count(w.key[0])}>${esc(w.key[0])}</span><span>${esc(w.key[1])}</span></span>
+<span class="card-stack mono"><span class="visually-hidden">Stack: </span>${esc(w.stack.slice(0, 4).join(', '))}</span>
 <span class="card-preview" aria-hidden="true"><span class="mono">Data path</span><ol>${w.flow.map((f) => `<li>${esc(f)}</li>`).join('')}</ol></span>
 <span class="card-foot mono"><span>Case ${no} / ${pad(work.length)}</span><span class="card-go">Read case ${arrow}</span></span>
 </a></li>`;
@@ -230,6 +233,126 @@ ${label(n, 'Contact')}
 <div class="ctas">${btn(mailto('Project or role enquiry'), 'Email Adrian', 'primary')}${copyBtn}${btn(mailto('Request for a 30-minute call'), 'Ask for a 30-minute call')}${btn('/cv/', 'Read the CV')}</div>
 <p class="cta-mail"><a class="ulink" href="${mailto('Project or role enquiry')}">${esc(site.email)}</a></p>
 </div></section>`;
+
+// ---------- System drawings (one per case study) ----------
+// One spec (work[].diagram), two layouts: a 4-column sheet on desktop and a single column on phones, so text stays readable at 390px.
+// Node: [id, row, col, span, kind, label, sub]. Kinds: ext (outside the system, dashed), sys (built), gate (a person or a hard check,
+// double frame), out (result), live (in production, signal). Edge: [from, to, label, flags]; flags: x dashed, d desktop only.
+// Desktop edges go down to the next row or across to a neighbour; on phones, any edge that skips a node runs in a side channel.
+const DGL = {
+  d: { W: 960, cols: 4, mx: 16, gx: 28, gy: 52, lw: 7.6, sw: 7 },
+  m: { W: 360, cols: 1, mx: 10, gx: 0, gy: 40, lw: 7.6, sw: 7, ch: 44 },
+};
+const DG_KEY = { ext: 'Outside the system: a person, a ledger, a regulator', sys: 'Built by Adrian', gate: 'Human approval or a hard check', out: 'Result', live: 'Live in production' };
+const wrapWords = (s, max) => s.split(' ').reduce((ls, word) => { const l = ls[ls.length - 1]; if (l !== undefined && `${l} ${word}`.length <= max) ls[ls.length - 1] = `${l} ${word}`; else ls.push(word); return ls; }, []);
+const f2 = (v) => +v.toFixed(1);
+function drawing(w, mode) {
+  const L = DGL[mode], spec = w.diagram;
+  const nodes = spec.nodes.map(([id, r, c, span, kind, lab, sub]) => ({ id, r, c, span, kind, lab, sub }));
+  const by = Object.fromEntries(nodes.map((n) => [n.id, n]));
+  const cw = (L.W - 2 * L.mx - (L.ch || 0) - (L.cols - 1) * L.gx) / L.cols;
+  for (const n of nodes) {
+    n.w = mode === 'd' ? n.span * cw + (n.span - 1) * L.gx : cw;
+    n.x = mode === 'd' ? L.mx + n.c * (cw + L.gx) : L.mx;
+    n.ll = wrapWords(n.lab, Math.floor((n.w - 24) / L.lw));
+    n.sl = n.sub ? wrapWords(n.sub.toUpperCase(), Math.floor((n.w - 24) / L.sw)) : [];
+    n.h = 30 + (n.ll.length - 1) * 19 + (n.sl.length ? 18 + (n.sl.length - 1) * 14 : 0) + 14;
+  }
+  let H, top = 30;
+  if (mode === 'd') {
+    const rows = Math.max(...nodes.map((n) => n.r)) + 1, rh = Array(rows).fill(0), ry = [];
+    nodes.forEach((n) => { rh[n.r] = Math.max(rh[n.r], n.h); });
+    rh.forEach((h, r) => { ry[r] = r ? ry[r - 1] + rh[r - 1] + L.gy : top; });
+    nodes.forEach((n) => { n.y = ry[n.r]; n.h = rh[n.r]; n.t = n.r * 0.3 + n.c * 0.07; });
+    H = ry[rows - 1] + rh[rows - 1] + 24;
+  } else {
+    const order = spec.m || nodes.map((n) => n.id);
+    if (order.length !== nodes.length || order.some((id) => !by[id])) throw new Error(`${w.slug}: diagram.m must list every node once`);
+    order.forEach((id, i) => { const n = by[id]; n.i = i; n.y = top; top += n.h + L.gy; n.t = i * 0.11; });
+    H = top - L.gy + 24;
+  }
+  const T = (t) => ` style="--t:${t.toFixed(2)}s"`;
+  // Edges
+  let chan = 0;
+  const edges = spec.edges.filter(([, , , fl = '']) => mode === 'd' || !fl.includes('d')).map(([a, b, lab = '', fl = '']) => {
+    const A = by[a], B = by[b];
+    if (!A || !B) throw new Error(`${w.slug}: edge ${a} -> ${b} names a missing node`);
+    let d, ex, ey, dir, lx, ly, anchor = 'middle';
+    if (mode === 'm' && B.i !== A.i + 1) {
+      const X = A.x + A.w + 12 + chan++ * 9, ay = A.y + A.h / 2, by2 = B.y + B.h / 2;
+      d = `M${f2(A.x + A.w)} ${f2(ay)}H${f2(X)}V${f2(by2)}H${f2(B.x + B.w)}`; ex = B.x + B.w; ey = by2; dir = 'l'; lab = '';
+    } else if (mode === 'm' || B.r > A.r) {
+      if (mode === 'd' && B.r !== A.r + 1) throw new Error(`${w.slug}: desktop edge ${a} -> ${b} skips a row`);
+      const lo = Math.max(A.x, B.x) + 18, hi = Math.min(A.x + A.w, B.x + B.w) - 18;
+      if (lo <= hi) {
+        const x = Math.min(Math.max(A.w <= B.w ? A.x + A.w / 2 : B.x + B.w / 2, lo), hi);
+        d = `M${f2(x)} ${f2(A.y + A.h)}V${f2(B.y)}`; ex = x; ey = B.y; lx = x + 8; ly = (A.y + A.h + B.y) / 2 + 3; anchor = 'start';
+      } else {
+        const ax = A.x + A.w / 2, bx = B.x + B.w / 2, my = B.y - L.gy / 2;
+        d = `M${f2(ax)} ${f2(A.y + A.h)}V${f2(my)}H${f2(bx)}V${f2(B.y)}`; ex = bx; ey = B.y; lx = (ax + bx) / 2; ly = my - 6;
+      }
+      dir = 'd';
+    } else if (B.r === A.r) {
+      const y = A.y + A.h / 2, right = B.x > A.x;
+      d = right ? `M${f2(A.x + A.w)} ${f2(y)}H${f2(B.x)}` : `M${f2(A.x)} ${f2(y)}H${f2(B.x + B.w)}`;
+      ex = right ? B.x : B.x + B.w; ey = y; dir = right ? 'r' : 'l'; lab = ''; // the 28-unit gap has no room for a label
+    } else throw new Error(`${w.slug}: desktop edge ${a} -> ${b} points up`);
+    const hd = { d: `M${f2(ex - 4)} ${f2(ey - 7)}L${f2(ex)} ${f2(ey)}L${f2(ex + 4)} ${f2(ey - 7)}`, r: `M${f2(ex - 7)} ${f2(ey - 4)}L${f2(ex)} ${f2(ey)}L${f2(ex - 7)} ${f2(ey + 4)}`, l: `M${f2(ex + 7)} ${f2(ey - 4)}L${f2(ex)} ${f2(ey)}L${f2(ex + 7)} ${f2(ey + 4)}` }[dir];
+    const t = A.t + 0.35, dash = fl.includes('x');
+    return `<path class="dg-e ${dash ? 'is-dash f' : 'd'}" d="${d}"${dash ? '' : ' pathLength="1"'}${T(t)}/><path class="dg-a f" d="${hd}"${T(t + 0.5)}/>${lab ? `<text class="dg-el f" x="${f2(lx)}" y="${f2(ly)}" text-anchor="${anchor}"${T(t + 0.5)}>${esc(lab.toUpperCase())}</text>` : ''}`;
+  }).join('');
+  // Zones: dashed boundaries; on phones only when their nodes stay next to each other.
+  const zones = (spec.zones || []).map(([lab, ids]) => {
+    const ns = ids.map((id) => by[id]);
+    if (mode === 'm') { const ix = ns.map((n) => n.i); if (Math.max(...ix) - Math.min(...ix) !== ix.length - 1) return null; }
+    const x0 = Math.min(...ns.map((n) => n.x)) - 10, y0 = Math.min(...ns.map((n) => n.y)) - 13;
+    const x1 = Math.max(...ns.map((n) => n.x + n.w)) + 10, y1 = Math.max(...ns.map((n) => n.y + n.h)) + 13;
+    const t = Math.min(...ns.map((n) => n.t)), text = lab.toUpperCase(), tw = text.length * 6.7 + 14;
+    return {
+      box: `<rect class="dg-z f" x="${f2(x0)}" y="${f2(y0)}" width="${f2(x1 - x0)}" height="${f2(y1 - y0)}"${T(t)}/>`,
+      tag: `<g class="f"${T(t + 0.2)}><rect class="dg-zb" x="${f2(x0 + 10)}" y="${f2(y0 - 8)}" width="${f2(tw)}" height="16"/><text class="dg-zl" x="${f2(x0 + 17)}" y="${f2(y0 + 3.5)}">${esc(text)}</text></g>`,
+    };
+  }).filter(Boolean);
+  // Nodes
+  const nodeSvg = nodes.map((n) => {
+    const r = (cls, k, extra = '') => `<rect class="${cls}" x="${f2(n.x + k)}" y="${f2(n.y + k)}" width="${f2(n.w - 2 * k)}" height="${f2(n.h - 2 * k)}"${extra}${T(n.t)}/>`;
+    const tx = f2(n.x + 12);
+    let y = n.y + 26;
+    const lab = `<text class="dg-l f"${T(n.t + 0.3)}>${n.ll.map((l, k) => `<tspan x="${tx}" y="${f2(y + k * 19)}">${esc(l)}</tspan>`).join('')}</text>`;
+    y += (n.ll.length - 1) * 19 + 18;
+    const sub = n.sl.length ? `<text class="dg-s f"${T(n.t + 0.4)}>${n.sl.map((l, k) => `<tspan x="${tx}" y="${f2(y + k * 14)}">${esc(l)}</tspan>`).join('')}</text>` : '';
+    const frame = n.kind === 'ext' ? r('dg-r is-dash f', 0) : r('dg-r d', 0, ' pathLength="1"');
+    const inner = n.kind === 'gate' ? r('dg-r dg-r2 d', 4, ' pathLength="1"') : '';
+    const lamp = n.kind === 'live' ? `<circle class="dg-lamp f" cx="${f2(n.x + n.w - 13)}" cy="${f2(n.y + 13)}" r="3.5"${T(n.t + 0.5)}/>` : '';
+    return `<g class="dg-n k-${n.kind}">${r('dg-bg f', 0)}${frame}${inner}${lamp}${lab}${sub}</g>`;
+  }).join('');
+  const id = `dg-${w.slug}-${mode}`;
+  return `<svg class="dg dg-${mode}" viewBox="0 0 ${L.W} ${f2(H)}" width="${L.W}" height="${f2(H)}" role="img" aria-labelledby="${id}-t ${id}-d" focusable="false"><title id="${id}-t">System drawing: ${esc(w.card)}</title><desc id="${id}-d">${esc(w.flow.join('. '))}.</desc>${zones.map((z) => z.box).join('')}${edges}${zones.map((z) => z.tag).join('')}${nodeSvg}</svg>`;
+}
+const dgKey = (w) => { const kinds = new Set(w.diagram.nodes.map((n) => n[4])); return `<ul class="dg-key" role="list">${Object.keys(DG_KEY).filter((k) => kinds.has(k)).map((k) => `<li><svg class="dg-sw k-${k}" viewBox="0 0 28 18" aria-hidden="true" focusable="false"><rect class="dg-r${k === 'ext' ? ' is-dash' : ''}" x="1" y="1" width="26" height="16"/>${k === 'gate' ? '<rect class="dg-r dg-r2" x="4" y="4" width="20" height="10"/>' : ''}</svg>${DG_KEY[k]}</li>`).join('')}${w.diagram.zones ? '<li><svg class="dg-sw" viewBox="0 0 28 18" aria-hidden="true" focusable="false"><rect class="dg-z" x="1" y="1" width="26" height="16"/></svg>Boundary</li>' : ''}</ul>`; };
+
+// ---------- Testimonials ----------
+// Upwork reviews, a buyer review, press headlines and (once there are any) LinkedIn recommendations, quoted as published.
+const QSRC = { upwork: 'Upwork review', buyer: 'Buyer review', press: 'Press', linkedin: 'LinkedIn recommendation' };
+const STAR = '<svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M6 .7l1.6 3.4 3.7.5-2.7 2.5.7 3.7L6 9 2.7 10.8l.7-3.7L.7 4.6l3.7-.5z"/></svg>';
+const quotes = [...testimonials, ...recommendations.map((r) => ({ ...r, source: 'linkedin', type: r.role }))];
+const qById = Object.fromEntries(quotes.map((q) => [q.id, q]));
+for (const w of work) for (const id of w.quotes) if (!qById[id]) throw new Error(`${w.slug}: unknown quote "${id}"`);
+const qText = (s) => esc(s).replace(/\.\.\./g, '…');
+const qcard = (q, d = '') => {
+  const size = q.text.length > 170 ? 'is-l' : q.text.length > 80 ? 'is-m' : 'is-s';
+  const meta = q.source === 'upwork' ? `<span class="qc-stars">${STAR.repeat(q.stars)}<span class="visually-hidden">${q.stars} out of 5 stars</span></span>`
+    : q.source === 'press' ? `<span>${esc(q.date)}</span>` : q.source === 'buyer' ? '<span>4.7/5 from 200+ buyers</span>' : '';
+  const who = q.source === 'press'
+    ? `<a class="ulink qc-who" href="${q.url}" hreflang="${q.lang}">${esc(q.outlet)}<span class="visually-hidden">: read the article</span></a><span class="qc-type mono">Headline, as published</span>`
+    : `<span class="qc-who">${q.url ? `<a class="ulink" href="${q.url}">${esc(q.who)}</a>` : esc(q.who)}</span><span class="qc-type mono">${esc(q.type)}</span>`;
+  return `<li class="qc qc-${q.source} ${size}"${d}><figure>
+<p class="qc-top mono"><span class="qc-src">${QSRC[q.source]}</span>${meta}</p>
+<blockquote${q.lang && q.lang !== 'en' ? ` lang="${q.lang}"` : ''}><p>${qText(q.text)}</p></blockquote>
+${q.en ? `<p class="qc-en"><span class="mono">In English</span>${esc(q.en)}</p>` : ''}<figcaption>${who}</figcaption>
+</figure></li>`;
+};
+const qgrid = (list) => `<ol class="qgrid" role="list">${list.map((q, k) => qcard(q, ` data-reveal style="--d:${(k % 3) * 70}ms"`)).join('')}</ol>`;
 
 // ---------- Pages ----------
 const pages = [];
@@ -281,8 +404,19 @@ const rail = `<section class="rail-sec" aria-labelledby="work-h"><div class="rai
 </div></section>`;
 
 const methodBlock = `<ol class="revs" role="list">${method.map((m, i) => `<li data-reveal><span class="rev mono">Rev ${'ABC'[i]}</span><h3>${esc(m.h)}</h3><p>${esc(m.p)}</p></li>`).join('')}</ol>
-<dl class="principles">${principles.map((p) => `<div data-reveal><dt>${esc(p.h)}</dt><dd>${esc(p.p)}</dd></div>`).join('')}</dl>
-<figure class="quote" data-reveal><blockquote><p>${esc(upwork.quote.text).replace(/\.\.\./g, '…')}</p></blockquote><figcaption>${esc(upwork.quote.who)}. ${esc(upwork.line)}</figcaption></figure>`;
+<dl class="principles">${principles.map((p) => `<div data-reveal><dt>${esc(p.h)}</dt><dd>${esc(p.p)}</dd></div>`).join('')}</dl>`;
+
+// Testimonials: the lead Upwork quote (moved here from the method section), the tags clients gave, then a draggable wall of every other quote.
+const lead = qById.nicolas;
+const voices = `<section class="sec voices-sec" aria-labelledby="voices-h"><div class="wrap">
+<header class="sec-head">${label('06', 'Testimonials')}<h2 id="voices-h" data-reveal>In other people's words</h2><p data-reveal>${esc(upwork.line)} Below: every public review, a verified factory buyer and the press, quoted as published.</p></header>
+<div class="voices-top">
+<figure class="quote" data-reveal><blockquote><p>${qText(lead.text)}</p></blockquote><figcaption>${esc(lead.who)}, Upwork client, five stars. ${esc(lead.type)}.</figcaption></figure>
+<div class="qtags" data-reveal><p class="mono">What Upwork clients tagged most</p><ul role="list">${upwork.tags.map(([t, c]) => `<li><span>${esc(t)}</span><span class="mono">${c}</span></li>`).join('')}</ul></div>
+</div></div>
+<div class="qwall" tabindex="0" role="region" aria-label="Testimonials. Scroll sideways, drag, or use the arrow keys." data-cursor="Drag"><ol class="qwall-track" role="list">${quotes.filter((q) => q !== lead).map((q) => qcard(q)).join('')}</ol></div>
+<div class="wrap qwall-foot"><p class="rail-meta mono" aria-hidden="true"><span>${pad(quotes.length - 1)} quotes</span><span class="rail-bar"><i></i></span><span>Drag or swipe</span></p><div class="qwall-btns" hidden><button class="btn" type="button" data-step="-1"><span>Previous</span></button><button class="btn" type="button" data-step="1"><span>Next</span></button></div></div>
+</section>`;
 
 pages.push({
   path: '/', current: '/', title: `${site.name} - ${site.title}`, description: site.description, preloadPortrait: true,
@@ -313,27 +447,44 @@ ${marquee}
 ${sec({ id: 'build-h', n: '03', tag: 'Capabilities', h: 'What Adrian builds', intro: 'The full stack of what buyers ask for now and through 2030, from the first AI service line to the team that runs it. One standard on every sheet: it runs in production, survives an audit and matches the numbers the business already trusts.', inner: `<p class="sheet-legend mono"><span class="sheet-when is-now">Asked now</span> in today\'s best-paid AI roles <span class="sheet-when is-rising">Rising to 2030</span> where demand and budgets grow next</p><ol class="sheets" role="list">${builds.map(sheet).join('')}</ol>` })}
 ${pipe}
 ${rail}
-${sec({ id: 'how-h', n: '06', tag: 'Method', h: 'How the work runs', intro: 'Understand the process, ship behind gates, hand over the keys.', inner: methodBlock })}
-${sec({ id: 'roles-h', n: '07', tag: 'Career path', h: 'From FinTech operator to Head of AI', intro: '6 years in FinTech product and operations, the last three as COO, plus 2 years shipping AI automation in production.', inner: timeline(careerPath, 'A portfolio career since 2022: founder roles run alongside an executive role and client work. Overlaps are deliberate, not inflated dates. <a class="ulink" href="/about/">The full story</a>') })}
-${sec({ id: 'cert-h', n: '08', tag: 'Credentials', h: `Certifications <span class="cert-count num"${count(String(certs.length))}>${certs.length}</span>`, intro: "From 2022 to 2025: AI and product management, FinTech and cloud, automation and data, leadership and agile, and design. Each one with its credential ID; verify links open the issuer's record.", inner: certWall })}
-${cta('Similar problem, or hiring for this?', 'For a Head of AI or fractional CTO role, AI deployment work with a finance-heavy team, or a fixed-scope project: one email is enough to start.', '09')}`,
+${voices}
+${sec({ id: 'how-h', n: '07', tag: 'Method', h: 'How the work runs', intro: 'Understand the process, ship behind gates, hand over the keys.', inner: methodBlock })}
+${sec({ id: 'roles-h', n: '08', tag: 'Career path', h: 'From FinTech operator to Head of AI', intro: '6 years in FinTech product and operations, the last three as COO, plus 2 years shipping AI automation in production.', inner: timeline(careerPath, 'A portfolio career since 2022: founder roles run alongside an executive role and client work. Overlaps are deliberate, not inflated dates. <a class="ulink" href="/about/">The full story</a>') })}
+${sec({ id: 'cert-h', n: '09', tag: 'Credentials', h: `Certifications <span class="cert-count num"${count(String(certs.length))}>${certs.length}</span>`, intro: "From 2022 to 2025: AI and product management, FinTech and cloud, automation and data, leadership and agile, and design. Each one with its credential ID; verify links open the issuer's record.", inner: certWall })}
+${cta('Similar problem, or hiring for this?', 'For a Head of AI or fractional CTO role, AI deployment work with a finance-heavy team, or a fixed-scope project: one email is enough to start.', '10')}`,
 });
 
 // Work index
 pages.push({
   path: '/work/', current: '/work/', title: 'Work: case studies', description: 'Seven case studies: an accountancy firm\'s AI service line built from zero, a FinTech through its EU licence audit, a factory with its own platform and MCP server, HubSpot to Xero multi-entity invoicing, an EU-sovereign reporting platform, Xero prepayments 107/107, and 5-hotel revenue reporting.',
-  body: `${pageHero('Case studies from production, with the numbers and how they were measured', 'From a regulator\'s audit to a factory floor to a client ledger. Clients are described by type. Each page covers the context, the hard constraint, what was built, the results, how it was tested, and what stayed behind.')}
+  body: `${pageHero('Case studies from production, with the numbers and how they were measured', 'From a regulator\'s audit to a factory floor to a client ledger. Clients are described by type. Each page covers the context and what it cost, the constraints, the build from 0 to 100, a system drawing, the safeguards, the results and what stayed behind.')}
 <section class="sec" aria-label="Case studies"><div class="wrap"><ol class="cards-grid" role="list">${work.map(card).join('')}</ol></div></section>
 ${cta('Have a process like one of these?', 'Send a short description of the process and the systems involved.')}`,
 });
 
 // Case studies
 work.forEach((w, i) => {
-  const next = work[(i + 1) % work.length];
+  const next = work[(i + 1) % work.length], prev = work[(i - 1 + work.length) % work.length];
   const facts = Object.entries(w.facts).map(([k, v]) => `<div class="tb-cell"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
   const li = (arr, html = false) => `<ul role="list">${arr.map((x) => `<li data-reveal>${html ? x : esc(x)}</li>`).join('')}</ul>`;
   let n = 0;
   const block = (id, tag, h, inner) => sec({ id, n: pad(++n), tag, h, inner: `<div class="prose">${inner}</div>` });
+  const wide = (id, tag, h, inner, cls) => sec({ id, n: pad(++n), tag, h, inner, cls });
+  const steps = w.timeline.map(([when, t], k, a) => `<li class="arc-s${k === 0 ? ' is-start' : ''}${k === a.length - 1 ? ' is-end' : ''}" data-reveal><span class="arc-n mono" aria-hidden="true">${k === 0 ? '00' : k === a.length - 1 ? '100' : pad(k)}</span><div><p class="arc-when mono">${esc(when)}</p><p>${esc(t)}</p></div></li>`).join('');
+  const own = w.quotes.map((id) => qById[id]).filter((q) => q.case === w.slug).concat(recommendations.filter((r) => r.case === w.slug).map((r) => qById[r.id]));
+  const other = w.quotes.map((id) => qById[id]).filter((q) => q.case !== w.slug);
+  const sayH = own.length ? 'What buyers and the press said' : 'What other clients said, on similar work';
+  const said = `${own.length ? qgrid(own) : ''}${other.length ? `${own.length ? '<h3 class="flow-h">Other clients, on similar work</h3>' : ''}${qgrid(other)}` : ''}`;
+  const dwg = `<figure class="dwg" data-reveal>
+<div class="dwg-sheet">${drawing(w, 'd')}${drawing(w, 'm')}<span class="crop k-tl" aria-hidden="true"></span><span class="crop k-tr" aria-hidden="true"></span><span class="crop k-bl" aria-hidden="true"></span><span class="crop k-br" aria-hidden="true"></span></div>
+<figcaption class="dwg-cap">
+<p class="dwg-tb mono"><span>DWG AC-1${pad(i + 1)}</span><span>System drawing</span><span>Rev ${fmt(UPDATED)}</span></p>
+${dgKey(w)}
+<h3 class="flow-h">Data path</h3><ol class="flow" role="list">${w.flow.map((f, k) => `<li><span class="mono">${pad(k + 1)}</span>${esc(f)}</li>`).join('')}</ol>
+</figcaption></figure>`;
+  const results = `<ul class="rcards" role="list">${w.results.map((r, k) => `<li class="rcard" data-reveal style="--d:${(k % 4) * 70}ms"><span class="num"${count(r.n)}>${esc(r.n)}</span><span class="rcard-l">${esc(r.l)}</span></li>`).join('')}</ul>
+${w.before.length ? `<div class="ba" data-reveal><table class="ba-t"><caption>Before and after</caption><thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody>${w.before.map(([m, b, a]) => `<tr><th scope="row">${esc(m)}</th><td data-l="Before">${esc(b)}</td><td data-l="After">${esc(a)}</td></tr>`).join('')}</tbody></table></div>` : ''}`;
+  const pn = (x, kind) => `<a class="pn-a pn-${kind}" href="/work/${x.slug}/" data-cursor="${kind === 'prev' ? 'Previous' : 'Next case'}"><span class="pn-k mono">${kind === 'prev' ? 'Previous case' : 'Next case'}</span><span class="next-fig num">${esc(x.fig)}</span><span class="next-t">${esc(x.title)}</span>${arrow}</a>`;
   pages.push({
     path: `/work/${w.slug}/`, current: '/work/', title: w.title, description: w.summary, og: w.slug,
     jsonld: [{ '@context': 'https://schema.org', '@type': 'Article', headline: w.title, description: w.summary, author: { '@id': abs('/#person'), '@type': 'Person', name: site.name, url: abs('/') }, dateModified: UPDATED, image: abs(`/og/${w.slug}.png`), mainEntityOfPage: abs(`/work/${w.slug}/`) }],
@@ -345,15 +496,18 @@ work.forEach((w, i) => {
 </div>
 <dl class="facts hero-fade" style="--d:.7s">${facts}</dl>
 </div></section>
-${block('ctx', 'Context', 'Context', `<p data-reveal>${esc(w.context)}</p>`)}
-${block('prob', 'Constraint', 'Problem and constraints', `<p data-reveal>${esc(w.problem)}</p>${li(w.constraints)}`)}
-${block('built', 'Build', 'What was built', `${li(w.built, true)}<h3 class="flow-h">Data path</h3><ol class="flow" role="list">${w.flow.map((f, k) => `<li data-reveal><span class="mono">${pad(k + 1)}</span>${esc(f)}</li>`).join('')}</ol>`)}
-${block('res', 'Results', 'Results', `<ul class="results" role="list">${w.results.map((r) => `<li data-reveal><span class="num"${count(r.n)}>${esc(r.n)}</span><span>${esc(r.l)}</span></li>`).join('')}</ul>`)}
-${block('rel', 'Safeguards', 'Tests and safeguards', `<p data-reveal>${esc(w.reliability)}</p>${w.earlier ? `<p data-reveal>${esc(w.earlier)}</p>` : ''}`)}
+${block('ctx', 'Context', 'Context and the problem', `<p data-reveal>${esc(w.context)}</p><h3 class="flow-h">What was broken</h3><p data-reveal>${esc(w.broken)}</p><h3 class="flow-h">What it cost</h3>${li(w.cost)}<h3 class="flow-h">The brief</h3><p data-reveal>${esc(w.problem)}</p>`)}
+${block('cons', 'Constraints', 'Constraints and stakes', `${li(w.constraints)}<div class="stakes" data-reveal><p class="mono">What was at stake</p><p>${esc(w.stakes)}</p></div>`)}
+${block('team', 'People', 'Adrian\'s role and team', li(w.team))}
+${block('built', 'Build', 'The approach, from 0 to 100', `<ol class="arc case-arc${isLive(w) ? ' is-now' : ''}" role="list">${steps}</ol><h3 class="flow-h">What was built</h3>${li(w.built, true)}`)}
+${wide('dwg-h', 'System drawing', 'How the system fits together', dwg, 'dwg-sec')}
+${block('rel', 'Safeguards', 'Safeguards and controls', `${li(w.safeguards)}<h3 class="flow-h">How it was tested</h3><p data-reveal>${esc(w.reliability)}</p>${w.earlier ? `<p data-reveal>${esc(w.earlier)}</p>` : ''}`)}
+${wide('res', 'Results', 'Results', results, 'res-sec')}
 ${block('own', 'Handover', w.ownsH || 'What the client owns now', li(w.owns))}
 ${block('stack', 'Stack', 'Stack', `<ul class="stack" role="list">${w.stack.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>${w.links.length ? `<h3 class="flow-h">Links</h3><ul class="links" role="list">${w.links.map((l) => `<li><a class="ulink" href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>` : ''}`)}
-<section class="sec next-sec" aria-labelledby="next-h"><div class="wrap">${label(pad(++n), 'Next drawing')}<h2 id="next-h" class="visually-hidden">Next case study</h2>
-<a class="next" href="/work/${next.slug}/" data-cursor="Next case"><span class="next-fig num">${esc(next.fig)}</span><span class="next-t">${esc(next.title)}</span>${arrow}</a></div></section>
+${own.length || other.length ? block('said-h', 'Testimonials', sayH, said) : ''}
+<nav class="sec next-sec" aria-label="More case studies"><div class="wrap">${label(pad(++n), 'More drawings')}
+<div class="pn">${pn(prev, 'prev')}${pn(next, 'next')}</div></div></nav>
 ${cta('Similar problem?', 'Describe the process, the systems and the constraint. Hiring for this skill set? The CV has the full record.')}`,
   });
 });
@@ -371,11 +525,12 @@ pages.push({
   jsonld: [{ '@context': 'https://schema.org', '@type': 'ProfilePage', dateCreated: '2026-10-26', dateModified: UPDATED, mainEntity: person, about: { '@id': abs('/#person') } }, { '@context': 'https://schema.org', ...org3descu }],
   body: `${pageHero('An operator who builds, and a builder who has run the operation', esc(site.identity))}
 ${sec({ id: 'story-h', n: '01', tag: 'Story', h: 'The story', inner: `<div class="prose story">${story.map((p) => `<p data-reveal>${esc(p)}</p>`).join('')}</div>` })}
-${sec({ id: 'roles-h', n: '02', tag: 'Career path', h: 'Roles', inner: timeline(byStart, 'A portfolio career since 2022: founder roles run alongside an executive role and client work. Overlaps are deliberate, not inflated dates.') })}
-${sec({ id: 'edu-h', n: '03', tag: 'Education', h: 'Education', inner: `<ul class="plain" role="list">${resume.education.map((e) => `<li data-reveal>${esc(e.studyType)}, ${esc(e.area)}, ${esc(e.institution)} <span class="muted">(${e.startDate} to ${e.endDate})</span></li>`).join('')}</ul>` })}
-${sec({ id: 'cert-h', n: '04', tag: 'Credentials', h: `Certifications (${certs.length})`, inner: certList })}
-${sec({ id: 'comm-h', n: '05', tag: 'Community', h: 'Writing, speaking and community', inner: `<ul class="plain" role="list"><li data-reveal>Author of <a class="ulink" href="https://systemartis.com/blog/shift-to-agentic-chatbots-are-dead">The Shift to Agentic: Why Basic Chatbots Are Dead</a> (Systemartis, 4 March 2026).</li><li data-reveal>Delivered an AI for Accountants session with live demos to the full team (10+ people) of an Irish chartered accountancy firm, and wrote its 8-lesson AI Academy.</li><li data-reveal>Co-authored a 17-lesson Romanian course on P2P and real-estate crowdfunding, and a free 70+ page guide to P2P investing (2019).</li><li data-reveal>Founded and ran a P2P investing community of 2,200+ members.</li><li data-reveal>Three-time guest on the Banii Vorbesc personal-finance podcast.</li><li data-reveal>Languages: Romanian (native), English (fluent).</li></ul>` })}
-${cta('Work together', 'A Head of AI or fractional CTO role, AI deployment work with a finance-heavy team, or a fixed-scope project.', '06')}`,
+${sec({ id: 'voices-h', n: '02', tag: 'Testimonials', h: 'What clients, buyers and the press say', intro: `${esc(upwork.line)} Every public review and press line, quoted as published.`, inner: qgrid(quotes) })}
+${sec({ id: 'roles-h', n: '03', tag: 'Career path', h: 'Roles', inner: timeline(byStart, 'A portfolio career since 2022: founder roles run alongside an executive role and client work. Overlaps are deliberate, not inflated dates.') })}
+${sec({ id: 'edu-h', n: '04', tag: 'Education', h: 'Education', inner: `<ul class="plain" role="list">${resume.education.map((e) => `<li data-reveal>${esc(e.studyType)}, ${esc(e.area)}, ${esc(e.institution)} <span class="muted">(${e.startDate} to ${e.endDate})</span></li>`).join('')}</ul>` })}
+${sec({ id: 'cert-h', n: '05', tag: 'Credentials', h: `Certifications (${certs.length})`, inner: certList })}
+${sec({ id: 'comm-h', n: '06', tag: 'Community', h: 'Writing, speaking and community', inner: `<ul class="plain" role="list"><li data-reveal>Author of <a class="ulink" href="https://systemartis.com/blog/shift-to-agentic-chatbots-are-dead">The Shift to Agentic: Why Basic Chatbots Are Dead</a> (Systemartis, 4 March 2026).</li><li data-reveal>Delivered an AI for Accountants session with live demos to the full team (10+ people) of an Irish chartered accountancy firm, and wrote its 8-lesson AI Academy.</li><li data-reveal>Co-authored a 17-lesson Romanian course on P2P and real-estate crowdfunding, and a free 70+ page guide to P2P investing (2019).</li><li data-reveal>Founded and ran a P2P investing community of 2,200+ members.</li><li data-reveal>Three-time guest on the Banii Vorbesc personal-finance podcast.</li><li data-reveal>Languages: Romanian (native), English (fluent).</li></ul>` })}
+${cta('Work together', 'A Head of AI or fractional CTO role, AI deployment work with a finance-heavy team, or a fixed-scope project.', '07')}`,
 });
 
 // Press

@@ -42,11 +42,16 @@ Contrast (computed): `--paper` on `--ink` 16.9:1, `--paper-2` 8.0:1 (7.0:1 on ca
 4. **What Adrian builds**: three numbered drawing sheets.
 5. **Blueprint to production** (pinned on desktop): the bills workflow draws itself node by node, then switches to LIVE in signal orange with packets running along the connectors.
 6. **Selected work**: horizontal pinned rail on desktop, swipe carousel on touch; cards tilt, show a flow preview on hover, and share a view-transition name with the case-study hero.
-7. **How the work runs**: three revisions (REV A to C) and four principles, plus the client quote.
-8. **Career path**: every role, EvoEstate to InRento to HighCrowd (COO) to 3Descu to Systemartis to Innovium to M.A. Whately to independent practice, on a vertical timeline with a scroll-driven progress line.
-9. **Certifications**: all 20 from `resume.json`, a credential wall grouped by theme (AI and product, FinTech and cloud, automation and data, leadership and agile, design) with issuer, date, credential ID and a verify link where the issuer provides one.
-10. **Contact**: big CTA, copy-email button with toast.
+7. **Testimonials**: the lead Upwork quote, the endorsement tags, then a draggable wall of every review, the buyer review and press headlines (`testimonials` in content.mjs; LinkedIn recommendations go in `recommendations`).
+8. **How the work runs**: three revisions (REV A to C) and four principles.
+9. **Career path**: every role, EvoEstate to InRento to HighCrowd (COO) to 3Descu to Systemartis to Innovium to M.A. Whately to independent practice, on a vertical timeline with a scroll-driven progress line.
+10. **Certifications**: all 20 from `resume.json`, a credential wall grouped by theme (AI and product, FinTech and cloud, automation and data, leadership and agile, design) with issuer, date, credential ID and a verify link where the issuer provides one.
+11. **Contact**: big CTA, copy-email button with toast.
 Footer: a drawing title block.
+
+## Case study pages
+
+Long form, in this order: context and the problem (what was broken, what it cost, the brief), constraints and stakes, role and team, the approach from 0 to 100 (dated arc), a system drawing, safeguards and controls, results (count-up cards plus a before and after table), what the client owns, stack, testimonials, previous and next. The system drawing is an inline SVG built from `work[].diagram`: a 4-column sheet on desktop and a single column on phones, drawn in on scroll (`.dwg.is-in`), fully drawn with reduced motion or no JS.
 
 ## Atmosphere
 
