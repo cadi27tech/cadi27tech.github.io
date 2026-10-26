@@ -164,7 +164,8 @@
       "issuer": "Product School",
       "date": "2025-09",
       "id": "cert_v1slc8sr",
-      "group": "AI & product"
+      "group": "AI & product",
+      "url": "https://jumpshare.com/share/NDnVqT5IO9DkGy5WN4qo"
     },
     {
       "name": "Product-Led Growth Micro-Certification (PLGC)",
@@ -199,7 +200,8 @@
       "name": "Product Management Basics",
       "issuer": "Simplilearn",
       "date": "2025-09",
-      "group": "AI & product"
+      "group": "AI & product",
+      "id": "eyJjb3Vyc2VfaWQiOiI0OTE3IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZml"
     },
     {
       "name": "Product Management Basics Certification",
@@ -218,9 +220,9 @@
     },
     {
       "name": "AWS Cloud Solutions Architect",
-      "issuer": "Amazon Web Services, via Coursera (professional certificate)",
+      "issuer": "Amazon Web Services (AWS)",
       "date": "2025-10",
-      "url": "https://www.coursera.org/account/accomplishments/professional-cert/O9CSUVC8VTO7",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/O9CSUVC8VTO7",
       "id": "O9CSUVC8VTO7",
       "group": "FinTech & cloud"
     },
@@ -262,7 +264,8 @@
       "date": "2025-10",
       "id": "vhk48br8",
       "group": "Automation & data",
-      "validUntil": "2027-11"
+      "validUntil": "2027-11",
+      "url": "https://app-eu1.hubspot.com/academy/achievements/vhk48br8/en/1/capraru-adrian/inbound-marketing"
     },
     {
       "name": "Agile Approaches for Modern Leadership",
