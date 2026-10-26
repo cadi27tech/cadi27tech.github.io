@@ -1,0 +1,143 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Adrian Capraru",
+    "label": "Head of AI & Automation. Production AI agents for finance and accounting operations.",
+    "email": "adriancapraru27@gmail.com",
+    "url": "https://cadi27tech.github.io/",
+    "summary": "Builder-operator who takes AI systems from zero to production and runs them, in finance, accounting and operations. Took an accountancy firm's 20-module SaaS from first commit to live production in 10 days, behind 3,000+ automated checks. Founded 3Descu and grew it from 5 printers in an apartment to a 200+ printer factory, turnover x65 in three years at a 57% net margin. Former FinTech COO who led operational and compliance readiness for an EU crowdfunding (ECSP) licence. 6 years in FinTech product and operations plus 2 years shipping AI automation in production. Works human-in-the-loop by design: evals and regression gates, audit trails, confirm-first agent actions, and client ownership of every system.",
+    "location": {
+      "city": "Bucharest",
+      "countryCode": "RO"
+    },
+    "profiles": [
+      { "network": "LinkedIn", "username": "adriancapraru27", "url": "https://www.linkedin.com/in/adriancapraru27" },
+      { "network": "GitHub", "username": "cadi27tech", "url": "https://github.com/cadi27tech" },
+      { "network": "Upwork", "username": "cadrian", "url": "https://www.upwork.com/freelancers/cadrian" }
+    ]
+  },
+  "work": [
+    {
+      "name": "M.A. Whately & Co.",
+      "position": "Director of AI & Business Automation (contractor)",
+      "url": "https://suite.mawhately.ie",
+      "startDate": "2025-10",
+      "summary": "Irish chartered accountancy practice. Leads the firm's automation function: the systems the firm runs on and the automation it delivers to its clients.",
+      "highlights": [
+        "Took the firm's multi-tenant client SaaS from first commit to live production in 10 days (23 Sep to 3 Oct 2026): 20 modules, 3,000+ automated checks, an 87-point deploy smoke test on every deploy.",
+        "Built an EU-hosted AI bills reader at 99.8% field accuracy on a synthetic test corpus, for under one cent per document, posting to Xero with VIES checks and SEPA payment files.",
+        "Rebuilt the practice's client-management system: 587 client records migrated, a 97-field schema cleaned, 3,172 writes with 0 failures, dashboards for 10 staff and the owner.",
+        "Automated month-end prepayment journals for a tour operator, validated 107/107 against the bookkeeper's own entries, live daily since 16 Oct 2026.",
+        "Productised a SEPA payment-file converter sold as a monthly subscription."
+      ]
+    },
+    {
+      "name": "Independent practice (Upwork and direct)",
+      "position": "Senior finance-ops AI engineer",
+      "url": "https://www.upwork.com/freelancers/cadrian",
+      "startDate": "2025-12",
+      "summary": "Top Rated on Upwork with a 100% Job Success Score: 22 contracts, 12 of 12 rated contracts five stars, one client rehired four times, all work inbound.",
+      "highlights": [
+        "Automated deal-to-invoice-to-payment from HubSpot to Xero across 3 legal entities and 4 currencies, live since April 2026 with 212+ invoices (direct engagement).",
+        "Built an EU-sovereign, multi-tenant financial reporting platform for the education sector, tenant isolation proven by automated tests (52/52 sign-in e2e, 5/5 RLS mutation tests); each phase at or under budget.",
+        "Automated daily revenue reporting for a five-hotel group, matched to the accounting team's figures cell by cell.",
+        "Built a self-improving, regression-locked LLM pipeline for industrial PLC code migration; five stars plus a bonus."
+      ]
+    },
+    {
+      "name": "3Descu (TREIDESCUPRINT SRL)",
+      "position": "Founder",
+      "url": "https://3descu.com",
+      "startDate": "2022-06",
+      "summary": "On-demand 3D printing manufacturer for engineering buyers across Europe. Founded on an EU start-up grant; runs strategy, production, sales, finance and every line of the software.",
+      "highlights": [
+        "Grew from 5 printers in an apartment (2022) to more than 200; turnover x65 in three years to about EUR 190K in 2025 at a 57% net margin, up 75% year on year (public filings).",
+        "2,000+ orders from 1,600+ buyers in 30 countries; 45% of orders ship to Germany; one in three orders from a returning customer; rated 4.7/5 by 200+ verified buyers.",
+        "Shipped the quoting-to-fulfilment platform solo with AI coding agents in under five months: 929 commits, ~400 merged pull requests, 38 edge functions, 4 languages, 120+ release checkers (~260K assertions per run).",
+        "Shipped one of the first manufacturing MCP servers, listed in the official MCP Registry (io.github.cadi27tech/3descu-quote).",
+        "Zero-budget press launch: 10 articles in national, regional and international trade press within a week.",
+        "ISO 9001:2015 certified company; ranked 1st in Gorj county in 3 ListaFirme Topul Firmelor 2026 categories (professional and design services)."
+      ]
+    },
+    {
+      "name": "Systemartis",
+      "position": "Co-Founder",
+      "url": "https://systemartis.com/about-us",
+      "startDate": "2023",
+      "summary": "Bucharest AI systems studio, team of 4. Leads the automation practice: agents, workflow automation and custom software for B2B operations teams."
+    },
+    {
+      "name": "Innovium",
+      "position": "Founder",
+      "startDate": "2023-10",
+      "summary": "Own consumer-products brand with a registered EU trademark (9 classes) and 66+ products on eMAG. About EUR 50K revenue in 2025, profitable. Built the pricing and order automation (courier labels, e-invoicing)."
+    },
+    {
+      "name": "HighCrowd",
+      "position": "Chief Operations Officer",
+      "startDate": "2022-10",
+      "endDate": "2025-10",
+      "summary": "EU real-estate crowdfunding platform. Led operational and compliance readiness (penetration testing, documentation, architecture review with the regulator) for the platform's EU crowdfunding (ECSP) licence, granted by ASF in March 2024.",
+      "highlights": [
+        "Designed investor onboarding on LemonWay with KYC and AML checks, cutting onboarding from about 45 to 8 minutes per investor (internal measure)."
+      ]
+    },
+    {
+      "name": "InRento",
+      "position": "Head of Community",
+      "startDate": "2021-10",
+      "endDate": "2024-06",
+      "summary": "Managed investor communications and the migration plan through the 2022 EvoEstate-InRento merger (12,000+ combined investors). Produced the platform explainer video (14K+ views)."
+    },
+    {
+      "name": "EvoEstate",
+      "position": "Community Manager, then Product Manager",
+      "startDate": "2020-03",
+      "endDate": "2021-10",
+      "summary": "Pan-European real-estate crowdfunding aggregator (6,700 investors). Promoted from Community Manager to Product Manager within 8 months; owned the roadmap and the secondary market. Produced the platform explainer video (25K+ views)."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Constantin Brancusi University, Targu Jiu",
+      "area": "Entrepreneurship and Business Administration",
+      "studyType": "Master's",
+      "startDate": "2020",
+      "endDate": "2022"
+    },
+    {
+      "institution": "Bucharest University of Economic Studies",
+      "area": "Marketing (English programme)",
+      "studyType": "BBA",
+      "startDate": "2017",
+      "endDate": "2020"
+    }
+  ],
+  "certificates": [
+    { "name": "IBM AI Product Manager", "issuer": "IBM, via Coursera", "date": "2025-10" },
+    { "name": "Fintech: Foundations & Applications of Financial Technology", "issuer": "The Wharton School, via Coursera", "date": "2025-09" },
+    { "name": "Agile Approaches for Modern Leadership", "issuer": "Duke University, via Coursera", "date": "2025-10" },
+    { "name": "AWS Cloud Solutions Architect", "issuer": "Amazon Web Services, via Coursera", "date": "2025-10" }
+  ],
+  "publications": [
+    { "name": "P2P and real-estate crowdfunding course (17 lessons, co-author)", "publisher": "laurentiumihai.ro", "url": "https://laurentiumihai.ro/curs-investitii-peer-to-peer-real-estate-crowdfunding/" },
+    { "name": "Free P2P investing guide (70+ pages, co-author)", "releaseDate": "2019-12" }
+  ],
+  "skills": [
+    { "name": "Production AI agents", "keywords": ["human-in-the-loop by design", "confirm-first actions", "tool registries", "MCP servers", "multi-agent delivery", "cost caps"] },
+    { "name": "Evals and reliability", "keywords": ["golden test sets", "regression gates", "mutation testing", "deploy smoke tests", "audit trails", "idempotency and dead-letter queues"] },
+    { "name": "Finance and accounting systems", "keywords": ["Xero API", "HubSpot", "Exact Online", "Dext", "SEPA pain.001", "VIES VAT checks", "prepayments and journals", "multi-entity invoicing"] },
+    { "name": "Governance and data", "keywords": ["EU data residency", "GDPR", "AML/KYC", "tenant isolation (RLS)", "Microsoft Entra ID SSO"] },
+    { "name": "Stack", "keywords": ["TypeScript", "Python", "React", "Next.js", "Supabase and PostgreSQL", "n8n", "Vercel", "Google Cloud Run", "GitHub Actions", "Claude", "Gemini (Vertex AI EU)"] }
+  ],
+  "languages": [
+    { "language": "Romanian", "fluency": "Native" },
+    { "language": "English", "fluency": "Fluent" }
+  ],
+  "projects": [],
+  "meta": {
+    "version": "v1.0.0",
+    "canonical": "https://cadi27tech.github.io/resume.json",
+    "lastModified": "2026-10-26"
+  }
+}
