@@ -46,6 +46,31 @@ const sheet = (b, i) => `<li data-reveal${b.wide ? ' class="wide"' : ''}><div cl
 // the orange dot the pencil tip where it goes live. Same geometry as static/favicon.svg.
 const MARK = '<svg class="mark-glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="m-arc" d="M36.7 12.3A18 18 0 1 0 36.7 37.7" pathLength="1"/><path class="m-draft" d="M36.7 12.3A18 18 0 0 1 36.7 37.7"/><circle cx="24" cy="12" r="2.5"/><path d="M24 9.5V3.5M22.9 14.2L11.3 37.7M25.1 14.2L36.7 37.7M15.6 29h16.8"/><circle class="m-tip" cx="36.7" cy="37.7" r="2.4"/></svg>';
 
+// Pixel wordmark: a 5x7 dot-matrix face, one <rect> per pixel. Pixels print in a scattered order on load (--d),
+// and on hover a signal scan sweeps letter by letter (--l). Only the letters of the name are drawn.
+const PX = {
+  A: ['.###.', '#...#', '#...#', '#####', '#...#', '#...#', '#...#'],
+  C: ['.###.', '#...#', '#....', '#....', '#....', '#...#', '.###.'],
+  D: ['####.', '#...#', '#...#', '#...#', '#...#', '#...#', '####.'],
+  I: ['###', '.#.', '.#.', '.#.', '.#.', '.#.', '###'],
+  N: ['#...#', '##..#', '##..#', '#.#.#', '#..##', '#..##', '#...#'],
+  P: ['####.', '#...#', '#...#', '####.', '#....', '#....', '#....'],
+  R: ['####.', '#...#', '#...#', '####.', '#.#..', '#..#.', '#...#'],
+  U: ['#...#', '#...#', '#...#', '#...#', '#...#', '#...#', '.###.'],
+};
+const pixelWord = (text) => {
+  let x = 0, n = 0, out = '';
+  [...text.toUpperCase()].forEach((ch, li) => {
+    if (ch === ' ') { x += 3; return; }
+    const g = PX[ch];
+    out += `<g style="--l:${li}">`;
+    g.forEach((row, y) => [...row].forEach((c, cx) => { if (c === '#') out += `<rect x="${x + cx}" y="${y}" width=".84" height=".84" style="--d:${((n++ * 97) % 61) * 11}ms"/>`; }));
+    out += '</g>';
+    x += g[0].length + 1;
+  });
+  return `<svg class="mark-name" viewBox="0 0 ${x - 1} 7" aria-hidden="true" focusable="false">${out}</svg>`;
+};
+
 const NAV = [['/work/', 'Work'], ['/about/', 'About'], ['/press/', 'Press'], ['/cv/', 'CV'], ['/contact/', 'Contact']];
 
 const IMG = (name) => [640, 1000, 1400].map((w) => `/img/portrait-${name}-${w}.webp ${w}w`).join(', ');
@@ -131,7 +156,7 @@ ${preloader}
 <div class="atmos" aria-hidden="true"><canvas></canvas></div>
 <div class="progress" aria-hidden="true"></div>
 <header class="site-head"><div class="wrap">
-<a class="mark" href="/" aria-label="${esc(site.name)}, home">${MARK}<span class="mark-name">${esc(site.name)}</span></a>
+<a class="mark" href="/" aria-label="${esc(site.name)}, home">${MARK}${pixelWord(site.name)}</a>
 <nav class="nav" aria-label="Main">${nav}</nav>
 <p class="clock mono" aria-hidden="true"><span class="lamp"></span>RO <span data-clock>EET</span></p>
 </div></header>

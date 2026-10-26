@@ -143,7 +143,15 @@ main:focus { outline: none; }
 .mark-glyph .m-arc { stroke-dasharray: 1; stroke-dashoffset: 0; }
 .mark:hover .mark-glyph, .mark:focus-visible .mark-glyph { stroke: var(--paper); }
 @media (prefers-reduced-motion: no-preference) { .mark:hover .m-arc, .mark:focus-visible .m-arc { animation: draw-in .9s var(--ease); } }
-.mark-name { font-family: var(--serif); font-size: 1.2rem; letter-spacing: -0.01em; }
+.mark-name { height: .95rem; width: auto; overflow: visible; fill: var(--paper); }
+.mark-name rect { transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .mark-name rect { animation: px-in .45s var(--ease) calc(var(--d) + var(--pre, 0s)) backwards; }
+  .is-loading .mark-name { --pre: 1.5s; }
+  .mark:hover .mark-name g, .mark:focus-visible .mark-name g { animation: px-scan .5s linear calc(var(--l) * 45ms); }
+}
+@keyframes px-in { from { opacity: 0; transform: scale(0); fill: var(--signal); } 55% { opacity: 1; transform: scale(1.35); fill: var(--signal); } }
+@keyframes px-scan { 0%, 100% { fill: var(--paper); } 35% { fill: var(--signal); } }
 .nav { display: flex; gap: 1.6rem; }
 .nav a { position: relative; font: 500 .72rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; color: var(--paper-2); padding-block: .9rem; transition: color .25s; }
 .nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: .45rem; height: 1px; background: var(--draft); transform: scaleX(0); transform-origin: right; transition: transform .45s var(--ease); }
