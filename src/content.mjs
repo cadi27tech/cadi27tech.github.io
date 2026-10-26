@@ -80,7 +80,7 @@ export const press = [
   { outlet: 'Gorjeanul', date: '23 Oct 2026', lang: 'RO', title: 'Fabrica din Targu Jiu care produce piese pentru diferite utilaje cu ajutorul Inteligentei Artificiale', gloss: 'Regional feature on the factory and its AI quoting.', url: 'https://www.gorjeanul.ro/actualitate/fabrica-din-targu-jiu-care-produce-piese-pentru-diferite-utilaje-cu-ajutorul-inteligentei-artificiale-antreprenorul-a-demarat-afacerea-cand-era-student/' },
   { outlet: '3D Printing Industry', date: '24 Oct 2026', lang: 'EN', title: '3Descu enables 3D printing quotes through ChatGPT and Claude', gloss: 'International trade press on the MCP quoting channel.', url: 'https://3dprintingindustry.com/news/3descu-enables-3d-printing-quotes-through-chatgpt-and-claude-255887/' },
   { outlet: 'AS in Gorj', date: '25 Oct 2026', lang: 'RO', title: 'Afacere de succes, pornita la Targu Jiu de tanarul Adrian Capraru', gloss: 'Regional coverage of the founder story and the AI quoting launch.', url: 'https://www.asingorj.ro/afacere-de-succes-pornita-la-targu-jiu-de-tanarul-adrian-capraru/' },
-  { outlet: 'Vocea Olteniei', date: '24 Oct 2026', lang: 'RO', title: 'Regional coverage of the founder story', gloss: 'No online link found.', url: null },
+  { outlet: 'Vocea Olteniei', date: '24 Oct 2026', lang: 'RO', title: 'Adrian Căpraru, antreprenorul din Gorj care transformă imprimarea 3D într-o afacere europeană', gloss: 'Regional profile: the entrepreneur from Gorj turning 3D printing into a European business.', url: 'https://www.vocea-olteniei.ro/2026/10/24/adrian-capraru-antreprenorul-din-gorj-care-transforma-imprimarea-3d-intr-o-afacere-europeana/' },
 ];
 
 export const upwork = {

@@ -224,7 +224,7 @@ const ledger = `<section class="ledger-sec" aria-labelledby="ledger-h"><div clas
 <span class="src mono">${tick}${esc(r.src)}</span></li>`).join('')}</ol>
 </div></section>`;
 
-const LOGOS = { 'Profit.ro': 'profit.png', 'Observator News': 'observator.svg', 'Click!': 'click.png', 'Gorjul Azi': 'gorjulazi.png', 'Romania Journal': 'romaniajournal.png', '3Druck.com': '3druck.png', 'Gorjeanul': 'gorjeanul.png', '3D Printing Industry': '3dprintingindustry.png', 'AS in Gorj': 'asingorj.png' };
+const LOGOS = { 'Profit.ro': 'profit.png', 'Observator News': 'observator.svg', 'Click!': 'click.png', 'Gorjul Azi': 'gorjulazi.png', 'Romania Journal': 'romaniajournal.png', '3Druck.com': '3druck.png', 'Gorjeanul': 'gorjeanul.png', '3D Printing Industry': '3dprintingindustry.png', 'AS in Gorj': 'asingorj.png', 'Vocea Olteniei': 'voceaolteniei.png' };
 const outletMark = (p) => LOGOS[p.outlet] ? `<img src="/press/${LOGOS[p.outlet]}" alt="${esc(p.outlet)}" height="40" loading="lazy" decoding="async">` : `<span class="wordmark">${esc(p.outlet)}</span>`;
 const outletList = (hidden) => press.map((p) => `<li>${p.url ? `<a href="${p.url}"${hidden ? ' tabindex="-1"' : ''}>${outletMark(p)}</a>` : outletMark(p)}</li>`).join('');
 const marquee = `<section class="marquee-sec" aria-labelledby="press-h"><div class="wrap marquee-head">
