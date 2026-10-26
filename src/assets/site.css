@@ -280,8 +280,11 @@ main { padding-top: var(--head); position: relative; }
 .marquee-track { list-style: none; display: flex; flex: none; align-items: center; }
 .marquee-track li { display: flex; align-items: center; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(2rem, 1.3rem + 2.8vw, 3.9rem); line-height: 1.2; white-space: nowrap; color: var(--paper-2); }
 .marquee-track li::after { content: '+'; font: 400 1rem/1 var(--mono); color: var(--draft); margin-inline: clamp(1.5rem, 3vw, 3rem); }
-.marquee-track a { text-decoration: none; transition: color .3s; }
+.marquee-track a { text-decoration: none; transition: color .3s; display: flex; align-items: center; }
 .marquee-track a:hover, .marquee-track a:focus-visible { color: var(--paper); }
+.marquee-track img { display: block; height: clamp(1.9rem, 1.4rem + 1.2vw, 2.75rem); width: auto; opacity: .55; filter: grayscale(1); transition: opacity .3s; }
+.marquee-track a:hover img, .marquee-track a:focus-visible img { opacity: 1; }
+.marquee-track .wordmark { font-size: clamp(1.4rem, 1rem + 1.4vw, 2.2rem); opacity: .7; }
 @media (prefers-reduced-motion: no-preference) {
   .marquee-track { animation: marquee 48s linear infinite; }
   .marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }

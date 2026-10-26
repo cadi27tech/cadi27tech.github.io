@@ -224,7 +224,9 @@ const ledger = `<section class="ledger-sec" aria-labelledby="ledger-h"><div clas
 <span class="src mono">${tick}${esc(r.src)}</span></li>`).join('')}</ol>
 </div></section>`;
 
-const outletList = (hidden) => press.map((p) => `<li>${p.url ? `<a href="${p.url}"${hidden ? ' tabindex="-1"' : ''}>${esc(p.outlet)}</a>` : `<span>${esc(p.outlet)}</span>`}</li>`).join('');
+const LOGOS = { 'Profit.ro': 'profit.png', 'Observator News': 'observator.svg', 'Click!': 'click.png', 'Gorjul Azi': 'gorjulazi.png', 'Romania Journal': 'romaniajournal.png', '3Druck.com': '3druck.png', 'Gorjeanul': 'gorjeanul.png', '3D Printing Industry': '3dprintingindustry.png', 'AS in Gorj': 'asingorj.png' };
+const outletMark = (p) => LOGOS[p.outlet] ? `<img src="/press/${LOGOS[p.outlet]}" alt="${esc(p.outlet)}" height="40" loading="lazy" decoding="async">` : `<span class="wordmark">${esc(p.outlet)}</span>`;
+const outletList = (hidden) => press.map((p) => `<li>${p.url ? `<a href="${p.url}"${hidden ? ' tabindex="-1"' : ''}>${outletMark(p)}</a>` : outletMark(p)}</li>`).join('');
 const marquee = `<section class="marquee-sec" aria-labelledby="press-h"><div class="wrap marquee-head">
 <h2 id="press-h" class="label mono"><span>02</span><i></i><span>In the press, October 2026</span></h2>
 <p>Ten articles within a week of the 3Descu AI quoting launch, at zero ad spend. <a class="ulink" href="/press/">All articles with headlines and dates</a></p>
