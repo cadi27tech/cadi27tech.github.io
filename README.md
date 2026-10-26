@@ -1,5 +1,28 @@
 # Adrian Capraru - personal site
 
+**[cadi27tech.github.io](https://cadi27tech.github.io)**: the portfolio of a Head of AI & Automation, built as an engineering drawing set that comes alive. Prussian blueprint sheets, drafting-white line work, mono annotations, title blocks, and one signal colour reserved for anything live in production.
+
+<img src="docs/home-desktop.jpg" alt="Home page at 1440 px: the headline 'Most AI projects in finance die between the demo and the audit. Adrian builds the ones that survive both.' beside the photo-to-blueprint portrait slider">
+
+<table><tr>
+<td width="68%"><img src="docs/case-desktop.jpg" alt="A case study's system drawing: the Xero prepayment journals workflow, drawn as a blueprint sheet with a title block and a key"></td>
+<td width="32%"><img src="docs/home-mobile.jpg" alt="Home page at 390 px"></td>
+</tr></table>
+
+What is in it:
+
+- **Seven long-form case studies**, each with a system drawing generated from a spec in `src/content.mjs`: a wide sheet on desktop and a single column on phones, drawn in on scroll. The drawing engine is published separately as [blueprint-svg](https://github.com/cadi27tech/blueprint-svg); the write-ups also live in [production-case-studies](https://github.com/cadi27tech/production-case-studies).
+- **One content file, many outputs.** `src/content.mjs` and `src/resume.json` build every page, the JSON-LD, the sitemap, `/resume.json` and `/llms.txt`, so the CV, the site and the machine-readable profile cannot disagree.
+- **Progressive motion.** Every page is complete HTML; GSAP, ScrollTrigger and Lenis are vendored and only add behaviour. With JS off or reduced motion on, everything renders in its final state.
+- **QA as part of the build.** `npm run qa` drives Chrome through Playwright at 1440 and 390 px, in reduced-motion and motion passes: status codes, horizontal overflow, console errors, LCP and CLS, and a card-to-case navigation through the view transition.
+
+<picture>
+  <source media="(max-width: 600px)" srcset="docs/architecture-m.svg">
+  <img src="docs/architecture.svg" alt="System drawing: src/content.mjs and src/resume.json feed src/build.mjs, which writes dist/; Playwright QA checks dist at 1440 and 390 px; GitHub Pages deploys on push to main.">
+</picture>
+
+## Maintainer notes
+
 Static site with a motion layer. Live at https://cadi27tech.github.io/ (GitHub Pages, repo `cadi27tech/cadi27tech.github.io`). Design system, palette, type and motion rules: `DESIGN.md`.
 
 ## Where things live
