@@ -6,7 +6,7 @@ Static site with a motion layer. Live at https://cadi27tech.github.io/ (GitHub P
 
 | What | File |
 |---|---|
-| Identity, hero numbers, "What Adrian builds", the "Blueprint to production" pipeline, method, principles, press list, the 7 case studies | `src/content.mjs` |
+| Identity, hero numbers, "What Adrian builds", the "Blueprint to production" pipeline, method, principles, press list, the 7 case studies, the /cv "0 to 100" arc per role (`cvArcs`, keyed by the `work[].name` in resume.json) and the recognition list | `src/content.mjs` |
 | Roles, education, all certifications (with credential IDs and verify links), skills. Single source for the timeline, the credential wall, /about, /cv, `/resume.json`, `/llms.txt` | `src/resume.json` (JSON Resume 1.x) |
 | Page templates, JSON-LD, sitemap, robots, llms.txt | `src/build.mjs` |
 | Styles, tokens, CSS-only hero reveal and preloader, reduced-motion fallbacks | `src/assets/site.css` |

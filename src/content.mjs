@@ -88,6 +88,190 @@ export const upwork = {
   quote: { text: 'Adrian is a total pro... The automation runs perfectly.', who: 'Nicolas P., Upwork client' },
 };
 
+// /cv long form: one "0 to 100" arc per role in resume.json (keyed by resume.json work[].name).
+// where = context line; start = mandate and starting point; built = what was built, in order; result = where it stands now;
+// goals = [goal area, result] chips; team = people and leadership; safe = regulated and safe practice.
+// Sources: V3-BRIEF s3/3b/3c, master-profile.md, research/09d and 09g, deliverables/v4-*.md. Studio results are company results.
+export const cvArcs = {
+  'M.A. Whately & Co.': {
+    where: 'Irish chartered accountancy and audit firm. Contract, remote.',
+    start: "AI was not a service the firm offered: no client platform, no AI training for staff, no automation offer for its own clients. Hired as the sole owner of AI, reporting to the principal, with scoping, pricing, build, training and support in one seat.",
+    built: [
+      'Dec 2025: first deliverable, an AI maturity assessment funnel for lead generation (12-node n8n workflow, AI scoring, a four-email nurture).',
+      'Rebuilt practice management for 587 client records and 10 staff plus the owner: a 97-field schema audited, 3,172 writes with 0 failures, per-person dashboards, Xero invoicing, payment tracking and credit control at 7, 14, 30 and 60 days.',
+      "Client delivery under the firm's brand: HubSpot-to-Xero invoicing across 3 legal entities and 4 currencies (live since April 2026), a SEPA payment-file converter sold as a monthly subscription, a co-op's first automated settlement cycle, and Xero prepayment journals for a tour operator (live since 16 Oct 2026).",
+      '23 Sep to 3 Oct 2026: the M.A. Whately Suite, from first commit to live production in 10 days, then 20 modules in four weeks, hosted in the EU (Vercel Dublin, Supabase eu-west-1, Resend EU).',
+      "Oct 2026: the firm's website split into Accounting and AI & Automation (353 claims fact-checked, 81 of 81 pages clean), the AI Academy live (8 lessons, 48 prompts), the AI for Accountants session for the full team, and fee packages published.",
+    ],
+    result: 'Within a year the firm went from no AI offer to its own live client platform, a trained team, an AI Academy, published fee packages and automation clients of its own in Ireland, the UK and the US.',
+    goals: [['Time to production', '10 days, first commit to live'], ['Platform scope', '20 modules in 4 weeks'], ['Quality gate', '3,000+ automated checks'], ['Bills accuracy', '99.8% on a synthetic corpus'], ['Unit cost', 'under 1 cent per document'], ['Data migration', '3,172 writes, 0 failures'], ['Month-end match', '107 of 107 journals'], ['Adoption', 'full team of 10+ trained']],
+    team: [
+      'Sole owner of AI at the firm, reporting to the principal; partners bring client scenarios, and he designs, prices and hands over a proposal-ready brief.',
+      'Trained the full team (10+ people) in an AI for Accountants session with live demos; adoption backed by the AI Academy, per-person dashboards and a daily staff brief.',
+      'Runs parallel AI coding agents as the delivery team, each workstream behind review and test gates before deploy.',
+    ],
+    safe: [
+      "EU-only AI processing enforced in code: bills run on Vertex AI's EU endpoint with data caching disabled; the US model is an opt-in fallback only.",
+      'An AML due-diligence gate keeps a client account blocked until the identity check is verified; IBAN confirmation is admin-only and audited by database trigger, and SEPA files are built only from confirmed IBANs.',
+      'Tenant isolation (Postgres RLS), CSP and HSTS, masked PPS and IBAN numbers, an audit log and a retention purge.',
+      'Irish statute as software: Revenue deadlines (PAYE, RCT, VAT, Form 46G, LPT, Form 11), CRO audit-exemption tests, late-payment interest, Irish bank holidays.',
+      "A governance rule in writing: compute the number deterministically, compose the words with AI. Applied to the firm's fee engine.",
+    ],
+  },
+  'Independent practice (Upwork)': {
+    where: 'Upwork and direct clients in Europe, the US and Australia. Remote.',
+    start: 'December 2025: a new profile with no track record on the platform and small fixed-price n8n jobs, the first at USD 50. UI/UX design work since 2022; AI and automation engineering since 2025.',
+    built: [
+      'Small n8n automations first, each delivered with documentation and a handover.',
+      'AI builds next: a WhatsApp AI sales assistant for a Spanish tour operator, synced to HubSpot and refined on real conversations (rehired); an AI video ad pipeline (the client came back for three more contracts); a self-improving LLM pipeline that migrates safety-critical PLC code for a Danish industrial-automation team (five stars plus a bonus).',
+      'Then finance and regulated work: daily revenue reporting for a five-hotel group in Spain and Romania, extended to Romanian e-Factura guest invoicing, and an EU-sovereign multi-tenant financial reporting platform for the Dutch education sector.',
+      'The same controls on every build: human approval before any write to a ledger or an ad budget, audit logs, and tests against the figures the client already trusts.',
+    ],
+    result: 'Top Rated with a 100% Job Success Score within a year: 22 contracts, 12 of 12 rated contracts five stars, USD 13K+ in 12 months, one client hired four times, all inbound or repeat.',
+    goals: [['Job Success', '100%'], ['Status', 'Top Rated'], ['Contracts', '22'], ['Rated five-star', '12 of 12'], ['Earnings', 'USD 13K+ in 12 months'], ['Repeat work', 'one client hired 4 times'], ['Pipeline', 'all inbound or repeat'], ['Budget', 'each Dutch phase at or under']],
+    team: [
+      'Owns each engagement alone, from discovery and fixed-price scoping to build and handover.',
+      'Designed the Dutch pilot across three organisation types (a bookkeeping firm, an audit firm and school boards); both firms approved, and the follow-on module was won at a fixed price.',
+      "Wrote a security overview for the pilot firms' IT and security teams.",
+    ],
+    safe: [
+      'No US-owned service anywhere in the Dutch stack: self-hosted Supabase and n8n, Microsoft Entra ID sign-in, tokens encrypted at rest, encrypted off-site backups, and human approval before any write to Exact Online.',
+      'Raised the need for a data processing agreement with each participating firm before the pilot, before anyone asked.',
+      'Tenant isolation proven by tests: 52 of 52 sign-in end-to-end tests pass and 5 of 5 RLS mutation tests are caught.',
+      'Every AI-built ad campaign is created paused, so a person approves it before any budget is spent; the PLC pipeline is regression-locked so it can never break a passing test.',
+    ],
+  },
+  '3Descu (TREIDESCUPRINT SRL)': {
+    where: 'On-demand 3D printing manufacturer, Targu Jiu, Romania. Founder, 100% founder-owned.',
+    start: "2022: a business plan written for a Master's in Entrepreneurship, an EU start-up grant (the plan ranked first, about EUR 60K, non-repayable) and 5 printers in an apartment in Targu Jiu. No outside equity.",
+    built: [
+      'Jun 2022: registered the company and started production on 5 printers in the apartment.',
+      'Within a year: moved from consumers to engineering buyers, and became an approved production partner of one of the largest on-demand manufacturing platforms in the EU.',
+      '2023 to 2024: hired and trained the team on site and remotely, wrote the SOPs and the ISO 9001 audit documentation, and moved production into a dedicated hall (2024). 3Descu is an ISO 9001:2015 certified company.',
+      'Scaled the fleet past 200 printers and built an export business: buyers in 26 of the 27 EU member states, 45% of orders shipping to Germany.',
+      "Jun to Oct 2026: wrote all of the company's software alone with AI coding agents: an instant-quote to fulfilment platform in four languages (929 commits, ~400 merged pull requests, 38 edge functions, 120+ release checkers running ~260K assertions per run), a customer ledger unifying 5 sales channels (1,863 records reconciled to within EUR 1), e-Factura invoicing with EU VAT reverse charge, and a EUR 0 per month social publishing agent.",
+      '18 Oct 2026: one of the first manufacturing MCP servers, listed in the official MCP Registry (io.github.cadi27tech/3descu-quote), on Glama and in 4 community directories through merged pull requests. Engineers get a real factory price inside ChatGPT or Claude.',
+      '21 to 25 Oct 2026: a zero-budget press launch, 10 articles in national, regional and international trade press within a week.',
+    ],
+    result: 'A 200+ printer factory in its own production hall, selling into 26 of the 27 EU member states. Turnover x65 in three years to about EUR 190K in 2025, up 75% year on year, at a 57% net margin (public filings). 2,000+ orders from 1,600+ buyers in 30 countries, one in three orders from a returning customer, rated 4.7/5 by 200+ verified buyers, and 1st in Gorj county in 3 Topul Firmelor 2026 categories.',
+    goals: [['Turnover', 'x65 in 3 years'], ['2025 turnover', 'about EUR 190K'], ['Net margin', '57%'], ['Growth', '+75% year on year'], ['Capacity', '5 to 200+ printers'], ['Orders', '2,000+'], ['Buyers', '1,600+'], ['Countries', '30, incl. 26 of 27 EU'], ['Germany', '45% of orders'], ['Loyalty', '1 in 3 orders repeat'], ['Rating', '4.7/5 from 200+ buyers'], ['Quality', 'ISO 9001:2015 certified'], ['Funding', 'EU grant, plan ranked 1st'], ['Press', '10 articles, EUR 0 ads']],
+    team: [
+      'Runs strategy, P&L, pricing, production and sales.',
+      'Hired and trained the staff, on site and digitally, with the SOPs and the ISO 9001 audit documentation he wrote. A team of 4 including contractors, plus external production, logistics, certification and creative partners.',
+      'Hands-on across FDM and SLA production, 3D modelling, the full 3D workflow and design for manufacturing.',
+      'Directs parallel AI coding agents behind tests and review gates as the software team.',
+    ],
+    safe: [
+      'ISO 9001:2015 certified company, with documented SOPs.',
+      'GDPR and contract rules enforced in code: marketplace-sourced customer records are held suppression-only.',
+      'e-Factura invoicing with EU VAT reverse charge for VIES-valid business buyers.',
+      'Every release passes 120+ checkers; public claims (counts, ratings, press) are checked by scripts for drift against the source data.',
+      'The MCP server is keyless and rate-limited, with prices calibrated on measured parts.',
+    ],
+  },
+  Systemartis: {
+    where: 'AI systems studio, Bucharest. Co-founder, team of 4.',
+    start: '2023: a new studio built on one observation: most AI projects sold to 10 to 500 person companies stall after the pilot. The studio set out to own the hard middle: backend, integrations, guardrails, observability and handover.',
+    built: [
+      'Co-founded the studio and took the automation practice: process discovery, solution design, and the agents, workflows and code that run in production.',
+      'A delivery model: fixed scope and acceptance tests, human approval wherever money or customers are involved, and a handover where the client owns the code, the data and the runbooks.',
+      'Studio work: an operational brain for the studio itself, a fleet of agents (qualifier, router, summariser, scheduler) on its own orchestrator with retries, human checkpoints and a full audit log.',
+      'Studio work: an AI voice receptionist for an independent French garage, booking into the live calendar during the call.',
+      'Studio work: pricing intelligence for a multi-country marketplace seller (Innovium, a related party): competitor monitoring, auditable rules-based repricing and dashboards.',
+      'Mar 2026: published The Shift to Agentic: Why Basic Chatbots Are Dead on the studio blog.',
+    ],
+    result: 'A four-person studio with clients on four continents. Studio results: 70% of founder decisions handled or pre-routed, 20+ hours a week reclaimed and 99.9% availability over six months; every inbound call at the garage answered; marketplace sales up 40% in the year after the pricing layer, nine spreadsheets retired.',
+    goals: [['Studio', '4 people'], ['Reach', 'clients on four continents'], ['Founder decisions', '70% handled or pre-routed'], ['Time', '20+ hours a week reclaimed'], ['Availability', '99.9% over 6 months'], ['Pricing case', '+40% sales in a year']],
+    team: [
+      'Co-founder in a four-person team (founder and principal architect, head of operations, software engineer); leads the automation practice.',
+      'Works with client teams from process discovery to handover, so the agents become an operating asset the client runs.',
+    ],
+    safe: [
+      "Human checkpoints and a full audit log in the studio's agent fleet.",
+      'Garage receptionist: double-booking blocked at database level and call transcripts purged after 30 days.',
+      'Repricing runs on auditable rules, not on unchecked model output.',
+    ],
+  },
+  Innovium: {
+    where: 'Own consumer-products brand (INNOTRADE HUB23 SRL), Romania. Founder.',
+    start: 'October 2023: a newly registered company with no products, no brand and no revenue (RON 0 in 2023, public filings).',
+    built: [
+      'May 2024: filed the INNOVIUM EU trademark, now registered in 9 classes.',
+      'Launched 66+ products under the brand on eMAG.',
+      'Ran the business lean on automation: courier labels, ANAF e-invoicing and order flows built in n8n.',
+      'With Systemartis (a related party), added a pricing intelligence layer: competitor monitoring, auditable repricing and dashboards that replaced nine spreadsheets.',
+    ],
+    result: 'About EUR 50K revenue in 2025 and profitable in its second trading year (public filings); marketplace sales up 40% in the year after the pricing layer.',
+    goals: [['Revenue 2025', 'about EUR 50K'], ['Profit', 'profitable in year 2'], ['Brand', 'EU trademark, 9 classes'], ['Catalogue', '66+ products'], ['Sales', '+40% after repricing']],
+    safe: ['Romanian e-invoicing (ANAF e-Factura) automated in the order flow.'],
+  },
+  HighCrowd: {
+    where: 'EU-regulated real-estate crowdfunding platform for retail investors, Bucharest.',
+    start: 'October 2022: a platform with a product and no licence, in a regulated market. Joined as COO to take it from start-up to licensed operator.',
+    built: [
+      "Took the lead on the authorisation process and audit with the ASF, Romania's financial regulator, and owned the operations behind it.",
+      'Prepared the authorisation file: penetration testing, the architecture review and the policy set the regulator examines (risk, complaints handling, conflicts of interest, business continuity, outsourcing).',
+      'Automated KYC and AML onboarding on LemonWay under PSD2: identity checks, bank linking and segregated fund flows.',
+      'Built the investor-protection flows ECSP requires: an entry knowledge test, a loss-bearing simulation, key investment information sheets and the reflection period.',
+      'Built the operating system behind a regulated product: approval flows, exception handling, investor support and regulatory reporting.',
+    ],
+    result: "EU crowdfunding (ECSP) licence granted by the ASF in March 2024: Romania's fourth, and the second for real estate. Onboarding cut from about 45 to 8 minutes per investor (internal measure), seven-figure investor funding placed through the platform during his tenure, and every investor check documented and ready for inspection.",
+    goals: [['Licence', 'ECSP, March 2024'], ['Ranking', "Romania's 4th ECSP licence"], ['Real estate', '2nd ECSP licence in the sector'], ['Onboarding', 'about 45 to 8 min'], ['Funding', 'seven-figure, placed'], ['Tenure', '3 years as COO']],
+    team: [
+      'Led and mentored a cross-functional, distributed team.',
+      'Coordinated product, engineering, legal counsel, the payment partner and technology providers.',
+      'Set the KPIs and the operating cadence the company ran on.',
+    ],
+    safe: [
+      'Penetration testing and an architecture review with the regulator before authorisation.',
+      'Segregated investor fund flows through a licensed payment partner, under PSD2.',
+      'Every investor check documented and ready for inspection.',
+    ],
+  },
+  InRento: {
+    where: 'Licensed buy-to-let crowdfunding platform. Remote.',
+    start: 'October 2021: joined as Head of Community, months before the EvoEstate-InRento merger was announced in February 2022. Two investor bases had to become one without losing their trust.',
+    built: [
+      'Planned and ran the phased investor migration across email, community and support, with account migration kept separate from feature changes so no investor was stranded mid-move.',
+      'Persona-based investor segmentation for marketing.',
+      'Investor lifecycle processes in the CRM: onboarding, support and retention.',
+      'User interviews turned into roadmap input with MoSCoW and impact-effort scoring.',
+      'The platform explainer video and the education content behind investor acquisition; represented the platform on the Banii Vorbesc podcast (2022).',
+    ],
+    result: 'One investor base of 12,000+ after the 2022 merger; segmentation that helped cut marketing cost 30% quarter on quarter; an explainer video at 14K+ views. Context: InRento was named Investment Tech of the Year at the Europe FinTech Awards 2022 (a company award).',
+    goals: [['Investor base', '12,000+ after the merger'], ['Marketing cost', '-30% quarter on quarter'], ['Explainer video', '14K+ views']],
+  },
+  EvoEstate: {
+    where: 'Pan-European real-estate crowdfunding aggregator. Remote.',
+    start: 'March 2020: joined as Community Manager, bringing the 2,200+ member P2P investing community he had founded.',
+    built: [
+      'Grew the investor community and social channels with education content and platform updates; ran investor onboarding, support and CRM processes.',
+      'Turned investor questions into roadmap input, which led to the product role.',
+      'Nov 2020: promoted to Product Manager; owned the roadmap, prioritised from investor data, feedback and business metrics.',
+      'Owned and improved the secondary market, where investors trade positions before maturity; ran release cycles with engineering from idea to launch and managed the catalogue CMS across partner platforms.',
+      'Wrote the SOPs for critical processes and produced the platform explainer video.',
+    ],
+    result: 'Product Manager within 8 months at an aggregator serving 6,700 investors with EUR 4M+ invested (company figures); SOPs that cut onboarding time for new hires; an explainer video at 25K+ views.',
+    goals: [['Promotion', 'CM to PM in 8 months'], ['Investors served', '6,700'], ['Invested', 'EUR 4M+'], ['Explainer video', '25K+ views'], ['Community', '2,200+ members brought in']],
+    team: ['The link between investors, engineering, marketing and operations: what investors asked for became features the team could ship.'],
+  },
+};
+
+// /cv "Achievements & recognition": real items only (V3-BRIEF s3, s3c; 09d s1d, s7, s9). Company awards are labelled as context.
+export const recognition = [
+  { tag: 'Ranking', when: '2026', h: '1st in Gorj county in 3 Topul Firmelor 2026 categories', p: '3Descu, in the ListaFirme rankings built from filed 2025 accounts (professional and design services), plus 2nd in a fourth.' },
+  { tag: 'Grant', when: '2022', h: 'EU start-up grant, business plan ranked first', p: "About EUR 60K, non-repayable, won with a business plan he wrote for his Master's. It founded 3Descu." },
+  { tag: 'Licence', when: 'Mar 2024', h: 'EU crowdfunding (ECSP) licence', p: "Lead on the ASF authorisation and audit at HighCrowd. Romania's 4th ECSP licence, the 2nd for real estate.", url: 'https://data.asfromania.ro/registru/lista.php?sect=5801&lng=1', link: 'ASF register' },
+  { tag: 'Upwork', when: '2026', h: 'Top Rated, 100% Job Success', p: '22 contracts, 12 of 12 rated contracts five stars, one client hired four times, all inbound or repeat.', url: 'https://www.upwork.com/freelancers/cadrian', link: 'Upwork profile' },
+  { tag: 'Press', when: 'Oct 2026', h: '10 articles in one week, zero ad spend', p: 'National, regional and international trade press on 3Descu and its AI quoting launch. Every article is listed below.', url: '/press/', link: 'Press page' },
+  { tag: 'Podcast', when: '2019, 2022', h: 'Three-time guest on Banii Vorbesc', p: "One of Romania's best-known personal-finance podcasts: two episodes in 2019 and one in 2022, for InRento.", url: 'https://youtu.be/vhrEKRjJdzo', link: 'Episode' },
+  { tag: 'Talk', when: '10+ people', h: 'AI for Accountants, full-team session', p: 'Delivered with live demos to the full team (10+ people) of an Irish chartered accountancy firm, backed by an 8-lesson AI Academy.' },
+  { tag: 'Course', when: 'Co-author', h: '17-lesson course on P2P and real-estate crowdfunding', p: 'A Romanian online course for retail investors, co-authored.', url: 'https://laurentiumihai.ro/curs-investitii-peer-to-peer-real-estate-crowdfunding/', link: 'Course page' },
+  { tag: 'Guide', when: 'Dec 2019', h: '70+ page P2P investing guide', p: 'A free guide to P2P investing, co-authored.' },
+  { tag: 'Community', when: 'Founder', h: 'A 2,200+ member P2P investing community', p: 'Founded and ran it, then brought it to EvoEstate in 2020.' },
+  { tag: 'Context', when: '2022', h: 'Investment Tech of the Year 2022 (company award)', p: 'Won by InRento at the Europe FinTech Awards while he was its Head of Community. A company award, listed as context.', url: 'https://fintechawardseurope.com/2022-winners', link: 'Winners list' },
+];
+
 // Case studies. Order = order on the home page.
 export const work = [
   {

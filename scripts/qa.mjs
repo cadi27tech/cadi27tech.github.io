@@ -26,7 +26,11 @@ for (const [vname, viewport] of Object.entries(views)) {
     const over = await overflow(p);
     if (r.status() !== 200 || over > 0) fail(`${vname} ${path}: status ${r.status()}, overflow ${over}px`);
     const name = path === '/' ? 'home' : path.split('/').filter(Boolean).pop();
-    await p.screenshot({ path: `qa/${vname}-${name}.png`, fullPage: true });
+    // Chrome caps a capture at about 16K device px and repeats content past it: tall pages (the long-form /cv) go out in parts.
+    const h = await p.evaluate(() => document.documentElement.scrollHeight);
+    const max = Math.floor(16000 / (vname === 'mobile' ? 2 : 1));
+    if (h <= max) await p.screenshot({ path: `qa/${vname}-${name}.png`, fullPage: true });
+    else for (let y = 0, k = 1; y < h; y += max, k++) await p.screenshot({ path: `qa/${vname}-${name}-${k}.png`, fullPage: true, clip: { x: 0, y, width: viewport.width, height: Math.min(max, h - y) } });
   }
   await ctx.close();
 }

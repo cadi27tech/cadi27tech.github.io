@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, existsSync } fr
 import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { site, mailto, proof, builds, method, principles, pipeline, press, upwork, work } from './content.mjs';
+import { site, mailto, proof, builds, method, principles, pipeline, press, upwork, work, cvArcs, recognition } from './content.mjs';
 
 const SRC = dirname(fileURLToPath(import.meta.url));
 const OUT = join(SRC, '..', 'dist');
@@ -370,18 +370,68 @@ pages.push({
 ${cta('Press or speaking enquiry?', 'Background facts and figures are available on request.')}`,
 });
 
-// CV
-const cvRoles = resume.work.map((r) => `<li data-reveal><p class="when mono">${fmt(r.startDate)} to ${fmt(r.endDate)}</p><h3>${esc(r.position)}, ${r.url ? `<a class="ulink" href="${r.url}">${esc(r.name)}</a>` : esc(r.name)}</h3>
-<p>${esc(r.summary)}</p>${r.highlights ? `<div class="prose"><ul role="list">${r.highlights.map((h) => `<li>${esc(h)}</li>`).join('')}</ul></div>` : ''}</li>`).join('');
+// CV: long form. Every role gets a "0 to 100" arc from cvArcs (content.mjs); resume.json stays the source for dates, summary and highlights.
+const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const N_ROLES = resume.work.length;
+const arcOf = (r) => { if (!cvArcs[r.name]) throw new Error(`cvArcs has no entry for "${r.name}"`); return cvArcs[r.name]; };
+const detail = (h, arr) => (arr && arr.length ? `<div class="cvr-d"><h4 class="cvr-dh mono">${h}</h4><div class="prose"><ul role="list">${arr.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div></div>` : '');
+const cvRole = (r, i) => {
+  const a = arcOf(r);
+  const live = !r.endDate;
+  const steps = [['00', 'Starting point', a.start], ...a.built.map((b, k) => [pad(k + 1), '', b]), ['100', live ? 'Where it stands now' : 'Where it ended', a.result]];
+  return `<li class="cvr${live ? ' is-now' : ''}" id="role-${slug(r.name)}">
+<p class="cvr-top mono"><span>Role ${pad(i + 1)} / ${pad(N_ROLES)}</span><span>${fmt(r.startDate)} to ${fmt(r.endDate)}${live ? ' <span class="tl-live">Live</span>' : ''}</span></p>
+<div class="cvr-grid">
+<div class="cvr-meta">
+<h3 class="cvr-h">${esc(r.position)}<span>${r.url ? `<a class="ulink" href="${r.url}">${esc(r.name)}</a>` : esc(r.name)}</span></h3>
+<p class="cvr-where mono">${esc(a.where)}</p>
+<p class="cvr-sum">${esc(r.summary)}</p>
+<h4 class="cvr-dh mono">Goals and results</h4>
+<ul class="chips" role="list">${a.goals.map(([k, v]) => `<li><span class="mono">${esc(k)}</span><strong>${esc(v)}</strong></li>`).join('')}</ul>
+</div>
+<div class="cvr-arc">
+<h4 class="cvr-dh mono">From 0 to 100</h4>
+<ol class="arc" role="list">${steps.map(([n, k, t], j) => `<li class="arc-s${j === 0 ? ' is-start' : ''}${j === steps.length - 1 ? ' is-end' : ''}"><span class="arc-n mono" aria-hidden="true">${n}</span><p>${k ? `<strong class="arc-k">${k}.</strong> ` : ''}${esc(t)}</p></li>`).join('')}</ol>
+</div>
+</div>
+<div class="cvr-details">${detail('Team and leadership', a.team)}${detail('Regulated and safe by design', a.safe)}${detail('Key results', r.highlights)}</div>
+</li>`;
+};
+const cvIndex = `<ol class="cv-index" role="list">${resume.work.map((r, i) => `<li><a href="#role-${slug(r.name)}"><span class="mono">${pad(i + 1)}</span><span class="cvi-t">${esc(r.name.replace(/ \(.*\)$/, ''))}<span class="cvi-pos">${esc(r.position)}</span></span><span class="cvi-when mono">${r.startDate.slice(0, 4)} to ${r.endDate ? r.endDate.slice(0, 4) : 'now'}</span></a></li>`).join('')}</ol>`;
+const recList = `<ol class="cred-list rec-list" role="list">${recognition.map((x, i) => `<li class="cred${x.tag === 'Context' ? ' is-context' : ''}" data-reveal style="--d:${(i % 4) * 70}ms">
+<p class="cred-top mono"><span>${esc(x.tag)}</span><span>${esc(x.when)}</span></p>
+<p class="cred-name">${esc(x.h)}</p>
+<p class="rec-p">${esc(x.p)}</p>
+${x.url ? `<p class="cred-foot mono"><span></span><a class="ulink cred-verify" href="${x.url}">${esc(x.link)}<span class="visually-hidden">: ${esc(x.h)}</span> ${arrow}</a></p>` : ''}
+</li>`).join('')}</ol>
+<h3 class="cv-sub">Press, October 2026</h3>
+<ol class="cv-press" role="list">${press.map((p, i) => `<li><span class="mono cvp-n">${pad(i + 1)}</span><span class="cvp-o">${esc(p.outlet)}<span class="mono">${esc(p.date)}, ${esc(p.lang)}</span></span>${p.url ? `<a class="ulink cvp-t" href="${p.url}" hreflang="${p.lang === 'RO' ? 'ro' : 'en'}">${esc(p.title)}</a>` : `<span class="cvp-t">${esc(p.title)}</span>`}</li>`).join('')}</ol>`;
+const certTable = `<div class="ct-wrap"><table class="ct">
+<caption class="visually-hidden">All ${certs.length} certifications with issuer, issue date, credential ID and verify link</caption>
+<thead><tr><th scope="col">Credential</th><th scope="col">Issuer</th><th scope="col">Issued</th><th scope="col">Credential ID</th><th scope="col"><span class="visually-hidden">Verify link</span></th></tr></thead>
+${[...new Set(certs.map((c) => c.group))].map((g) => { const list = certs.filter((c) => c.group === g); return `<tbody><tr class="ct-g"><th scope="rowgroup" colspan="5"><span>${esc(g)}</span> <span class="mono">${pad(list.length)}</span></th></tr>
+${list.map((c) => `<tr><th scope="row">${esc(c.name)}</th><td data-l="Issuer">${esc(c.issuer)}</td><td data-l="Issued">${certWhen(c)}</td><td data-l="ID" class="ct-id mono">${c.id ? esc(c.id) : ''}</td><td class="ct-v">${certVerify(c)}</td></tr>`).join('')}</tbody>`; }).join('')}
+</table></div>`;
 const eduList = `<ul class="plain" role="list">${resume.education.map((e) => `<li>${esc(e.studyType)}, ${esc(e.area)}, ${esc(e.institution)} <span class="muted">(${e.startDate} to ${e.endDate})</span></li>`).join('')}</ul>`;
 pages.push({
-  path: '/cv/', current: '/cv/', title: 'CV', description: `CV of ${site.name}: ${resume.basics.label}`,
+  path: '/cv/', current: '/cv/', title: 'CV', description: `CV of ${site.name}: ${resume.basics.label} Every role from starting point to result, with goals, team, safeguards, recognition and all ${certs.length} certifications.`,
   body: `${pageHero('Curriculum vitae', esc(resume.basics.summary), `<div class="ctas hero-fade" style="--d:.6s">${btn('/cv.pdf', 'Download the PDF', 'primary', ' download="Adrian_Capraru_CV.pdf"')}${btn('/resume.json', 'JSON Resume')}</div>`)}
-${sec({ id: 'exp-h', n: '01', tag: 'Experience', h: 'Experience', intro: 'Portfolio career since 2022: roles overlap by design.', inner: `<ul class="roles" role="list">${cvRoles}</ul>` })}
-${sec({ id: 'skills-h', n: '02', tag: 'Skills', h: 'Skills', inner: `<ul class="plain" role="list">${resume.skills.map((s) => `<li><strong>${esc(s.name)}:</strong> ${esc(s.keywords.join(', '))}</li>`).join('')}</ul>` })}
-${sec({ id: 'pub-h', n: '03', tag: 'Publications', h: 'Publications', inner: `<ul class="plain" role="list">${resume.publications.map((x) => `<li>${x.url ? `<a class="ulink" href="${x.url}">${esc(x.name)}</a>` : esc(x.name)}${x.publisher ? `, ${esc(x.publisher)}` : ''}${x.releaseDate ? ` <span class="muted">(${fmt(x.releaseDate)})</span>` : ''}</li>`).join('')}</ul>` })}
-${sec({ id: 'edu2-h', n: '04', tag: 'Education', h: 'Education', inner: eduList })}
-${sec({ id: 'cert2-h', n: '05', tag: 'Credentials', h: `Certifications (${certs.length})`, inner: certList })}`,
+<section class="sec cv-sec" aria-labelledby="exp-h"><div class="wrap">
+<header class="sec-head">${label('01', 'Experience')}<h2 id="exp-h" data-reveal>Experience, from 0 to 100</h2><p data-reveal>${N_ROLES} roles, each told the same way: the starting point, what was built and in what order, the goals and results, the team, and the safeguards. A portfolio career since 2022: roles overlap by design.</p></header>
+${cvIndex}
+<ol class="cv-roles" role="list">${resume.work.map(cvRole).join('')}</ol>
+</div></section>
+<section class="sec cv-sec" aria-labelledby="rec-h"><div class="wrap">
+<header class="sec-head">${label('02', 'Recognition')}<h2 id="rec-h" data-reveal>Achievements and recognition</h2><p data-reveal>Rankings, a grant, a regulator's licence, platform status, press and teaching. Only items with a public source or a filed record; company awards are marked as context.</p></header>
+${recList}
+</div></section>
+${sec({ id: 'skills-h', n: '03', tag: 'Skills', h: 'Skills', inner: `<ul class="plain" role="list">${resume.skills.map((s) => `<li><strong>${esc(s.name)}:</strong> ${esc(s.keywords.join(', '))}</li>`).join('')}</ul>` })}
+${sec({ id: 'pub-h', n: '04', tag: 'Publications', h: 'Publications', inner: `<ul class="plain" role="list">${resume.publications.map((x) => `<li>${x.url ? `<a class="ulink" href="${x.url}">${esc(x.name)}</a>` : esc(x.name)}${x.publisher ? `, ${esc(x.publisher)}` : ''}${x.releaseDate ? ` <span class="muted">(${fmt(x.releaseDate)})</span>` : ''}</li>`).join('')}</ul>` })}
+${sec({ id: 'edu2-h', n: '05', tag: 'Education', h: 'Education', inner: eduList })}
+<section class="sec cv-sec" aria-labelledby="cert2-h"><div class="wrap">
+<header class="sec-head">${label('06', 'Credentials')}<h2 id="cert2-h" data-reveal>Certifications (${certs.length})</h2><p data-reveal>Every credential with its issuer, issue date and credential ID, and a link to the issuer's record.</p></header>
+${certTable}
+</div></section>`,
 });
 
 // Contact
