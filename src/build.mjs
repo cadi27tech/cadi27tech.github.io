@@ -473,8 +473,8 @@ work.forEach((w, i) => {
   const steps = w.timeline.map(([when, t], k, a) => `<li class="arc-s${k === 0 ? ' is-start' : ''}${k === a.length - 1 ? ' is-end' : ''}" data-reveal><span class="arc-n mono" aria-hidden="true">${k === 0 ? '00' : k === a.length - 1 ? '100' : pad(k)}</span><div><p class="arc-when mono">${esc(when)}</p><p>${esc(t)}</p></div></li>`).join('');
   const own = w.quotes.map((id) => qById[id]).filter((q) => q.case === w.slug).concat(recommendations.filter((r) => r.case === w.slug).map((r) => qById[r.id]));
   const other = w.quotes.map((id) => qById[id]).filter((q) => q.case !== w.slug);
-  const sayH = own.length ? 'What buyers and the press said' : 'What other clients said, on similar work';
-  const said = `${own.length ? qgrid(own) : ''}${other.length ? `${own.length ? '<h3 class="flow-h">Other clients, on similar work</h3>' : ''}${qgrid(other)}` : ''}`;
+  const sayH = own.length ? 'What buyers and the press said' : 'What Upwork clients said';
+  const said = `${own.length ? qgrid(own) : ''}${other.length ? `${own.length ? '<h3 class="flow-h">What Upwork clients said</h3>' : ''}${qgrid(other)}` : ''}`;
   const dwg = `<figure class="dwg" data-reveal>
 <div class="dwg-sheet">${drawing(w, 'd')}${drawing(w, 'm')}<span class="crop k-tl" aria-hidden="true"></span><span class="crop k-tr" aria-hidden="true"></span><span class="crop k-bl" aria-hidden="true"></span><span class="crop k-br" aria-hidden="true"></span></div>
 <figcaption class="dwg-cap">

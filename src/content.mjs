@@ -969,7 +969,7 @@ export const work = [
     fig: '5 hotels', figLabel: 'matched to accounting, cell by cell',
     facts: {
       Client: 'Hospitality group operating in Spain and Romania',
-      Role: 'Architect and builder. Largest Upwork contract.',
+      Role: 'Architect and builder.',
       Timeline: 'March to April 2026',
       Status: 'Delivered, with a cloud pipeline for daily runs',
     },
