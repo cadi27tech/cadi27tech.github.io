@@ -54,6 +54,21 @@ export const principles = [
   { h: 'A trail an auditor can follow', p: 'Every action is logged and idempotent, so a retry never doubles an invoice. Failed jobs land in a queue a person reviews, never in silence.' },
 ];
 
+// Home "Blueprint to production" drawing: the accountancy platform's bills workflow. Every figure is from the case study below.
+export const pipeline = {
+  h: 'Blueprint to production',
+  intro: 'One workflow from the accountancy platform, drawn the way it runs: from the bill a client uploads to the entry an auditor can follow.',
+  live: 'Live since 3 Oct 2026',
+  steps: [
+    { h: 'Bill in', p: 'A client uploads a bill or receipt to the firm\'s platform.', n: '< 1 cent', l: 'per document, about USD 0.009 per scan' },
+    { h: 'AI reader', p: 'Two EU-hosted models extract every field and must agree.', n: '99.8%', l: 'field accuracy, 428 of 429 fields, on a 64-file synthetic test corpus' },
+    { h: 'Checks', p: 'VAT number checked against VIES. An AML gate keeps a client account blocked until identity is verified.', n: '0', l: 'silent errors on the browser path' },
+    { h: 'Human approval', p: 'The bill is drafted in Xero for review. Drafts, not postings: a person signs off.', n: 'Drafts', l: 'not postings, wherever money moves' },
+    { h: 'Posted to Xero', p: 'Approved bills post to Xero; supplier payments export as SEPA pain.001 files.', n: '87/87', l: 'deploy smoke test on every deploy since 6 Oct' },
+    { h: 'Audit trail', p: 'Every action is logged and idempotent, so a retry never doubles an invoice. Failed jobs land in a queue a person reviews.', n: '3,000+', l: 'automated checks green' },
+  ],
+};
+
 // Press: only articles with a verified URL get a link (research/05-press-awards-proof.md).
 export const press = [
   { outlet: 'Profit.ro', date: '21 Oct 2026', lang: 'RO', title: 'Fabrica pornita intr-un apartament cu 5 imprimante de un tanar intors acasa a ajuns la afaceri de circa 1 milion lei', gloss: 'The original founder story: a factory started in an apartment with 5 printers, now near RON 1 million in turnover.', url: 'https://www.profit.ro/povesti-cu-profit/foto-fabrica-pornita-intr-un-apartament-cu-5-imprimante-de-un-tanar-intors-acasa-a-ajuns-la-afaceri-de-circa-1-milion-lei-toata-lumea-se-astepta-sa-plec-22863423' },

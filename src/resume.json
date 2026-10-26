@@ -11,9 +11,21 @@
       "countryCode": "RO"
     },
     "profiles": [
-      { "network": "LinkedIn", "username": "adriancapraru27", "url": "https://www.linkedin.com/in/adriancapraru27" },
-      { "network": "GitHub", "username": "cadi27tech", "url": "https://github.com/cadi27tech" },
-      { "network": "Upwork", "username": "cadrian", "url": "https://www.upwork.com/freelancers/cadrian" }
+      {
+        "network": "LinkedIn",
+        "username": "adriancapraru27",
+        "url": "https://www.linkedin.com/in/adriancapraru27"
+      },
+      {
+        "network": "GitHub",
+        "username": "cadi27tech",
+        "url": "https://github.com/cadi27tech"
+      },
+      {
+        "network": "Upwork",
+        "username": "cadrian",
+        "url": "https://www.upwork.com/freelancers/cadrian"
+      }
     ]
   },
   "work": [
@@ -139,28 +151,273 @@
     }
   ],
   "certificates": [
-    { "name": "IBM AI Product Manager", "issuer": "IBM, via Coursera", "date": "2025-10" },
-    { "name": "Fintech: Foundations & Applications of Financial Technology", "issuer": "The Wharton School, via Coursera", "date": "2025-09" },
-    { "name": "Agile Approaches for Modern Leadership", "issuer": "Duke University, via Coursera", "date": "2025-10" },
-    { "name": "AWS Cloud Solutions Architect", "issuer": "Amazon Web Services, via Coursera", "date": "2025-10" }
+    {
+      "name": "IBM AI Product Manager Specialization",
+      "issuer": "IBM, via Coursera",
+      "date": "2025-10",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/HVIGBVIIKFJR",
+      "id": "HVIGBVIIKFJR",
+      "group": "AI & product"
+    },
+    {
+      "name": "Artificial Intelligence Micro-Certification (AIC)",
+      "issuer": "Product School",
+      "date": "2025-09",
+      "id": "cert_v1slc8sr",
+      "group": "AI & product"
+    },
+    {
+      "name": "Product-Led Growth Micro-Certification (PLGC)",
+      "issuer": "Product School",
+      "date": "2025-10",
+      "id": "cert_2wflrqqv",
+      "group": "AI & product"
+    },
+    {
+      "name": "Product Strategy Micro-Certification (PSC)",
+      "issuer": "Product School",
+      "date": "2025-09",
+      "id": "cert_8jnjnypt",
+      "group": "AI & product"
+    },
+    {
+      "name": "The Product Management for AI & Data Science Course",
+      "issuer": "365 Careers, via Udemy",
+      "date": "2025-09",
+      "url": "https://www.udemy.com/certificate/UC-bf1fe4af-9131-497c-8bb8-b5d69d01ab18/",
+      "id": "UC-bf1fe4af-9131-497c-8bb8-b5d69d01ab18",
+      "group": "AI & product"
+    },
+    {
+      "name": "AI for Product Management",
+      "issuer": "Google Cloud Education",
+      "date": "2025-09",
+      "id": "aab71233-6754-41b7-8985-ba54edb0f0db",
+      "group": "AI & product"
+    },
+    {
+      "name": "Product Management Basics",
+      "issuer": "Simplilearn",
+      "date": "2025-09",
+      "group": "AI & product"
+    },
+    {
+      "name": "Product Management Basics Certification",
+      "issuer": "Mind the Product",
+      "date": "2025-09",
+      "id": "bb82d1d0-65ee-4fe6-8154-afbd9167ccd4",
+      "group": "AI & product"
+    },
+    {
+      "name": "Fintech: Foundations & Applications of Financial Technology",
+      "issuer": "The Wharton School, University of Pennsylvania, via Coursera",
+      "date": "2025-09",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/M7N8EMTUSU3R",
+      "id": "M7N8EMTUSU3R",
+      "group": "FinTech & cloud"
+    },
+    {
+      "name": "AWS Cloud Solutions Architect",
+      "issuer": "Amazon Web Services, via Coursera (professional certificate)",
+      "date": "2025-10",
+      "url": "https://www.coursera.org/account/accomplishments/professional-cert/O9CSUVC8VTO7",
+      "id": "O9CSUVC8VTO7",
+      "group": "FinTech & cloud"
+    },
+    {
+      "name": "AWS Business Essentials - The Business Value of AWS",
+      "issuer": "Digital Cloud Training, via Udemy",
+      "date": "2025-09",
+      "url": "https://www.udemy.com/certificate/UC-cc647bc6-d37a-42ea-9e16-0e0cacba644b/",
+      "id": "UC-cc647bc6-d37a-42ea-9e16-0e0cacba644b",
+      "group": "FinTech & cloud"
+    },
+    {
+      "name": "Business Process Automation: Certification",
+      "issuer": "Udemy",
+      "date": "2025-09",
+      "url": "https://www.udemy.com/certificate/UC-8a5f6328-f218-4ddc-80ba-bca252183125/",
+      "id": "UC-8a5f6328-f218-4ddc-80ba-bca252183125",
+      "group": "Automation & data"
+    },
+    {
+      "name": "SQL for Data Analysis: Beginner MySQL Business Intelligence",
+      "issuer": "Maven Analytics, via Udemy",
+      "date": "2025-09",
+      "url": "https://www.udemy.com/certificate/UC-a604506a-fedf-4aa6-819e-5b583b1ad5f7/",
+      "id": "UC-a604506a-fedf-4aa6-819e-5b583b1ad5f7",
+      "group": "Automation & data"
+    },
+    {
+      "name": "Salesforce Essentials: Mastering CRM for Business Success",
+      "issuer": "Udemy",
+      "date": "2025-09",
+      "url": "https://www.udemy.com/certificate/UC-39cf6207-3d62-4577-a4e1-1f004f469900/",
+      "id": "UC-39cf6207-3d62-4577-a4e1-1f004f469900",
+      "group": "Automation & data"
+    },
+    {
+      "name": "HubSpot Inbound Marketing Certification",
+      "issuer": "HubSpot Academy",
+      "date": "2025-10",
+      "id": "vhk48br8",
+      "group": "Automation & data",
+      "validUntil": "2027-11"
+    },
+    {
+      "name": "Agile Approaches for Modern Leadership",
+      "issuer": "Duke University, via Coursera",
+      "date": "2025-10",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/3FX307JFKNKS",
+      "id": "3FX307JFKNKS",
+      "group": "Leadership & agile"
+    },
+    {
+      "name": "Certificate in Business & Operations Management Excellence",
+      "issuer": "Institute of Management, Technology and Finance, via Udemy",
+      "date": "2025-09",
+      "url": "https://www.udemy.com/certificate/UC-16b1fe57-4029-4061-95f1-0a797582b877/",
+      "id": "UC-16b1fe57-4029-4061-95f1-0a797582b877",
+      "group": "Leadership & agile"
+    },
+    {
+      "name": "The Complete Agile & Scrum Project Management Course",
+      "issuer": "365 Careers, via Udemy",
+      "date": "2025-09",
+      "url": "https://www.udemy.com/certificate/UC-9890e767-b2ba-4586-bf64-e0ced7f94b37/",
+      "id": "UC-9890e767-b2ba-4586-bf64-e0ced7f94b37",
+      "group": "Leadership & agile"
+    },
+    {
+      "name": "Complete Web Design: from Figma to Webflow to Freelancing",
+      "issuer": "Udemy",
+      "date": "2022-11",
+      "url": "https://www.udemy.com/certificate/UC-00f3dc54-c375-473f-ad30-6c5268802d58/",
+      "id": "UC-00f3dc54-c375-473f-ad30-6c5268802d58",
+      "group": "Design"
+    },
+    {
+      "name": "Complete Web & Mobile Designer in 2022: UI/UX, Figma, +more",
+      "issuer": "Udemy",
+      "date": "2022-09",
+      "url": "https://www.udemy.com/certificate/UC-2c549221-fa9d-4494-a02c-91d1cf9bfc46/",
+      "id": "UC-2c549221-fa9d-4494-a02c-91d1cf9bfc46",
+      "group": "Design"
+    }
   ],
   "publications": [
-    { "name": "The Shift to Agentic: Why Basic Chatbots Are Dead", "publisher": "Systemartis", "releaseDate": "2026-03-04", "url": "https://systemartis.com/blog/shift-to-agentic-chatbots-are-dead" },
-    { "name": "P2P and real-estate crowdfunding course (17 lessons, co-author)", "publisher": "laurentiumihai.ro", "url": "https://laurentiumihai.ro/curs-investitii-peer-to-peer-real-estate-crowdfunding/" },
-    { "name": "Free P2P investing guide (70+ pages, co-author)", "releaseDate": "2019-12" }
+    {
+      "name": "The Shift to Agentic: Why Basic Chatbots Are Dead",
+      "publisher": "Systemartis",
+      "releaseDate": "2026-03-04",
+      "url": "https://systemartis.com/blog/shift-to-agentic-chatbots-are-dead"
+    },
+    {
+      "name": "P2P and real-estate crowdfunding course (17 lessons, co-author)",
+      "publisher": "laurentiumihai.ro",
+      "url": "https://laurentiumihai.ro/curs-investitii-peer-to-peer-real-estate-crowdfunding/"
+    },
+    {
+      "name": "Free P2P investing guide (70+ pages, co-author)",
+      "releaseDate": "2019-12"
+    }
   ],
   "skills": [
-    { "name": "Leadership", "keywords": ["built an AI service line from zero", "regulator authorisation and audit", "hired and trained teams", "SOPs and ISO 9001 audit documentation", "cross-functional, distributed teams", "knowledge transfer and client ownership"] },
-    { "name": "Production AI agents", "keywords": ["human-in-the-loop by design", "confirm-first actions", "tool registries", "MCP servers", "parallel AI coding agents behind review gates", "cost caps"] },
-    { "name": "Evals and reliability", "keywords": ["golden test sets", "regression gates", "mutation testing", "deploy smoke tests", "dry runs on live data", "audit trails", "idempotency and dead-letter queues"] },
-    { "name": "Finance and accounting systems", "keywords": ["Xero API", "HubSpot", "Exact Online", "SEPA pain.001", "VIES VAT checks", "prepayments and journals", "multi-entity invoicing", "Irish Revenue and CRO rules", "e-Factura"] },
-    { "name": "Regulated and safe by design", "keywords": ["EU data residency enforced in code", "GDPR", "AML/KYC onboarding", "ECSP crowdfunding regulation", "PSD2 fund flows", "tenant isolation (RLS)", "Microsoft Entra ID SSO"] },
-    { "name": "Manufacturing", "keywords": ["FDM and SLA 3D printing", "3D modelling", "design for manufacturing", "ISO 9001:2015 operations"] },
-    { "name": "Stack", "keywords": ["TypeScript", "Python", "React", "Next.js", "Supabase and PostgreSQL", "n8n", "Vercel", "Google Cloud Run", "GitHub Actions", "Claude", "Gemini (Vertex AI EU)"] }
+    {
+      "name": "Leadership",
+      "keywords": [
+        "built an AI service line from zero",
+        "regulator authorisation and audit",
+        "hired and trained teams",
+        "SOPs and ISO 9001 audit documentation",
+        "cross-functional, distributed teams",
+        "knowledge transfer and client ownership"
+      ]
+    },
+    {
+      "name": "Production AI agents",
+      "keywords": [
+        "human-in-the-loop by design",
+        "confirm-first actions",
+        "tool registries",
+        "MCP servers",
+        "parallel AI coding agents behind review gates",
+        "cost caps"
+      ]
+    },
+    {
+      "name": "Evals and reliability",
+      "keywords": [
+        "golden test sets",
+        "regression gates",
+        "mutation testing",
+        "deploy smoke tests",
+        "dry runs on live data",
+        "audit trails",
+        "idempotency and dead-letter queues"
+      ]
+    },
+    {
+      "name": "Finance and accounting systems",
+      "keywords": [
+        "Xero API",
+        "HubSpot",
+        "Exact Online",
+        "SEPA pain.001",
+        "VIES VAT checks",
+        "prepayments and journals",
+        "multi-entity invoicing",
+        "Irish Revenue and CRO rules",
+        "e-Factura"
+      ]
+    },
+    {
+      "name": "Regulated and safe by design",
+      "keywords": [
+        "EU data residency enforced in code",
+        "GDPR",
+        "AML/KYC onboarding",
+        "ECSP crowdfunding regulation",
+        "PSD2 fund flows",
+        "tenant isolation (RLS)",
+        "Microsoft Entra ID SSO"
+      ]
+    },
+    {
+      "name": "Manufacturing",
+      "keywords": [
+        "FDM and SLA 3D printing",
+        "3D modelling",
+        "design for manufacturing",
+        "ISO 9001:2015 operations"
+      ]
+    },
+    {
+      "name": "Stack",
+      "keywords": [
+        "TypeScript",
+        "Python",
+        "React",
+        "Next.js",
+        "Supabase and PostgreSQL",
+        "n8n",
+        "Vercel",
+        "Google Cloud Run",
+        "GitHub Actions",
+        "Claude",
+        "Gemini (Vertex AI EU)"
+      ]
+    }
   ],
   "languages": [
-    { "language": "Romanian", "fluency": "Native" },
-    { "language": "English", "fluency": "Fluent" }
+    {
+      "language": "Romanian",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    }
   ],
   "projects": [],
   "meta": {

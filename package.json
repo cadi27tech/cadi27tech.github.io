@@ -6,9 +6,14 @@
     "build": "node src/build.mjs",
     "serve": "node src/build.mjs && node scripts/serve.mjs",
     "og": "node scripts/og.mjs",
-    "qa": "node src/build.mjs && node scripts/qa.mjs"
+    "qa": "node src/build.mjs && node scripts/qa.mjs",
+    "vendor": "node -e \"for (const [s, d] of [['gsap/dist/gsap.min.js', 'gsap.min.js'], ['gsap/dist/ScrollTrigger.min.js', 'ScrollTrigger.min.js'], ['lenis/dist/lenis.min.js', 'lenis.min.js']]) require('fs').copyFileSync('node_modules/' + s, 'src/assets/vendor/' + d)\""
   },
   "devDependencies": {
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.27",
     "playwright": "1.64.1"
   }
 }
