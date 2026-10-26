@@ -5,9 +5,10 @@ export const site = {
   url: 'https://cadi27tech.github.io',
   name: 'Adrian Capraru',
   email: 'adriancapraru27@gmail.com',
-  identity: 'Builder-operator who takes AI systems from zero to production and runs them, in finance, accounting and operations.',
-  title: 'Head of AI & Automation. Production AI agents for finance and accounting ops.',
-  description: 'Adrian Capraru builds production AI agents and automation for finance, accounting and operations teams: evals, audit trails, human-in-the-loop, and systems the client owns. Ex-FinTech COO, founder of 3Descu.',
+  hook: 'Most AI projects in finance die between the demo and the audit. Adrian builds the ones that survive both.',
+  identity: 'Head of AI & Automation who takes AI systems for finance and accounting from first commit to production, then runs them, with the controls a regulator and a finance director expect.',
+  title: 'Head of AI & Automation. Finance AI from first commit to production.',
+  description: 'Adrian Capraru, Head of AI & Automation: built an Irish accountancy firm\'s AI service line from zero, led a regulated FinTech through its EU licence audit as COO, and grew a factory from 5 to 200+ printers. Clients and customers in 32+ countries on four continents.',
   links: {
     linkedin: 'https://www.linkedin.com/in/adriancapraru27',
     github: 'https://github.com/cadi27tech',
@@ -19,37 +20,38 @@ export const mailto = (subject) => `mailto:${site.email}?subject=${encodeURIComp
 
 // Hero evidence ledger: figure, what it is, where the number comes from.
 export const proof = [
-  { fig: '10 days', what: 'An accountancy firm\'s 20-module client SaaS, from first commit to live production.', src: 'Build log, 23 Sep to 3 Oct 2026', href: '/work/accountancy-saas-live-in-10-days/' },
-  { fig: '107/107', what: 'Prepayment journals matched against a bookkeeper\'s own entries before go-live.', src: 'Validation run, live daily since 16 Oct 2026', href: '/work/xero-prepayment-journals-automation/' },
-  { fig: 'x65', what: 'Factory turnover in three years, at a 57% net margin. Founded with 5 printers in an apartment.', src: 'Public filings, 2022 to 2025', href: '/work/3d-printing-factory-platform-mcp-server/' },
+  { fig: '10 days', what: 'An Irish accountancy firm\'s 20-module client platform, first commit to live production, inside an AI service line Adrian built from zero.', src: 'Build log, 23 Sep to 3 Oct 2026', href: '/work/accountancy-saas-live-in-10-days/' },
+  { fig: 'Mar 2024', what: 'EU crowdfunding (ECSP) licence for the platform Adrian ran as COO, with him as lead on the authorisation and audit.', src: 'ASF register: Romania\'s 4th ECSP licence', href: '/work/eu-crowdfunding-licence-asf-authorisation/' },
+  { fig: 'x65', what: 'Factory turnover in three years, at a 57% net margin and no outside equity. Founded with 5 printers in an apartment.', src: 'Public filings, 2022 to 2025', href: '/work/3d-printing-factory-platform-mcp-server/' },
+  { fig: '32+', what: 'Countries with clients and customers, on four continents. Factory buyers in 26 of the 27 EU member states.', src: 'Order ledger and client contracts', href: '/about/' },
 ];
 
 export const builds = [
   {
-    h: 'Production AI agents for finance and accounting ops',
-    p: 'Bills and receipts read and posted to Xero, deal-to-invoice-to-payment across legal entities, prepayment journals, credit control. Agents act only after a human confirms, and every action lands in an audit trail.',
+    h: 'AI service lines, built from zero',
+    p: 'An Irish chartered accountancy firm offered no AI when Adrian joined. A year later it has its own client platform, a trained team, an AI Academy, published fee packages and automation clients of its own in Ireland, the UK and the US.',
   },
   {
-    h: 'AI systems for operations',
-    p: 'Daily reporting that matches the accountants cell by cell, multi-tenant platforms with tenant isolation proven by tests, EU-hosted where the data demands it. Measured against the numbers the business already trusts.',
+    h: 'Finance automation that moves real money',
+    p: 'Bills read and posted to Xero, deal-to-invoice-to-payment across three legal entities and four currencies, month-end journals matched 107 of 107 against the bookkeeper. Every write carries an approval, an audit trail and an idempotency key.',
   },
   {
-    h: '0-to-1 products',
-    p: 'A quoting platform, a client SaaS, an MCP server that lets AI assistants quote real parts. Built from first commit to production with AI coding agents under review, then run, not abandoned.',
+    h: 'Regulated and safe by design',
+    p: 'Controls live in the software, not in a policy document: EU-only AI processing enforced in code, an AML gate before any client account opens, tenant isolation proven by tests. The same discipline that took a FinTech through its EU licence audit.',
   },
 ];
 
 export const method = [
-  { h: 'Embed', p: 'Start inside the team that does the work: their spreadsheets, their month-end, their edge cases. The process gets redesigned before anything is automated.' },
-  { h: 'Ship', p: 'Small releases behind regression gates, a rehearsal on demo data, then a dry run on live data that changes nothing. Go-live happens when the system matches what the humans already produce.' },
-  { h: 'Hand over the keys', p: 'Code, data and accounts sit with the client from day one. Runbooks, go-live checklists and tests stay behind, so the system outlives the engagement.' },
+  { h: 'Understand the process first', p: 'Work starts inside the team that does it: their spreadsheets, their month-end, their edge cases. The process is redesigned before anything is automated, and scope is fixed with acceptance tests.' },
+  { h: 'Ship behind gates', p: 'Small releases behind evals and regression gates, a rehearsal on demo data, then a dry run on live data that changes nothing. One dry run turned 587 would-be payroll tasks into exactly 38 before a single one was created.' },
+  { h: 'Hand over the keys', p: 'Code, data and accounts sit with the client from day one. Runbooks, tests and a trained team stay behind, so the system outlives the engagement.' },
 ];
 
 export const principles = [
-  { h: 'Human-in-the-loop by design', p: 'Drafts, not postings. Approval links, review queues and confirm-first agent actions where judgement matters.' },
-  { h: 'Evals and regression gates', p: 'Golden test sets, mutation-tested guards and deploy smoke tests. 3,000+ checks gate one platform; 120+ checkers gate another.' },
-  { h: 'Audit trails', p: 'Writes are logged and idempotent, so a retry never doubles an invoice. Failed jobs go to a dead-letter queue, never into silence.' },
-  { h: 'Client ownership', p: 'No lock-in: the client\'s own cloud accounts, repositories and credentials, with knowledge transfer built into the plan.' },
+  { h: 'Numbers computed, words generated', p: 'Figures come from deterministic code; AI writes the words around them. A fee, a VAT amount or a filing deadline is never a model guess.' },
+  { h: 'People approve what needs judgement', p: 'Agents act; people sign off wherever money, customers or a client ledger are involved. Drafts not postings, signed approval links, confirm-first assistant actions.' },
+  { h: 'Evals and regression gates', p: 'Golden test sets, mutation-tested guards and deploy smoke tests. 3,000+ checks gate one platform; 120+ checkers and about 260K assertions gate another.' },
+  { h: 'A trail an auditor can follow', p: 'Every action is logged and idempotent, so a retry never doubles an invoice. Failed jobs land in a queue a person reviews, never in silence.' },
 ];
 
 // Press: only articles with a verified URL get a link (research/05-press-awards-proof.md).
@@ -67,7 +69,7 @@ export const press = [
 ];
 
 export const upwork = {
-  line: 'Top Rated on Upwork: 100% Job Success Score, 22 contracts, 12 of 12 rated contracts five stars, one client rehired four times. All work inbound.',
+  line: 'Top Rated on Upwork: 100% Job Success, 22 contracts for clients across Europe, the US and Australia, 12 of 12 rated contracts five stars, one client hired four times. All work inbound.',
   quote: { text: 'Adrian is a total pro... The automation runs perfectly.', who: 'Nicolas P., Upwork client' },
 };
 
@@ -75,20 +77,20 @@ export const upwork = {
 export const work = [
   {
     slug: 'accountancy-saas-live-in-10-days',
-    title: 'An accountancy firm\'s client SaaS, from first commit to live production in 10 days',
-    card: 'Accountancy-firm SaaS, live in 10 days',
-    summary: 'A 20-module, multi-tenant platform for an Irish chartered accountancy practice and its clients: AI bills reader, Xero posting, VAT, SEPA payments, credit control, tax deadlines and an AI assistant that acts only after confirmation.',
+    title: 'An Irish accountancy firm\'s AI & Automation service line, built from zero, with its client platform live in 10 days',
+    card: 'Accountancy firm: AI service line from zero, platform live in 10 days',
+    summary: 'An Irish chartered accountancy and audit firm offered no AI. Adrian built the service line and runs it: a 20-module client platform live in 10 days, EU-only AI processing enforced in code, an AML gate, Irish statute as software, and AI training for the whole firm.',
     fig: '10 days', figLabel: 'first commit to live production',
     facts: {
-      Client: 'M.A. Whately & Co., Irish chartered accountancy practice',
-      Role: 'Director of AI & Business Automation (contractor). Architect and builder, directing AI coding agents.',
-      Timeline: 'First build 23 Sep 2026, live 3 Oct 2026, current scope by 21 Oct 2026',
+      Client: 'M.A. Whately & Co., Irish chartered accountancy and audit firm',
+      Role: 'Director of AI & Business Automation (contractor). Sole owner of AI at the firm, reporting to the principal: scoping, pricing, build, training and support.',
+      Timeline: 'Service line from October 2025. Platform: first build 23 Sep 2026, live 3 Oct 2026, current scope by 21 Oct 2026',
       Status: 'Live in production, pre-revenue',
     },
-    context: 'An Irish chartered accountancy practice wanted its own client platform: one place where clients send bills and receipts, see VAT and deadlines, pay suppliers and get proposals, with the practice working from the same data. Its clients were paying for separate document-capture tools, and slow quoting was costing the practice prospects.',
-    problem: 'Build software a regulated profession can put its name on, fast, without an in-house engineering team. Client financial data, identity numbers and bank details are involved, so isolation, AML checks and GDPR retention had to exist from the first release, not be retrofitted.',
+    context: 'When Adrian joined, AI was not a service the firm offered. A year later it has its own client platform, a trained team, an AI Academy, published fee packages and automation clients of its own in Ireland, the UK and the US. The flagship is the platform: one place where clients send bills and receipts, see VAT and deadlines, pay suppliers and receive proposals, with the practice working from the same data. Its clients had been paying for separate document-capture tools, and slow quoting was costing the practice prospects.',
+    problem: 'Build software a regulated profession can put its name on, fast, without an in-house engineering team. Client financial data, identity numbers and bank details are involved, so data residency, tenant isolation, AML checks and GDPR retention had to exist from the first release, not be retrofitted.',
     constraints: [
-      'EU hosting end to end: Vercel (Dublin), Supabase (eu-west-1), Resend EU, Gemini via Vertex AI in the EU.',
+      'EU data residency enforced in code, not in policy: Vercel (Dublin), Supabase (eu-west-1), Resend EU, Gemini via Vertex AI in the EU with data caching disabled. A US model is an opt-in fallback only, so client documents never leave the EU silently.',
       'A regulated profession: AML and customer due-diligence gate, audit log, retention purge, a DPA template.',
       'No engineering team to maintain it, so the test suite and runbooks had to carry the knowledge.',
       'Unit economics that beat paid capture tools: target under one cent per document.',
@@ -96,11 +98,14 @@ export const work = [
     built: [
       '<strong>20 product modules</strong> (16 client-facing, 4 practice-only): bills and receipts, VAT, supplier payments, credit control, Irish tax deadlines, proposals with a fee calculator, expenses, a client portal. 53 request templates across 14 sectors.',
       '<strong>AI bills reader.</strong> Two Gemini models via Vertex AI EU reach a consensus on every field, with Claude as an opt-in fallback. VAT numbers are checked against VIES, bills post to Xero, and supplier payments export as SEPA pain.001 files.',
+      '<strong>Irish statute as software.</strong> Revenue deadlines for PAYE, RCT, VAT, Form 46G, LPT and Form 11, CRO audit-exemption tests (S.I. 301/2024), statutory late-payment interest and Irish bank holidays, encoded as rules and covered by tests.',
+      '<strong>An AML gate.</strong> Client account set-up stays blocked until the identity check is verified. IBAN confirmations are admin-only, stamped and audited by a database trigger.',
       '<strong>AI assistant with confirm-first actions.</strong> A tool-registry agent that runs under the user\'s own session permissions, proposes an action, and executes only after the user confirms. Per-tenant cost caps. A daily staff brief went live on 7 Oct.',
+      '<strong>Numbers computed, words generated.</strong> The fee engine computes every figure deterministically and lets AI compose only the wording, a rule written down with reference to model non-determinism and Irish DPC guidance.',
       '<strong>Security by default.</strong> Row-level tenant isolation, CSP and HSTS, masked PPS and IBAN numbers, 192-bit recipient tokens, an audit log and automatic retention purge. SSL Labs grade A.',
-      '<strong>Packaging.</strong> A five-tier price ladder (Free, Essentials EUR 59, Pro EUR 129, Business EUR 249, Practice Bookkeeping EUR 149) with add-ons.',
+      '<strong>A service the firm can sell.</strong> A five-tier price ladder (Free, Essentials EUR 59, Pro EUR 129, Business EUR 249, Practice Bookkeeping EUR 149) with add-ons, and an AI for Accountants session that trained the full team (10+ people) with live demos, backed by an AI Academy of 8 lessons and 48 prompts.',
     ],
-    flow: ['Client uploads a bill or receipt', 'Two models extract every field and must agree', 'VAT number checked against VIES', 'Bill drafted in Xero for review', 'Approved payments exported as a SEPA file'],
+    flow: ['Client uploads a bill or receipt', 'Two EU-hosted models extract every field and must agree', 'VAT number checked against VIES', 'Bill drafted in Xero for review', 'Approved payments exported as a SEPA file'],
     results: [
       { n: '10 days', l: 'from first commit (23 Sep) to live production (3 Oct 2026)' },
       { n: '20', l: 'modules live within four weeks' },
@@ -108,30 +113,73 @@ export const work = [
       { n: '< 1 cent', l: 'per document, about USD 0.009 per scan' },
       { n: '3,000+', l: 'automated checks green (3,230 with 0 failures on 17 Oct)' },
       { n: '87/87', l: 'deploy smoke test on every deploy since 6 Oct (85/85 at launch)' },
+      { n: '10+', l: 'people trained: the full firm team, in an AI for Accountants session with live demos' },
     ],
     reliability: 'Fifty backend test files and 55 browser end-to-end suites run before release; the AI assistant has its own unit and end-to-end tests (17/17, 8/8). Every deploy runs an 87-point smoke test against the live system. Accuracy on real client documents has not yet been measured; that is the next evaluation, and the synthetic corpus figure is reported as exactly that.',
-    earlier: 'Same firm, alongside the SaaS: the practice\'s client-management system was rebuilt. 587 client records were migrated, a 97-field schema was cleaned with 3,172 writes and 0 failures, and dashboards went live for 10 staff and the owner. A recurring-tasks automation was held on dry run because it would have created payroll tasks for all 587 clients; after the data fix, the dry run produced 38 tasks, matching the Xero payroll clients exactly.',
+    earlier: 'Running the practice, alongside the platform: client management was rebuilt for 587 clients and 10 staff, with a 97-field schema cleaned in 3,172 writes and 0 failures. A Xero audit joined 749 sales invoices to the client records and surfaced 391 clients with no billing in 12 months. A recurring-tasks automation was held on dry run because it would have created payroll tasks for all 587 clients; after the data fix, the dry run produced exactly 38, one per payroll client in Xero.',
     owns: [
       'The code, the Supabase project and the Vercel account, all in the firm\'s name.',
       'A handover document, deploy runbook and the full regression suite.',
-      'Its pricing, packaging and module roadmap.',
+      'Its pricing, packaging and module roadmap, and a team trained to sell and use it.',
     ],
     stack: ['TypeScript', 'Vercel', 'Supabase (PostgreSQL, RLS)', 'Gemini via Vertex AI EU', 'Claude', 'Xero API', 'VIES', 'SEPA pain.001', 'Resend', 'n8n'],
     links: [{ href: 'https://suite.mawhately.ie', label: 'The live platform' }],
   },
   {
+    slug: 'eu-crowdfunding-licence-asf-authorisation',
+    title: 'Leading a real-estate crowdfunding platform through its EU licence audit, as COO',
+    card: 'HighCrowd: EU crowdfunding licence, as COO',
+    summary: 'Three years as COO of a regulated real-estate crowdfunding platform. Adrian was the lead on the authorisation and audit with the ASF, built automated KYC and AML onboarding and the investor-protection flows, and the platform received its EU crowdfunding (ECSP) licence in March 2024.',
+    fig: 'Mar 2024', figLabel: 'ECSP licence granted by the ASF',
+    facts: {
+      Company: 'HighCrowd, real-estate crowdfunding platform for retail investors',
+      Role: 'Chief Operations Officer. Lead on the authorisation process with the ASF, Romania\'s financial regulator, and owner of the operations behind it.',
+      Timeline: 'October 2022 to October 2025. Licence granted March 2024.',
+      Status: 'Licensed ECSP operator',
+    },
+    context: 'HighCrowd lets retail investors fund real-estate projects in a regulated market. When Adrian joined as COO, it had a product and no licence. Under the EU crowdfunding regulation (ECSP), the platform needed an authorisation from the national regulator, and that authorisation ran through operations: the processes, the controls and the evidence behind them.',
+    problem: 'Turn a start-up into a licensed operator while the business kept running: produce the authorisation file the regulator examines, pass its audit, and run investor onboarding and fund flows that hold up under inspection.',
+    constraints: [
+      'The regulator examines evidence, not intentions: every policy needed a working process behind it.',
+      'Retail investors, so the ECSP investor-protection rules apply to every account, from the entry test to the reflection period.',
+      'Investor money moves only through segregated flows at a licensed payment partner, under PSD2.',
+      'A distributed team, with product, engineering, legal counsel, the payment partner and technology providers all on the critical path.',
+    ],
+    built: [
+      '<strong>The ASF authorisation file and audit.</strong> Penetration testing, the architecture review and the policy set the regulator examines: risk, complaints handling, conflicts of interest, business continuity and outsourcing.',
+      '<strong>Automated KYC and AML onboarding</strong> on LemonWay under PSD2: identity checks, bank linking and segregated fund flows, cutting onboarding from about 45 to 8 minutes per investor (internal measure).',
+      '<strong>The investor-protection flows ECSP requires</strong>: an entry knowledge test, a loss-bearing simulation, key investment information sheets and the reflection period.',
+      '<strong>The operating system behind a regulated product</strong>: approval flows, exception handling, investor support and regulatory reporting, with the KPIs and operating cadence the company ran on.',
+    ],
+    flow: ['Investor registers', 'Identity and AML checks at the payment partner', 'Entry knowledge test and loss-bearing simulation', 'Key investment information sheet and reflection period', 'Investment through segregated fund flows'],
+    results: [
+      { n: 'Mar 2024', l: 'EU crowdfunding (ECSP) licence granted by the ASF: Romania\'s fourth, and only the second for real estate' },
+      { n: '45 to 8', l: 'minutes per investor to onboard, after the KYC and AML automation (internal measure)' },
+      { n: '3 years', l: 'as COO, with seven-figure investor funding placed through the platform during that tenure' },
+    ],
+    reliability: 'Every investor check was documented and kept ready for inspection. The policy set was written to match how the platform actually ran, so the audit tested real processes rather than paperwork. Regulators ask for evidence, not intentions, and the AI systems Adrian builds today carry the same habits: written controls, audit trails, human sign-off and documentation that survives an inspection.',
+    ownsH: 'Leadership',
+    owns: [
+      'Led and mentored a cross-functional, distributed team.',
+      'Coordinated product, engineering, legal counsel, the payment partner and technology providers through the authorisation.',
+      'Set the KPIs and operating cadence the company ran on.',
+    ],
+    stack: ['ECSP, Regulation (EU) 2020/1503', 'LemonWay (PSD2)', 'KYC and AML', 'Penetration testing', 'Policy set and regulatory reporting'],
+    links: [],
+  },
+  {
     slug: '3d-printing-factory-platform-mcp-server',
-    title: 'From 5 printers in an apartment to a 200+ printer factory, with its own quoting platform and MCP server',
+    title: 'From 5 printers in an apartment to a 200+ printer factory selling into 26 of the 27 EU member states',
     card: '3Descu: factory, platform and MCP server',
-    summary: 'A 0-to-100 story. An EU start-up grant and 5 printers in 2022; today an ISO 9001:2015 certified company with 200+ printers, a self-built quoting platform in four languages, and one of the first manufacturing MCP servers.',
+    summary: 'A 0-to-100 story. An EU start-up grant and 5 printers in 2022; today an ISO 9001:2015 certified company with 200+ printers, buyers in 26 of the 27 EU member states, a 57% net margin with no outside equity, its own quoting platform in four languages, and one of the first manufacturing MCP servers.',
     fig: 'x65', figLabel: 'turnover in three years, 57% net margin',
     facts: {
       Company: '3Descu (TREIDESCUPRINT SRL), on-demand 3D printing for engineering buyers',
-      Role: 'Founder. Strategy, production, sales, finance, and sole engineer of the software, with AI coding agents.',
+      Role: 'Founder. Strategy, P&L, pricing, production and sales. Hired and trained the team. Sole engineer of the software, with AI coding agents.',
       Timeline: 'Founded June 2022. Platform built June to October 2026.',
       Status: 'Operating and growing. Platform and MCP server live.',
     },
-    context: 'The business plan was written during a Master\'s degree and won an EU start-up grant (about EUR 60K, ranked first among applicants). The factory started with 5 printers in a small apartment in Targu Jiu. Within a year it pivoted from consumers to engineering buyers, and it became an approved and audited production partner of one of the largest on-demand manufacturing platforms in the EU.',
+    context: 'The business plan was written for a Master\'s in Entrepreneurship and won an EU start-up grant (about EUR 60K, ranked first among applicants). The factory started with 5 printers in a small apartment in Targu Jiu. Within a year it pivoted from consumers to engineering buyers, and it became an approved and audited production partner of one of the largest on-demand manufacturing platforms in the EU.',
     problem: 'Sell custom manufacturing to engineers across Europe from a regional town, with a team of four. That means instant, trustworthy prices from a CAD file, a checkout that works in the buyer\'s language and currency, and operations that do not need a sales team to answer every request.',
     constraints: [
       'A team of 4 including contractors, so software has to replace headcount.',
@@ -140,6 +188,7 @@ export const work = [
       'Customer data from five sales channels, with GDPR and marketplace contract rules on who may be contacted.',
     ],
     built: [
+      '<strong>The team and the operation.</strong> Adrian hired and trained the staff, on site and remotely, and wrote the SOPs and the ISO 9001 audit documentation. He is hands-on with every step: FDM and SLA production, 3D modelling and design for manufacturing.',
       '<strong>Instant quoting platform</strong> (quote.3descu.com): upload a 3D file, get mesh analysis in the browser (watertight check, volume, bounding box), a price in under a minute, payment by card, bank or PayPal, PDF offers, a customer portal and an admin back office. English, German, French and Dutch.',
       '<strong>An MCP server</strong> so AI assistants such as ChatGPT and Claude can quote real parts: 4 tools, keyless, rate-limited, prices calibrated on measured parts. Listed in the official MCP Registry as io.github.cadi27tech/3descu-quote, on Glama, and in 4 community directories through merged pull requests.',
       '<strong>A release gate</strong> of 120+ automated checkers running about 260K assertions on every release, with mutation-tested guards so a checker that stops catching errors is itself caught.',
@@ -150,8 +199,8 @@ export const work = [
     results: [
       { n: '5 to 200+', l: 'printers, from an apartment (2022) to a dedicated production hall' },
       { n: 'x65', l: 'turnover in three years, about EUR 190K in 2025, up 75% year on year, at a 57% net margin (public filings)' },
-      { n: '2,000+', l: 'orders from 1,600+ buyers in 30 countries; 45% of orders ship to Germany; one in three from a returning customer' },
-      { n: '4.7/5', l: 'rating from 200+ verified buyers' },
+      { n: '2,000+', l: 'orders from 1,600+ buyers in 30 countries, including 26 of the 27 EU member states; 45% of orders ship to Germany; one in three from a returning customer' },
+      { n: '4.7/5', l: 'rating from 200+ verified B2B buyers' },
       { n: '~400', l: 'merged pull requests and 929 commits in under five months, solo, with 38 edge functions' },
       { n: '10', l: 'press articles within a week of the AI quoting launch, at zero ad spend' },
     ],
@@ -172,11 +221,11 @@ export const work = [
     slug: 'hubspot-to-xero-multi-entity-invoicing',
     title: 'HubSpot to Xero invoicing across 3 legal entities and 4 currencies',
     card: 'HubSpot to Xero, multi-entity invoicing',
-    summary: 'Closed deals become approved Xero invoices in the right legal entity and currency, emailed to the customer and chased automatically. Live since April 2026, 212+ invoices.',
+    summary: 'Automation that moves real money: closed deals become approved Xero invoices in the right legal entity and currency, emailed to the customer and chased until paid. Live since April 2026, about 52 invoices a month under signed approvals.',
     fig: '3 entities', figLabel: '4 currencies, live since April 2026',
     facts: {
-      Client: 'Multi-entity B2B software reseller (US, UK and EU companies)',
-      Role: 'Architect and builder. Direct engagement.',
+      Client: 'Multi-entity B2B software reseller (US, UK and EU companies), delivered through M.A. Whately & Co.',
+      Role: 'Architect and builder',
       Timeline: 'Designed February 2026, live 15 April 2026, hardening release 15 September 2026',
       Status: 'Live in production',
     },
@@ -213,7 +262,7 @@ export const work = [
     slug: 'eu-sovereign-financial-reporting-platform',
     title: 'An EU-sovereign, multi-tenant financial reporting platform for the education sector',
     card: 'EU-sovereign financial reporting platform',
-    summary: 'A self-hosted, multi-tenant platform in the Netherlands that turns Exact Online ledgers into board-ready reporting for education organisations, with tenant isolation proven by tests.',
+    summary: 'An EU-sovereign financial reporting platform with no US-owned service in the stack: self-hosted in the Netherlands, Microsoft sign-in, Exact Online ledgers turned into board-ready reports for education organisations, and tenant isolation proven by tests.',
     fig: '5/5', figLabel: 'isolation policies caught by mutation tests',
     facts: {
       Client: 'Dutch education-sector finance platform',
@@ -224,13 +273,14 @@ export const work = [
     context: 'A Dutch client serving education organisations needed a platform to replace manual reporting: profit and loss, balance sheet and cash flow from each organisation\'s ledger, explained in plain language for board members who are not accountants.',
     problem: 'Many organisations on one platform, each seeing only its own numbers, with infrastructure that stays in the EU and under the client\'s control. A data leak between tenants would end the product.',
     constraints: [
-      'Self-hosted in the Netherlands, on infrastructure the client controls.',
+      'Self-hosted in the Netherlands, on infrastructure the client controls, with no US-owned service anywhere in the stack.',
       'Strict tenant isolation, enforced in the database rather than the application.',
       'Sign-in with the organisations\' existing Microsoft accounts.',
       'Fixed budgets per phase.',
     ],
     built: [
-      '<strong>Self-hosted core</strong> on a Dutch VPS with Docker Compose: Supabase (PostgreSQL with row-level security), n8n, Caddy for TLS, encrypted off-site backups and encrypted secrets.',
+      '<strong>A regulated pilot, designed up front.</strong> Adrian designed the pilot across three organisation types (a bookkeeping firm, an audit firm and school boards), raised the need for a data processing agreement per firm before anyone asked, and wrote the security brief for their IT teams. Both firms approved.',
+      '<strong>Self-hosted core</strong> on a Dutch VPS with Docker Compose: Supabase (PostgreSQL with row-level security), n8n, Caddy for TLS, encrypted off-site backups, ledger tokens encrypted at rest and secrets kept encrypted.',
       '<strong>Microsoft Entra ID single sign-on</strong> bridged into the database\'s own session tokens, so the isolation rules apply to every query.',
       '<strong>Exact Online sync</strong> (read-only) on a schedule, and a report builder driven by the client\'s own chart-of-accounts workbook, so finance stays the source of truth for structure.',
       '<strong>Reporting</strong>: profit and loss, balance sheet and cash flow with drill-down to ledger transactions, per-tenant branding, and a plain-language AI explainer clearly labelled as beta.',
@@ -296,7 +346,7 @@ export const work = [
     summary: 'Six daily reports for five hotels, built from the property-management and point-of-sale exports and matched to the accounting team\'s own figures, cell by cell, for every hotel.',
     fig: '5 hotels', figLabel: 'matched to accounting, cell by cell',
     facts: {
-      Client: 'Multi-country hospitality group',
+      Client: 'Hospitality group operating in Spain and Romania',
       Role: 'Architect and builder. Largest Upwork contract.',
       Timeline: 'March to April 2026',
       Status: 'Delivered, with a cloud pipeline for daily runs',
@@ -312,7 +362,7 @@ export const work = [
       '<strong>Source rules agreed with the accountants</strong> line by line: which export feeds each row, what is excluded, and which values they still fill by hand.',
       '<strong>Report generation</strong> into the accounting team\'s existing templates, so nothing about their workflow changed except the typing.',
       '<strong>A cloud pipeline</strong>: exports arrive by email, an n8n flow hands them to a Cloud Run job, outputs land in Cloud Storage. Missing documents trigger an alert, and a manual upload resumes the run.',
-      '<strong>Follow-on work</strong> for the same group: guest e-invoicing in Romania across 3 legal entities and 3 invoice series with multiple VAT rates, including a WhatsApp AI agent that looks up the stay and returns the PDF invoice.',
+      '<strong>Follow-on work</strong> for the same group: guest e-invoicing extended from Spain to Romania (e-Factura), across 3 legal entities and 3 invoice series with multiple VAT rates, including a WhatsApp AI agent that looks up the stay and returns the PDF invoice.',
     ],
     flow: ['Property and point-of-sale exports arrive by email', 'Pipeline checks every expected document is present', 'Source rules applied row by row', 'Reports written into the accounting templates', 'Accountants review; missing inputs raise an alert'],
     results: [

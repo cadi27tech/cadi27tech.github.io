@@ -18,7 +18,7 @@ const tick = '<svg viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-9" fill="none" str
 const card = (title, fig, label) => `<html><head><style>${css}</style></head><body><div class="n">Adrian Capraru <span>Head of AI &amp; Automation</span></div><h1>${esc(title)}</h1><div class="row">${tick}<div class="f">${esc(fig)}</div><div class="l">${esc(label)}</div></div></body></html>`;
 const b = await chromium.launch({ channel: 'chrome' });
 const p = await b.newPage({ viewport: { width: 1200, height: 630 } });
-const jobs = [['default', card(site.identity, '10 days', 'an accountancy SaaS from first commit to live production')], ...work.map((w) => [w.slug, card(w.title, w.fig, w.figLabel)])];
+const jobs = [['default', card(site.hook, '10 days', 'an accountancy platform from first commit to live production')], ...work.map((w) => [w.slug, card(w.title, w.fig, w.figLabel)])];
 for (const [name, html] of jobs) { await p.setContent(html); await p.evaluate(() => document.fonts.ready); await p.screenshot({ path: join(OUT, `${name}.png`) }); }
 await p.setViewportSize({ width: 180, height: 180 });
 await p.setContent(`<html><body style="margin:0">${readFileSync(join(SRC, 'static', 'favicon.svg'), 'utf8').replace('<svg ', '<svg width="180" height="180" ')}</body></html>`);

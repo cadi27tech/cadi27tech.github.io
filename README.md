@@ -6,7 +6,7 @@ Static site, zero runtime dependencies. Live at https://cadi27tech.github.io/ (G
 
 | What | File |
 |---|---|
-| Identity, hero numbers, "What Adrian builds", method, principles, press list, the 6 case studies | `src/content.mjs` |
+| Identity, hero numbers, "What Adrian builds", method, principles, press list, the 7 case studies | `src/content.mjs` |
 | Roles, education, certificates, skills (single source for the timeline, /about, /cv, `/resume.json`, `/llms.txt`) | `src/resume.json` (JSON Resume 1.x) |
 | Page templates, JSON-LD, sitemap, robots, llms.txt | `src/build.mjs` |
 | Styles and design tokens (light and dark) | `src/assets/site.css` |

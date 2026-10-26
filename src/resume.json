@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Adrian Capraru",
-    "label": "Head of AI & Automation. Production AI agents for finance and accounting operations.",
+    "label": "Head of AI & Automation. Finance AI from first commit to production, built to survive an audit.",
     "email": "adriancapraru27@gmail.com",
     "url": "https://cadi27tech.github.io/",
-    "summary": "Builder-operator who takes AI systems from zero to production and runs them, in finance, accounting and operations. Took an accountancy firm's 20-module SaaS from first commit to live production in 10 days, behind 3,000+ automated checks. Founded 3Descu and grew it from 5 printers in an apartment to a 200+ printer factory, turnover x65 in three years at a 57% net margin. Former FinTech COO who led operational and compliance readiness for an EU crowdfunding (ECSP) licence. 6 years in FinTech product and operations plus 2 years shipping AI automation in production. Works human-in-the-loop by design: evals and regression gates, audit trails, confirm-first agent actions, and client ownership of every system.",
+    "summary": "Most AI projects in finance die between the demo and the audit; Adrian Capraru builds the ones that survive both, and then runs them. He built an Irish chartered accountancy firm's AI & Automation service line from zero, including a 20-module client platform live in 10 days behind 3,000+ automated checks, with EU-only AI processing enforced in code. As COO of a real-estate crowdfunding platform he was the lead on the ASF authorisation and audit that ended in an EU crowdfunding (ECSP) licence in March 2024. He founded 3Descu and grew it from 5 printers in an apartment to a 200+ printer factory, turnover x65 in three years at a 57% net margin. Co-Founder & Automation Architect at Systemartis. Clients and customers in 32+ countries on four continents. 6 years in FinTech product and operations plus 2 years shipping AI automation in production.",
     "location": {
       "city": "Bucharest",
       "countryCode": "RO"
@@ -22,26 +22,31 @@
       "position": "Director of AI & Business Automation (contractor)",
       "url": "https://suite.mawhately.ie",
       "startDate": "2025-10",
-      "summary": "Irish chartered accountancy practice. Leads the firm's automation function: the systems the firm runs on and the automation it delivers to its clients.",
+      "summary": "Irish chartered accountancy and audit firm. Hired to bring AI into a regulated practice; built its AI & Automation service line from nothing and runs it as sole owner of AI, reporting to the principal: scoping, pricing, build, training and support.",
       "highlights": [
-        "Took the firm's multi-tenant client SaaS from first commit to live production in 10 days (23 Sep to 3 Oct 2026): 20 modules, 3,000+ automated checks, an 87-point deploy smoke test on every deploy.",
+        "Built the service line from zero: a client platform, an AI Academy, published fee packages and automation clients of the firm's own in Ireland, the UK and the US.",
+        "Took the firm's multi-tenant client platform from first commit to live production in 10 days (23 Sep to 3 Oct 2026): 20 modules, 3,000+ automated checks, an 87-point smoke test on every deploy.",
+        "Made it safe by design: EU-only AI processing enforced in code, an AML due-diligence gate before any client account opens, audited IBAN confirmation, tenant isolation, and Irish statute (Revenue deadlines for PAYE, RCT, VAT and Form 11, CRO audit-exemption tests) encoded as software.",
         "Built an EU-hosted AI bills reader at 99.8% field accuracy on a synthetic test corpus, for under one cent per document, posting to Xero with VIES checks and SEPA payment files.",
-        "Rebuilt the practice's client-management system: 587 client records migrated, a 97-field schema cleaned, 3,172 writes with 0 failures, dashboards for 10 staff and the owner.",
+        "Rebuilt practice management for 587 clients and 10 staff: 3,172 writes with 0 failures. A dry run caught a mass error before it happened, turning 587 would-be payroll tasks into exactly 38.",
+        "Audited 749 Xero sales invoices against the client records and surfaced 391 clients with no billing in 12 months.",
+        "Trained the full team (10+ people) in an AI for Accountants session with live demos, backed by an 8-lesson AI Academy.",
+        "Automated deal-to-invoice-to-payment from HubSpot to Xero for a software reseller across 3 legal entities and 4 currencies: live since April 2026, 212+ invoices under HMAC-signed approvals.",
         "Automated month-end prepayment journals for a tour operator, validated 107/107 against the bookkeeper's own entries, live daily since 16 Oct 2026.",
         "Productised a SEPA payment-file converter sold as a monthly subscription."
       ]
     },
     {
-      "name": "Independent practice (Upwork and direct)",
+      "name": "Independent practice (Upwork)",
       "position": "Senior finance-ops AI engineer",
       "url": "https://www.upwork.com/freelancers/cadrian",
       "startDate": "2025-12",
-      "summary": "Top Rated on Upwork with a 100% Job Success Score: 22 contracts, 12 of 12 rated contracts five stars, one client rehired four times, all work inbound.",
+      "summary": "Top Rated on Upwork with a 100% Job Success Score: 22 contracts for clients across Europe, the US and Australia, 12 of 12 rated contracts five stars, one client hired four times, all work inbound. Takes the work most freelancers avoid: finance data, regulated sectors and systems that must run unattended.",
       "highlights": [
-        "Automated deal-to-invoice-to-payment from HubSpot to Xero across 3 legal entities and 4 currencies, live since April 2026 with 212+ invoices (direct engagement).",
-        "Built an EU-sovereign, multi-tenant financial reporting platform for the education sector, tenant isolation proven by automated tests (52/52 sign-in e2e, 5/5 RLS mutation tests); each phase at or under budget.",
-        "Automated daily revenue reporting for a five-hotel group, matched to the accounting team's figures cell by cell.",
-        "Built a self-improving, regression-locked LLM pipeline for industrial PLC code migration; five stars plus a bonus."
+        "Built an EU-sovereign, multi-tenant financial reporting platform for the Dutch education sector with no US-owned service in the stack; designed the pilot across a bookkeeping firm, an audit firm and school boards, and raised the data processing agreements before anyone asked. Tenant isolation proven by tests (52/52 sign-in e2e, 5/5 RLS mutation tests); each phase at or under budget, the follow-on won at a fixed price.",
+        "Automated daily revenue reporting for a five-hotel group in Spain and Romania, matched to the accounting team's figures cell by cell, then extended guest e-invoicing to Romania's e-Factura.",
+        "Built a self-improving, regression-locked LLM pipeline that migrates safety-critical PLC code for an industrial automation client in Denmark; five stars plus a bonus.",
+        "Built an AI campaign publisher for a PPC agency where every AI-built campaign is created paused, so a person approves it before any budget is spent."
       ]
     },
     {
@@ -49,37 +54,47 @@
       "position": "Founder",
       "url": "https://3descu.com",
       "startDate": "2022-06",
-      "summary": "On-demand 3D printing manufacturer for engineering buyers across Europe. Founded on an EU start-up grant; runs strategy, production, sales, finance and every line of the software.",
+      "summary": "On-demand 3D printing manufacturer for engineering buyers across Europe, founded on an EU start-up grant with no outside equity. Runs strategy, P&L, pricing, production and sales, and wrote every line of the software.",
       "highlights": [
-        "Grew from 5 printers in an apartment (2022) to more than 200; turnover x65 in three years to about EUR 190K in 2025 at a 57% net margin, up 75% year on year (public filings).",
-        "2,000+ orders from 1,600+ buyers in 30 countries; 45% of orders ship to Germany; one in three orders from a returning customer; rated 4.7/5 by 200+ verified buyers.",
+        "Grew from 5 printers in an apartment (2022) to more than 200 in its own production hall; turnover x65 in three years to about EUR 190K in 2025 at a 57% net margin, up 75% year on year (public filings).",
+        "2,000+ orders from 1,600+ buyers in 30 countries, including 26 of the 27 EU member states; 45% of orders ship to Germany; one in three orders from a returning customer; rated 4.7/5 by 200+ verified buyers.",
+        "Hired and trained the team on site and remotely; wrote the SOPs and the ISO 9001 audit documentation. Hands-on with FDM and SLA production, 3D modelling and design for manufacturing.",
         "Shipped the quoting-to-fulfilment platform solo with AI coding agents in under five months: 929 commits, ~400 merged pull requests, 38 edge functions, 4 languages, 120+ release checkers (~260K assertions per run).",
         "Shipped one of the first manufacturing MCP servers, listed in the official MCP Registry (io.github.cadi27tech/3descu-quote).",
         "Zero-budget press launch: 10 articles in national, regional and international trade press within a week.",
-        "ISO 9001:2015 certified company; ranked 1st in Gorj county in 3 ListaFirme Topul Firmelor 2026 categories (professional and design services)."
+        "ISO 9001:2015 certified company; approved production partner of one of the largest on-demand manufacturing platforms in the EU; ranked 1st in Gorj county in 3 ListaFirme Topul Firmelor 2026 categories (professional and design services)."
       ]
     },
     {
       "name": "Systemartis",
-      "position": "Co-Founder",
+      "position": "Co-Founder & Automation Architect",
       "url": "https://systemartis.com/about-us",
       "startDate": "2023",
-      "summary": "Bucharest AI systems studio, team of 4. Leads the automation practice: agents, workflow automation and custom software for B2B operations teams."
+      "summary": "Bucharest AI systems studio, team of 4, that takes mid-market companies past the pilot and into production. Leads the automation practice, from process discovery and solution design to the agents, workflows and code that run in production.",
+      "highlights": [
+        "Studio work: an operational brain for the studio itself, a fleet of agents on its own orchestrator with retries, human checkpoints and a full audit log; 70% of founder decisions handled or pre-routed, 20+ hours a week reclaimed.",
+        "Studio work: an AI voice receptionist for an independent French garage, with live calendar booking during the call, double-booking blocked at database level and transcripts purged after 30 days.",
+        "Author of \"The Shift to Agentic: Why Basic Chatbots Are Dead\" on the studio blog (4 March 2026)."
+      ]
     },
     {
       "name": "Innovium",
       "position": "Founder",
       "startDate": "2023-10",
-      "summary": "Own consumer-products brand with a registered EU trademark (9 classes) and 66+ products on eMAG. About EUR 50K revenue in 2025, profitable. Built the pricing and order automation (courier labels, e-invoicing)."
+      "summary": "Own consumer-products brand, founded in 2023 and profitable in its second trading year: registered EU trademark (9 classes), 66+ products on European marketplaces, about EUR 50K revenue in 2025. Runs on automation: courier labels, ANAF e-invoicing and order flows, plus a pricing layer built with Systemartis (related party) after which marketplace sales rose 40% in a year."
     },
     {
       "name": "HighCrowd",
       "position": "Chief Operations Officer",
       "startDate": "2022-10",
       "endDate": "2025-10",
-      "summary": "EU real-estate crowdfunding platform. Led operational and compliance readiness (penetration testing, documentation, architecture review with the regulator) for the platform's EU crowdfunding (ECSP) licence, granted by ASF in March 2024.",
+      "summary": "EU-regulated real-estate crowdfunding platform for retail investors. Took it from start-up to licensed operator as lead on the authorisation process and audit with the ASF, Romania's financial regulator. EU crowdfunding (ECSP) licence granted March 2024: Romania's fourth, and the second for real estate.",
       "highlights": [
-        "Designed investor onboarding on LemonWay with KYC and AML checks, cutting onboarding from about 45 to 8 minutes per investor (internal measure)."
+        "Led the ASF authorisation file and audit: penetration testing, the architecture review and the policy set the regulator examines (risk, complaints handling, conflicts of interest, business continuity, outsourcing).",
+        "Automated KYC and AML onboarding on LemonWay under PSD2, with identity checks, bank linking and segregated fund flows: about 45 to 8 minutes per investor (internal measure).",
+        "Built the investor-protection flows ECSP requires: entry knowledge test, loss-bearing simulation, key investment information sheets and the reflection period.",
+        "Seven-figure investor funding placed through the platform during his tenure.",
+        "Led and mentored a cross-functional, distributed team; coordinated product, engineering, legal counsel, the payment partner and technology providers, and set the KPIs and operating cadence the company ran on."
       ]
     },
     {
@@ -87,14 +102,24 @@
       "position": "Head of Community",
       "startDate": "2021-10",
       "endDate": "2024-06",
-      "summary": "Managed investor communications and the migration plan through the 2022 EvoEstate-InRento merger (12,000+ combined investors). Produced the platform explainer video (14K+ views)."
+      "summary": "Licensed buy-to-let crowdfunding platform. Ran the investor side of the 2022 EvoEstate-InRento merger, which joined the two into one investor base of 12,000+.",
+      "highlights": [
+        "Phased migration communications across email, community and support, with account migration kept separate from feature changes so no investor was stranded mid-move.",
+        "Persona-based investor segmentation that helped cut marketing cost 30% quarter on quarter.",
+        "Produced the platform explainer video (14K+ views) and the education content behind investor acquisition."
+      ]
     },
     {
       "name": "EvoEstate",
       "position": "Community Manager, then Product Manager",
       "startDate": "2020-03",
       "endDate": "2021-10",
-      "summary": "Pan-European real-estate crowdfunding aggregator (6,700 investors). Promoted from Community Manager to Product Manager within 8 months; owned the roadmap and the secondary market. Produced the platform explainer video (25K+ views)."
+      "summary": "Pan-European real-estate crowdfunding aggregator serving 6,700 investors. Promoted from Community Manager to Product Manager within 8 months.",
+      "highlights": [
+        "Owned the product roadmap and the secondary market, where investors trade positions before maturity.",
+        "Wrote the SOPs for critical processes, cutting onboarding time for new hires.",
+        "Produced the platform explainer video (25K+ views)."
+      ]
     }
   ],
   "education": [
@@ -120,14 +145,17 @@
     { "name": "AWS Cloud Solutions Architect", "issuer": "Amazon Web Services, via Coursera", "date": "2025-10" }
   ],
   "publications": [
+    { "name": "The Shift to Agentic: Why Basic Chatbots Are Dead", "publisher": "Systemartis", "releaseDate": "2026-03-04", "url": "https://systemartis.com/blog/shift-to-agentic-chatbots-are-dead" },
     { "name": "P2P and real-estate crowdfunding course (17 lessons, co-author)", "publisher": "laurentiumihai.ro", "url": "https://laurentiumihai.ro/curs-investitii-peer-to-peer-real-estate-crowdfunding/" },
     { "name": "Free P2P investing guide (70+ pages, co-author)", "releaseDate": "2019-12" }
   ],
   "skills": [
-    { "name": "Production AI agents", "keywords": ["human-in-the-loop by design", "confirm-first actions", "tool registries", "MCP servers", "multi-agent delivery", "cost caps"] },
-    { "name": "Evals and reliability", "keywords": ["golden test sets", "regression gates", "mutation testing", "deploy smoke tests", "audit trails", "idempotency and dead-letter queues"] },
-    { "name": "Finance and accounting systems", "keywords": ["Xero API", "HubSpot", "Exact Online", "Dext", "SEPA pain.001", "VIES VAT checks", "prepayments and journals", "multi-entity invoicing"] },
-    { "name": "Governance and data", "keywords": ["EU data residency", "GDPR", "AML/KYC", "tenant isolation (RLS)", "Microsoft Entra ID SSO"] },
+    { "name": "Leadership", "keywords": ["built an AI service line from zero", "regulator authorisation and audit", "hired and trained teams", "SOPs and ISO 9001 audit documentation", "cross-functional, distributed teams", "knowledge transfer and client ownership"] },
+    { "name": "Production AI agents", "keywords": ["human-in-the-loop by design", "confirm-first actions", "tool registries", "MCP servers", "parallel AI coding agents behind review gates", "cost caps"] },
+    { "name": "Evals and reliability", "keywords": ["golden test sets", "regression gates", "mutation testing", "deploy smoke tests", "dry runs on live data", "audit trails", "idempotency and dead-letter queues"] },
+    { "name": "Finance and accounting systems", "keywords": ["Xero API", "HubSpot", "Exact Online", "SEPA pain.001", "VIES VAT checks", "prepayments and journals", "multi-entity invoicing", "Irish Revenue and CRO rules", "e-Factura"] },
+    { "name": "Regulated and safe by design", "keywords": ["EU data residency enforced in code", "GDPR", "AML/KYC onboarding", "ECSP crowdfunding regulation", "PSD2 fund flows", "tenant isolation (RLS)", "Microsoft Entra ID SSO"] },
+    { "name": "Manufacturing", "keywords": ["FDM and SLA 3D printing", "3D modelling", "design for manufacturing", "ISO 9001:2015 operations"] },
     { "name": "Stack", "keywords": ["TypeScript", "Python", "React", "Next.js", "Supabase and PostgreSQL", "n8n", "Vercel", "Google Cloud Run", "GitHub Actions", "Claude", "Gemini (Vertex AI EU)"] }
   ],
   "languages": [

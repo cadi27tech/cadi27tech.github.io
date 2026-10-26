@@ -35,8 +35,9 @@ const person = {
     { '@type': 'Organization', name: 'Systemartis', url: 'https://systemartis.com' },
   ],
   alumniOf: resume.education.map((e) => ({ '@type': 'CollegeOrUniversity', name: e.institution })),
-  knowsAbout: ['Production AI agents', 'Finance and accounting automation', 'Xero', 'HubSpot', 'Evals and regression testing', 'Human-in-the-loop systems', 'EU data residency', 'GDPR', 'Model Context Protocol'],
+  knowsAbout: ['Production AI agents', 'Finance and accounting automation', 'Xero', 'HubSpot', 'Evals and regression testing', 'Human-in-the-loop systems', 'EU data residency', 'GDPR', 'AML and KYC', 'EU crowdfunding regulation (ECSP)', 'Model Context Protocol', '3D printing and design for manufacturing'],
   homeLocation: { '@type': 'Place', name: 'Romania' },
+  workLocation: { '@type': 'Place', name: 'Remote, Eastern European Time (EET)' },
 };
 const org3descu = { '@type': 'Organization', '@id': abs('/#3descu'), name: '3Descu', legalName: 'TREIDESCUPRINT SRL', url: 'https://3descu.com', founder: { '@id': abs('/#person') }, foundingDate: '2022-06' };
 
@@ -144,33 +145,33 @@ pages.push({
   path: '/', current: '/', title: `${site.name} - ${site.title}`, description: site.description,
   jsonld: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: abs('/') }, { '@context': 'https://schema.org', ...person }],
   body: `<section class="hero" aria-labelledby="hero-h"><div class="wrap">
-<div class="hero-grid"><h1 id="hero-h"><span class="name">${esc(site.name)}, Head of AI &amp; Automation</span>${esc(site.identity)}</h1>
-<div><p class="lede">Production AI agents and automation for finance and accounting teams, built by a former FinTech COO who also founded and runs a factory. Based in Romania, working with teams in Ireland, the UK, DACH, the Nordics and Benelux.</p>
+<div class="hero-grid"><h1 id="hero-h"><span class="name">${esc(site.name)}, Head of AI &amp; Automation</span>${esc(site.hook)}</h1>
+<div><p class="lede">Two years taking AI from first commit to production for accountancy firms and finance teams, then running it. Before that, six years in regulated FinTech, the last three as COO through an EU licence audit. Alongside both, a factory grown from 5 printers to 200+. Clients and customers in 32+ countries on four continents.</p>
 <div class="ctas">
 <a class="btn btn-primary" href="${mailto('Project or role enquiry')}">Email Adrian</a>
 <a class="btn btn-ghost" href="${mailto('Request for a 30-minute call')}">Ask for a 30-minute call</a>
 </div></div></div>
 <table class="ledger">
-<caption>Three numbers, and where each one comes from</caption>
+<caption>Four numbers, and where each one comes from</caption>
 <thead><tr><th scope="col">Figure</th><th scope="col">What it measures</th><th scope="col">Source</th></tr></thead>
 <tbody>${proof.map((r) => `<tr><th scope="row" class="fig num">${esc(r.fig)}</th><td class="what"><a href="${r.href}">${esc(r.what)}</a></td><td class="src">${tick}${esc(r.src)}</td></tr>`).join('')}</tbody>
 </table>
 </div></section>
-${sec('build-h', 'What Adrian builds', 'Three kinds of system, one standard: it runs in production and matches the numbers the business already trusts.', `<div class="cols">${builds.map((b) => `<div><h3>${esc(b.h)}</h3><p>${esc(b.p)}</p></div>`).join('')}</div>`)}
-${sec('work-h', 'Selected work', 'Six case studies with context, constraints, architecture and measured results.', workList(work))}
-${sec('how-h', 'How the work runs', 'Embed, ship, hand over the keys.', `<ol class="steps" role="list">${method.map((m) => `<li><h3>${esc(m.h)}</h3><p>${esc(m.p)}</p></li>`).join('')}</ol>
+${sec('build-h', 'What Adrian builds', 'Three kinds of work, one standard: it runs in production, survives an audit and matches the numbers the business already trusts.', `<div class="cols">${builds.map((b) => `<div><h3>${esc(b.h)}</h3><p>${esc(b.p)}</p></div>`).join('')}</div>`)}
+${sec('work-h', 'Selected work', 'Seven case studies, from a regulator\'s audit to a factory floor: the context, the hard constraint, what was built and the measured result.', workList(work))}
+${sec('how-h', 'How the work runs', 'Understand the process, ship behind gates, hand over the keys.', `<ol class="steps" role="list">${method.map((m) => `<li><h3>${esc(m.h)}</h3><p>${esc(m.p)}</p></li>`).join('')}</ol>
 <dl class="principles">${principles.map((p) => `<div><dt>${esc(p.h)}</dt><dd>${esc(p.p)}</dd></div>`).join('')}</dl>
 <blockquote class="quote"><p>${esc(upwork.quote.text)}</p><footer>${esc(upwork.quote.who)}. ${esc(upwork.line)}</footer></blockquote>`)}
 ${sec('press-h', 'In the press', 'October 2026: ten articles within a week of the 3Descu AI quoting launch, at zero ad spend.', `<ul class="outlets" role="list">${press.map((p) => p.url ? `<li><a href="${p.url}">${esc(p.outlet)}</a></li>` : `<li class="nolink">${esc(p.outlet)}</li>`).join('')}</ul><p style="margin-top:1.5rem"><a href="/press/">All articles with headlines and dates</a></p>`)}
-${sec('roles-h', 'Roles', '6 years in FinTech product and operations, plus 2 years shipping AI automation in production.', timeline())}
-${cta('Similar problem, or hiring for this?', 'For project work, a fractional Head of AI, or a full-time role in AI deployment: one email is enough to start.')}`,
+${sec('roles-h', 'Roles', '6 years in FinTech product and operations, the last three as COO, plus 2 years shipping AI automation in production.', timeline())}
+${cta('Similar problem, or hiring for this?', 'For a Head of AI or fractional CTO role, AI deployment work with a finance-heavy team, or a fixed-scope project: one email is enough to start.')}`,
 });
 
 // Work index
 pages.push({
-  path: '/work/', current: '/work/', title: 'Work: case studies', description: 'Six case studies: an accountancy SaaS live in 10 days, a factory with its own platform and MCP server, HubSpot to Xero multi-entity invoicing, an EU-sovereign reporting platform, Xero prepayments 107/107, and 5-hotel revenue reporting.',
+  path: '/work/', current: '/work/', title: 'Work: case studies', description: 'Seven case studies: an accountancy firm\'s AI service line built from zero, a FinTech through its EU licence audit, a factory with its own platform and MCP server, HubSpot to Xero multi-entity invoicing, an EU-sovereign reporting platform, Xero prepayments 107/107, and 5-hotel revenue reporting.',
   body: `<section class="hero"><div class="wrap"><h1 class="case-title" style="font-size:var(--s-3);max-width:24ch">Case studies from production, with the numbers and how they were measured</h1>
-<p class="lede">Clients are described by type. Each page covers the context, the hard constraint, what was built, results, how it was tested, and what the client owns now.</p></div></section>
+<p class="lede">From a regulator's audit to a factory floor to a client ledger. Clients are described by type. Each page covers the context, the hard constraint, what was built, the results, how it was tested, and what stayed behind.</p></div></section>
 <section class="sec" aria-label="Case studies"><div class="wrap" style="display:block">${workList(work)}</div></section>
 ${cta('Have a process like one of these?', 'Send a short description of the process and the systems involved.')}`,
 });
@@ -195,7 +196,7 @@ ${block('prob', 'Problem and constraints', `<p>${esc(w.problem)}</p>${li(w.const
 ${block('built', 'What was built', `${li(w.built, true)}<h3 style="margin:2rem 0 1rem">Data path</h3><ol class="flow" role="list">${w.flow.map((f) => `<li>${esc(f)}</li>`).join('')}</ol>`)}
 ${block('res', 'Results', `<ul class="results" role="list">${w.results.map((r) => `<li><span class="num">${esc(r.n)}</span><span>${esc(r.l)}</span></li>`).join('')}</ul>`)}
 ${block('rel', 'Tests and safeguards', `<p>${esc(w.reliability)}</p>${w.earlier ? `<p>${esc(w.earlier)}</p>` : ''}`)}
-${block('own', 'What the client owns now', li(w.owns))}
+${block('own', w.ownsH || 'What the client owns now', li(w.owns))}
 ${block('stack', 'Stack', `<ul class="stack" role="list">${w.stack.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>${w.links.length ? `<h3 style="margin:2rem 0 .75rem">Links</h3><ul class="links" role="list">${w.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>` : ''}`)}
 ${sec('next-h', 'Next case study', '', `<p class="next"><a href="/work/${next.slug}/">${esc(next.title)}</a></p>`)}
 ${cta('Similar problem?', 'Describe the process, the systems and the constraint. Hiring for this skill set? The CV has the full record.')}`,
@@ -204,14 +205,14 @@ ${cta('Similar problem?', 'Describe the process, the systems and the constraint.
 
 // About
 const story = [
-  'Adrian Capraru builds AI systems for finance, accounting and operations teams, and then runs them. The habit comes from the operator side: before writing production code he ran operations at regulated FinTech companies and built a manufacturing business from nothing.',
-  'The FinTech years started in 2020 at EvoEstate, a pan-European real-estate crowdfunding aggregator, as Community Manager; within 8 months he was its Product Manager, owning the roadmap and the secondary market. At InRento he ran investor communications through the 2022 EvoEstate-InRento merger (12,000+ combined investors). As COO of HighCrowd from 2022 to 2025 he led operational and compliance readiness for the platform\'s EU crowdfunding (ECSP) licence, granted by the Romanian regulator ASF in March 2024, and designed KYC and AML investor onboarding that cut onboarding from about 45 to 8 minutes per investor (internal measure).',
-  'In parallel, in 2022, he founded 3Descu with an EU start-up grant won by a business plan written during his Master\'s. It started with 5 printers in an apartment and is now a 200+ printer, ISO 9001:2015 certified company with 2,000+ orders from 1,600+ buyers in 30 countries; turnover grew 65x in three years at a 57% net margin. He wrote all of its software himself with AI coding agents, including one of the first manufacturing MCP servers. He is also Co-Founder of Systemartis, a Bucharest AI systems studio, and founder of Innovium, a consumer brand with a registered EU trademark.',
-  'Since October 2025 he has been Director of AI & Business Automation at M.A. Whately & Co., an Irish chartered accountancy practice, where he took the firm\'s client SaaS from first commit to production in 10 days and automates bookkeeping for the firm\'s clients. Independently he is Top Rated on Upwork with a 100% Job Success Score.',
-  'The through-line is a portfolio career: founder roles, an executive role and client work running side by side, each one feeding the others. The factory taught unit economics and the cost of a wrong price; the regulated FinTech years taught audit trails and the cost of a wrong number. Both shape how the AI systems are built: human-in-the-loop by design, tested against the figures the business already trusts, and owned by the client.',
+  'Most AI projects in finance die somewhere between the demo and the audit. Adrian Capraru builds the ones that survive both, and then stays to run them. The mix behind that is deliberate: six years in regulated FinTech, two years shipping AI in production, and a manufacturing company built from nothing. He knows what a regulator asks for, what a finance director needs before signing off, and what it takes to ship software people depend on every morning. Clients and customers in 32+ countries on four continents.',
+  'The FinTech years began in 2020 at EvoEstate, a pan-European real-estate crowdfunding aggregator with 6,700 investors, as Community Manager; eight months later he was its Product Manager, owning the roadmap and the secondary market. At InRento he ran the investor side of the 2022 EvoEstate-InRento merger, keeping 12,000+ investors informed through a phased migration. As COO of HighCrowd from 2022 to 2025 he took a platform with a product and no licence to a licensed operator. He was the lead on the authorisation and audit with the ASF, Romania\'s financial regulator, built automated KYC and AML onboarding (about 45 to 8 minutes per investor, internal measure) and the investor-protection flows the EU crowdfunding regulation requires. The ECSP licence was granted in March 2024, and seven-figure investor funding was placed through the platform during his tenure. He led and mentored a cross-functional, distributed team.',
+  'In parallel, in 2022, he founded 3Descu on an EU start-up grant won by a business plan written for his Master\'s in Entrepreneurship (ranked first, about EUR 60K). It started with 5 printers in an apartment in Targu Jiu. Today it is a 200+ printer, ISO 9001:2015 certified company with no outside equity: 2,000+ orders from 1,600+ buyers in 30 countries, including 26 of the 27 EU member states, and turnover up 65x in three years at a 57% net margin. He hired and trained the team, wrote the SOPs and the ISO 9001 audit documentation, and is hands-on with FDM and SLA production, 3D modelling and design for manufacturing. He also wrote all of its software with AI coding agents, including one of the first manufacturing MCP servers.',
+  'Since October 2025 he has been Director of AI & Business Automation at M.A. Whately & Co., an Irish chartered accountancy and audit firm, where he built the AI & Automation service line from zero: a 20-module client platform live in 10 days, EU-only AI processing enforced in code, an AML gate before any client account opens, Irish statutory rules as software, and AI training for the full team. He is Co-Founder & Automation Architect at Systemartis, a four-person AI systems studio in Bucharest, and founder of Innovium, a consumer brand with a registered EU trademark. Independently he is Top Rated on Upwork with a 100% Job Success Score, for clients across Europe, the US and Australia.',
+  'The through-line is a portfolio career: founder roles, an executive role and client work side by side, each feeding the others. The regulated FinTech years taught that regulators ask for evidence, not intentions. The factory taught unit economics and the cost of a wrong price. Both shape how his AI systems are built: written controls, audit trails, human sign-off where judgement matters, tests against the figures the business already trusts, and code the client owns.',
 ];
 pages.push({
-  path: '/about/', current: '/about/', title: 'About Adrian Capraru', description: 'Portfolio career: FinTech product and operations (EvoEstate, InRento, HighCrowd COO), founder of 3Descu, Co-Founder of Systemartis, Director of AI & Business Automation at an Irish accountancy practice.',
+  path: '/about/', current: '/about/', title: 'About Adrian Capraru', description: 'Adrian Capraru: built an Irish accountancy firm\'s AI service line from zero, led a FinTech through its EU licence audit as COO, founded a 200+ printer factory, and is Co-Founder & Automation Architect at Systemartis.',
   jsonld: [{ '@context': 'https://schema.org', '@type': 'ProfilePage', dateCreated: '2026-10-26', dateModified: UPDATED, mainEntity: person, about: { '@id': abs('/#person') } }, { '@context': 'https://schema.org', ...org3descu }],
   body: `<section class="hero"><div class="wrap"><h1 style="font-size:var(--s-3);max-width:22ch">An operator who builds, and a builder who has run the operation</h1>
 <p class="lede">${esc(site.identity)}</p></div></section>
@@ -219,8 +220,8 @@ ${sec('story-h', 'The story', '', story.map((p) => `<p>${esc(p)}</p>`).join(''))
 ${sec('roles-h', 'Roles', '', timeline())}
 ${sec('edu-h', 'Education and learning', '', `<ul class="plain" role="list">${resume.education.map((e) => `<li>${esc(e.studyType)}, ${esc(e.area)}, ${esc(e.institution)} <span class="muted">(${e.startDate} to ${e.endDate})</span></li>`).join('')}
 ${resume.certificates.map((c) => `<li>${esc(c.name)}, ${esc(c.issuer)} <span class="muted">(${fmt(c.date)})</span></li>`).join('')}</ul>`)}
-${sec('comm-h', 'Community and writing', '', `<ul class="plain" role="list"><li>Co-authored a 17-lesson Romanian course on P2P and real-estate crowdfunding, and a free 70+ page guide to P2P investing (2019).</li><li>Founded and ran a P2P investing community of 2,200+ members.</li><li>Three-time guest on the Banii Vorbesc personal-finance podcast.</li><li>Languages: Romanian (native), English (fluent).</li></ul>`)}
-${cta('Work together', 'Project work, a fractional Head of AI role, or a full-time AI deployment role.')}`,
+${sec('comm-h', 'Writing, speaking and community', '', `<ul class="plain" role="list"><li>Author of <a href="https://systemartis.com/blog/shift-to-agentic-chatbots-are-dead">The Shift to Agentic: Why Basic Chatbots Are Dead</a> (Systemartis, 4 March 2026).</li><li>Delivered an AI for Accountants session with live demos to the full team (10+ people) of an Irish chartered accountancy firm, and wrote its 8-lesson AI Academy.</li><li>Co-authored a 17-lesson Romanian course on P2P and real-estate crowdfunding, and a free 70+ page guide to P2P investing (2019).</li><li>Founded and ran a P2P investing community of 2,200+ members.</li><li>Three-time guest on the Banii Vorbesc personal-finance podcast.</li><li>Languages: Romanian (native), English (fluent).</li></ul>`)}
+${cta('Work together', 'A Head of AI or fractional CTO role, AI deployment work with a finance-heavy team, or a fixed-scope project.')}`,
 });
 
 // Press
@@ -245,18 +246,19 @@ pages.push({
 <div class="ctas"><a class="btn btn-primary" href="/cv.pdf" download="Adrian_Capraru_CV.pdf">Download the PDF</a><a class="btn btn-ghost" href="/resume.json">JSON Resume</a></div></div></section>
 ${sec('exp-h', 'Experience', 'Portfolio career since 2022: roles overlap by design.', `<ul class="roles" role="list">${cvRoles}</ul>`)}
 ${sec('skills-h', 'Skills', '', `<ul class="plain" role="list">${resume.skills.map((s) => `<li><strong>${esc(s.name)}:</strong> ${esc(s.keywords.join(', '))}</li>`).join('')}</ul>`)}
+${sec('pub-h', 'Publications', '', `<ul class="plain" role="list">${resume.publications.map((x) => `<li>${x.url ? `<a href="${x.url}">${esc(x.name)}</a>` : esc(x.name)}${x.publisher ? `, ${esc(x.publisher)}` : ''}${x.releaseDate ? ` <span class="muted">(${fmt(x.releaseDate)})</span>` : ''}</li>`).join('')}</ul>`)}
 ${sec('edu2-h', 'Education', '', `<ul class="plain" role="list">${resume.education.map((e) => `<li>${esc(e.studyType)}, ${esc(e.area)}, ${esc(e.institution)} <span class="muted">(${e.startDate} to ${e.endDate})</span></li>`).join('')}${resume.certificates.map((c) => `<li>${esc(c.name)}, ${esc(c.issuer)} <span class="muted">(${fmt(c.date)})</span></li>`).join('')}</ul>`)}`,
 });
 
 // Contact
 pages.push({
-  path: '/contact/', current: '/contact/', title: 'Contact', description: `Contact ${site.name} about project work, a fractional Head of AI role or a full-time AI deployment role.`,
+  path: '/contact/', current: '/contact/', title: 'Contact', description: `Contact ${site.name} about a Head of AI or fractional CTO role, AI deployment work or a fixed-scope project.`,
   body: `<section class="hero"><div class="wrap"><h1 style="font-size:var(--s-3);max-width:20ch">Start with one email</h1>
 <p class="lede">Describe the process, the systems involved and what a good outcome looks like.</p>
 <p class="contact-email" style="margin-top:2rem"><a href="${mailto('Project or role enquiry')}">${esc(site.email)}</a></p>
 <div class="ctas"><a class="btn btn-primary" href="${mailto('Request for a 30-minute call')}">Ask for a 30-minute call</a><a class="btn btn-ghost" href="/cv/">Read the CV</a></div></div></section>
 ${sec('open-h', 'Open to', '', `<div class="prose"><ul role="list"><li>Head of AI &amp; Automation or Head of AI Operations, including fractional.</li><li>AI deployment and forward-deployed engineering roles at finance-tech and AI companies, remote or EU hubs.</li><li>Fractional CTO or Head of AI for finance-heavy small and mid-sized companies.</li><li>Fixed-scope projects: finance-ops automation, document AI, Xero and HubSpot integrations, MCP servers.</li></ul></div>`)}
-${sec('where-h', 'Where', '', `<p>Based in Romania (Eastern European Time). Works remotely with teams in Ireland, the UK, DACH, the Nordics, Benelux and the US.</p><ul class="plain" role="list"><li><a href="${site.links.linkedin}" rel="me">LinkedIn</a></li><li><a href="${site.links.github}" rel="me">GitHub</a></li><li><a href="${site.links.upwork}" rel="me">Upwork profile</a></li></ul>`)}`,
+${sec('where-h', 'Where', '', `<p>Based in Romania, on Eastern European Time (EET). Clients and customers in 32+ countries on four continents; works remotely with teams in Ireland, the UK, DACH, the Nordics, Benelux and the US.</p><ul class="plain" role="list"><li><a href="${site.links.linkedin}" rel="me">LinkedIn</a></li><li><a href="${site.links.github}" rel="me">GitHub</a></li><li><a href="${site.links.upwork}" rel="me">Upwork profile</a></li></ul>`)}`,
 });
 
 // 404
@@ -293,12 +295,14 @@ Sitemap: ${abs('/sitemap.xml')}
 
 writeFileSync(join(OUT, 'llms.txt'), `# ${site.name}
 
-> ${site.identity} ${resume.basics.label} Ex-FinTech COO, founder of 3Descu, Co-Founder of Systemartis. Based in Romania, works remotely with teams in Ireland, the UK, DACH, the Nordics, Benelux and the US. Contact: ${site.email}
+> ${site.hook} ${site.identity} Director of AI & Business Automation at M.A. Whately & Co., Co-Founder & Automation Architect at Systemartis, former COO of an EU-licensed crowdfunding platform, founder of 3Descu. Based in Romania (EET), works remotely with teams in Ireland, the UK, DACH, the Nordics, Benelux and the US. Contact: ${site.email}
+
+${resume.basics.summary}
 
 Facts on this site come from filings, test logs, live systems or clients' written records. Clients are described by type, not name.
 
 ## Key facts
-${resume.work.flatMap((r) => r.highlights || []).slice(0, 12).map((h) => `- ${h}`).join('\n')}
+${resume.work.filter((r) => r.highlights).map((r) => `### ${r.position}, ${r.name}\n${r.highlights.map((h) => `- ${h}`).join('\n')}`).join('\n\n')}
 
 ## Case studies
 ${work.map((w) => `- [${w.title}](${abs(`/work/${w.slug}/`)}): ${w.summary}`).join('\n')}
@@ -309,6 +313,9 @@ ${work.map((w) => `- [${w.title}](${abs(`/work/${w.slug}/`)}): ${w.summary}`).jo
 - [resume.json](${abs('/resume.json')}): JSON Resume, the machine-readable source
 - [Press](${abs('/press/')}): ten articles from October 2026
 - [Contact](${abs('/contact/')})
+
+## Writing
+${resume.publications.filter((x) => x.url).map((x) => `- [${x.name}](${x.url})${x.publisher ? `, ${x.publisher}` : ''}${x.releaseDate ? `, ${x.releaseDate}` : ''}`).join('\n')}
 
 ## Elsewhere
 - LinkedIn: ${site.links.linkedin}
