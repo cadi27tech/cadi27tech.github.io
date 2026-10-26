@@ -26,18 +26,78 @@ export const proof = [
   { fig: '32+', what: 'Countries with clients and customers, on four continents. Factory buyers in 26 of the 27 EU member states.', src: 'Order ledger and client contracts', href: '/about/' },
 ];
 
+// Capability sheets, ordered by research/09a (asked in 2026 postings) and 09b (demand 2027-2031).
+// when: 'now' = asked in today's best-paid postings, 'rising' = demand and budgets growing to 2030.
 export const builds = [
   {
+    icon: 'line', when: 'now',
     h: 'AI service lines, built from zero',
     p: 'An Irish chartered accountancy firm offered no AI when Adrian joined. A year later it has its own client platform, a trained team, an AI Academy, published fee packages and automation clients of its own in Ireland, the UK and the US.',
+    proof: 'Client platform live in 10 days, 20 modules, fee packages published',
+    keep: 'An AI practice with its own offer, team and pricing',
   },
   {
+    icon: 'money', when: 'now',
     h: 'Finance automation that moves real money',
     p: 'Bills read and posted to Xero, deal-to-invoice-to-payment across three legal entities and four currencies, month-end journals matched 107 of 107 against the bookkeeper. Every write carries an approval, an audit trail and an idempotency key.',
+    proof: 'About 52 invoices a month under signed approvals, live since April 2026',
+    keep: 'Live workflows in your ledger, with approvals and a runbook',
   },
   {
-    h: 'Regulated and safe by design',
-    p: 'Controls live in the software, not in a policy document: EU-only AI processing enforced in code, an AML gate before any client account opens, tenant isolation proven by tests. The same discipline that took a FinTech through its EU licence audit.',
+    icon: 'shield', when: 'rising',
+    h: 'Governed autonomy, safe by design',
+    p: 'Controls live in the software, not in a policy document. Agents read freely, draft for review and write to a ledger only after a human approves. EU-only AI processing enforced in code, an AML gate before any client account opens. The same discipline that took a FinTech through its EU licence audit.',
+    proof: 'Romania\'s 4th ECSP crowdfunding licence, with Adrian as lead on the audit',
+    keep: 'Controls a regulator or auditor can read and test',
+  },
+  {
+    icon: 'evals', when: 'rising',
+    h: 'Evals, observability and audit trails',
+    p: 'Nothing ships on a good demo. Golden test sets, mutation-tested guards and regression gates decide when a release goes out, and every action leaves a logged, idempotent trail, so a retry never doubles an invoice.',
+    proof: '3,000+ checks gate one platform; 120+ checkers and about 260K assertions gate another',
+    keep: 'The eval suite and the logs, so quality stays measurable after handover',
+  },
+  {
+    icon: 'lock', when: 'rising',
+    h: 'Security for agents and client data',
+    p: 'Hard tenant walls and nothing exposed that a job does not need. Postgres row-level security, masked PPS and IBAN numbers, CSP and HSTS, a retention purge, data processing agreements raised early and sign-in tested before anyone logs in.',
+    proof: '52 of 52 sign-in tests and 5 of 5 row-level security mutation tests on a Dutch pilot design',
+    keep: 'A security model backed by tests, not promises',
+  },
+  {
+    icon: 'mcp', when: 'rising',
+    h: 'Built for machine customers',
+    p: 'AI assistants are starting to buy on behalf of people. Adrian shipped one of the first manufacturing MCP servers, so ChatGPT and Claude can quote real parts: 4 tools, keyless, rate-limited, prices calibrated on measured parts.',
+    proof: 'Listed in the official MCP Registry, 18 Oct 2026',
+    keep: 'A storefront that AI agents can read, quote and buy from',
+  },
+  {
+    icon: 'data', when: 'now',
+    h: 'Data foundations agents can trust',
+    p: 'An agent is only as good as the records under it. Client lists rebuilt, ledgers reconciled against the books the business already trusts and duplicates made impossible, before any agent is allowed to act on them.',
+    proof: '587 clients rebuilt in 3,172 writes with 0 failures; a Xero audit joined 749 invoices and surfaced 391 unbilled clients',
+    keep: 'Clean, reconciled data the next system can build on',
+  },
+  {
+    icon: 'people', when: 'now',
+    h: 'Adoption that sticks',
+    p: 'Software changes nothing until people use it. Teams trained with live demos, an AI Academy, per-person dashboards and a daily staff brief, so the workflow changes, not just the tooling.',
+    proof: 'AI for Accountants session for the full team (10+ people); Academy of 8 lessons and 48 prompts',
+    keep: 'A trained team and the material to train the next hire',
+  },
+  {
+    icon: 'key', when: 'rising',
+    h: 'Built to hand over',
+    p: 'Fixed scope with acceptance tests, then a handover where the client owns the code, the data and the runbooks from day one. No lock-in, no black box and nobody waiting on the builder to come back.',
+    proof: 'Every engagement closes with a runbook, a deploy procedure and the full regression suite',
+    keep: 'Code, data, accounts and runbooks in your name',
+  },
+  {
+    icon: 'gear', when: 'now', wide: true,
+    h: 'Operations run from 0 to 100',
+    p: 'The builder has also run the operation. A factory founded with an EU start-up grant and 5 printers, grown to 200+ printers with a hired and trained team, SOPs and ISO 9001:2015 certification, selling into 26 of the 27 EU member states. Before that, COO of a regulated FinTech through its licence.',
+    proof: 'x65 turnover in three years at a 57% net margin, no outside equity',
+    keep: 'An operator who knows what the system has to survive on a Monday morning',
   },
 ];
 

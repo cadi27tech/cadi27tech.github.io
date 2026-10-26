@@ -26,6 +26,22 @@ const count = (s) => (/\d/.test(s) && !/\b(19|20)\d\d\b/.test(s) ? ' data-count'
 const tick = '<svg class="tick" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/></svg>';
 const arrow = '<svg class="arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>';
 
+// Capability icons: 48px blueprint line drawings, every stroke draws in on reveal (pathLength 1).
+const ICONS = {
+  line: '<path d="M8 40h32"/><path d="M12 40V30h6v10"/><path d="M21 40V22h6v18"/><path d="M30 40V12h6v28"/><path d="M10 26l10-8 9 4 11-12"/><path d="M36 10h4v4"/>',
+  money: '<circle cx="18" cy="24" r="10"/><path d="M18 18v12M15 21h5a2 2 0 010 4h-4a2 2 0 000 4h5"/><path d="M28 14h12v20H28"/><path d="M34 20l6-6M34 28l6 6"/>',
+  shield: '<path d="M24 6l14 5v11c0 9-6 16-14 20C16 38 10 31 10 22V11z"/><path d="M16 18h16M16 24h16M16 30h10"/>',
+  evals: '<rect x="7" y="9" width="34" height="26"/><path d="M11 27l6-6 5 4 7-9 5 5 4-3"/><path d="M14 41h20M24 35v6"/>',
+  lock: '<rect x="11" y="21" width="26" height="19"/><path d="M16 21v-6a8 8 0 0116 0v6"/><path d="M24 28v5"/>',
+  mcp: '<circle cx="24" cy="24" r="5"/><circle cx="9" cy="10" r="3"/><circle cx="39" cy="10" r="3"/><circle cx="9" cy="38" r="3"/><circle cx="39" cy="38" r="3"/><path d="M12 12l8 8M36 12l-8 8M12 36l8-8M36 36l-8-8"/>',
+  data: '<ellipse cx="24" cy="11" rx="13" ry="4"/><path d="M11 11v26c0 2 6 4 13 4s13-2 13-4V11"/><path d="M11 20c0 2 6 4 13 4s13-2 13-4M11 29c0 2 6 4 13 4s13-2 13-4"/>',
+  people: '<circle cx="17" cy="16" r="5"/><circle cx="32" cy="18" r="4"/><path d="M7 38c0-6 4-11 10-11s10 5 10 11"/><path d="M27 29c2-2 3-3 5-3 5 0 8 4 8 10"/>',
+  key: '<circle cx="15" cy="24" r="7"/><path d="M22 24h19M35 24v6M40 24v4"/><circle cx="15" cy="24" r="2"/>',
+  gear: '<circle cx="24" cy="24" r="6"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M11 37l4-4M33 15l4-4"/><circle cx="24" cy="24" r="12"/>',
+};
+const icon = (k) => `<svg class="sheet-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false">${ICONS[k].replace(/\/>/g, ' pathLength="1"/>')}</svg>`;
+const sheet = (b, i) => `<li data-reveal${b.wide ? ' class="wide"' : ''}><div class="sheet-top"><span class="sheet-no mono">Sht ${pad(i + 1)}</span>${icon(b.icon)}</div><span class="sheet-when mono is-${b.when}">${b.when === 'now' ? 'Asked now' : 'Rising to 2030'}</span><h3>${esc(b.h)}</h3><p>${esc(b.p)}</p><dl class="sheet-meta"><div><dt class="mono">Proof</dt><dd>${esc(b.proof)}</dd></div><div><dt class="mono">You keep</dt><dd>${esc(b.keep)}</dd></div></dl></li>`;
+
 const NAV = [['/work/', 'Work'], ['/about/', 'About'], ['/press/', 'Press'], ['/cv/', 'CV'], ['/contact/', 'Contact']];
 
 const IMG = (name) => [640, 1000, 1400].map((w) => `/img/portrait-${name}-${w}.webp ${w}w`).join(', ');
@@ -262,7 +278,7 @@ const rail = `<section class="rail-sec" aria-labelledby="work-h"><div class="rai
 
 const methodBlock = `<ol class="revs" role="list">${method.map((m, i) => `<li data-reveal><span class="rev mono">Rev ${'ABC'[i]}</span><h3>${esc(m.h)}</h3><p>${esc(m.p)}</p></li>`).join('')}</ol>
 <dl class="principles">${principles.map((p) => `<div data-reveal><dt>${esc(p.h)}</dt><dd>${esc(p.p)}</dd></div>`).join('')}</dl>
-<figure class="quote" data-reveal><blockquote><p>${esc(upwork.quote.text).replace(/.../g, '…')}</p></blockquote><figcaption>${esc(upwork.quote.who)}. ${esc(upwork.line)}</figcaption></figure>`;
+<figure class="quote" data-reveal><blockquote><p>${esc(upwork.quote.text).replace(/\.\.\./g, '…')}</p></blockquote><figcaption>${esc(upwork.quote.who)}. ${esc(upwork.line)}</figcaption></figure>`;
 
 pages.push({
   path: '/', current: '/', title: `${site.name} - ${site.title}`, description: site.description, preloadPortrait: true,
@@ -290,7 +306,7 @@ pages.push({
 </section>
 ${ledger}
 ${marquee}
-${sec({ id: 'build-h', n: '03', tag: 'Capabilities', h: 'What Adrian builds', intro: 'Three kinds of work, one standard: it runs in production, survives an audit and matches the numbers the business already trusts.', inner: `<ol class="sheets" role="list">${builds.map((b, i) => `<li data-reveal><span class="sheet-no mono">Sht ${pad(i + 1)}</span><h3>${esc(b.h)}</h3><p>${esc(b.p)}</p></li>`).join('')}</ol>` })}
+${sec({ id: 'build-h', n: '03', tag: 'Capabilities', h: 'What Adrian builds', intro: 'The full stack of what buyers ask for now and through 2030, from the first AI service line to the team that runs it. One standard on every sheet: it runs in production, survives an audit and matches the numbers the business already trusts.', inner: `<p class="sheet-legend mono"><span class="sheet-when is-now">Asked now</span> in today\'s best-paid AI roles <span class="sheet-when is-rising">Rising to 2030</span> where demand and budgets grow next</p><ol class="sheets" role="list">${builds.map(sheet).join('')}</ol>` })}
 ${pipe}
 ${rail}
 ${sec({ id: 'how-h', n: '06', tag: 'Method', h: 'How the work runs', intro: 'Understand the process, ship behind gates, hand over the keys.', inner: methodBlock })}
