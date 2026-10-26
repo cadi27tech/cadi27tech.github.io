@@ -42,6 +42,10 @@ const ICONS = {
 const icon = (k) => `<svg class="sheet-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false">${ICONS[k].replace(/\/>/g, ' pathLength="1"/>')}</svg>`;
 const sheet = (b, i) => `<li data-reveal${b.wide ? ' class="wide"' : ''}><div class="sheet-top"><span class="sheet-no mono">Sht ${pad(i + 1)}</span>${icon(b.icon)}</div><span class="sheet-when mono is-${b.when}">${b.when === 'now' ? 'Asked now' : 'Rising to 2030'}</span><h3>${esc(b.h)}</h3><p>${esc(b.p)}</p><dl class="sheet-meta"><div><dt class="mono">Proof</dt><dd>${esc(b.proof)}</dd></div><div><dt class="mono">You keep</dt><dd>${esc(b.keep)}</dd></div></dl></li>`;
 
+// Monogram: the A is a drafting compass, the C the arc it has just drawn; the dashed gap is the part still on the drawing board,
+// the orange dot the pencil tip where it goes live. Same geometry as static/favicon.svg.
+const MARK = '<svg class="mark-glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="m-arc" d="M36.7 12.3A18 18 0 1 0 36.7 37.7" pathLength="1"/><path class="m-draft" d="M36.7 12.3A18 18 0 0 1 36.7 37.7"/><circle cx="24" cy="12" r="2.5"/><path d="M24 9.5V3.5M22.9 14.2L11.3 37.7M25.1 14.2L36.7 37.7M15.6 29h16.8"/><circle class="m-tip" cx="36.7" cy="37.7" r="2.4"/></svg>';
+
 const NAV = [['/work/', 'Work'], ['/about/', 'About'], ['/press/', 'Press'], ['/cv/', 'CV'], ['/contact/', 'Contact']];
 
 const IMG = (name) => [640, 1000, 1400].map((w) => `/img/portrait-${name}-${w}.webp ${w}w`).join(', ');
@@ -127,7 +131,7 @@ ${preloader}
 <div class="atmos" aria-hidden="true"><canvas></canvas></div>
 <div class="progress" aria-hidden="true"></div>
 <header class="site-head"><div class="wrap">
-<a class="mark" href="/" aria-label="${esc(site.name)}, home"><span class="mark-glyph" aria-hidden="true">AC</span><span class="mark-name">${esc(site.name)}</span></a>
+<a class="mark" href="/" aria-label="${esc(site.name)}, home">${MARK}<span class="mark-name">${esc(site.name)}</span></a>
 <nav class="nav" aria-label="Main">${nav}</nav>
 <p class="clock mono" aria-hidden="true"><span class="lamp"></span>RO <span data-clock>EET</span></p>
 </div></header>

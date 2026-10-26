@@ -137,8 +137,12 @@ main:focus { outline: none; }
 .site-head.is-hidden { transform: translateY(-100%); }
 .site-head .wrap { height: 100%; display: flex; align-items: center; gap: 1rem 2rem; }
 .mark { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; margin-right: auto; }
-.mark-glyph { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border: 1px solid var(--draft); font: 500 .7rem/1 var(--mono); letter-spacing: .08em; color: var(--draft); transition: background .3s, color .3s; }
-.mark:hover .mark-glyph { background: var(--draft); color: var(--ink); }
+.mark-glyph { width: 2.4rem; height: 2.4rem; flex: none; fill: none; stroke: var(--draft); stroke-width: 2; stroke-linecap: square; overflow: visible; transition: stroke .3s; }
+.mark-glyph .m-draft { stroke-width: 1; stroke-dasharray: 1.5 2; opacity: .5; }
+.mark-glyph .m-tip { fill: var(--signal); stroke: none; }
+.mark-glyph .m-arc { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.mark:hover .mark-glyph, .mark:focus-visible .mark-glyph { stroke: var(--paper); }
+@media (prefers-reduced-motion: no-preference) { .mark:hover .m-arc, .mark:focus-visible .m-arc { animation: draw-in .9s var(--ease); } }
 .mark-name { font-family: var(--serif); font-size: 1.2rem; letter-spacing: -0.01em; }
 .nav { display: flex; gap: 1.6rem; }
 .nav a { position: relative; font: 500 .72rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; color: var(--paper-2); padding-block: .9rem; transition: color .25s; }
