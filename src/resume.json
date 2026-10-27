@@ -5,7 +5,7 @@
     "label": "Head of AI & Automation. Finance AI from first commit to production, built to survive an audit.",
     "email": "adriancapraru27@gmail.com",
     "url": "https://cadi27tech.github.io/",
-    "summary": "Most AI projects in finance die between the demo and the audit; Adrian Capraru builds the ones that survive both, and then runs them. He built an Irish chartered accountancy firm's AI & Automation service line from zero, including a 20-module client platform live in 10 days behind 3,000+ automated checks, with EU-only AI processing enforced in code. As COO of a real-estate crowdfunding platform he was the lead on the ASF authorisation and audit that ended in an EU crowdfunding (ECSP) licence in March 2024. He founded 3Descu and grew it from 5 3D printers in an apartment to a 200+ 3D printer factory, turnover x65 in three years at a 57% net margin. Co-Founder & Automation Architect at Systemartis. Clients and customers in 32+ countries on four continents. 6 years in FinTech product and operations plus 2 years shipping AI automation in production.",
+    "summary": "Most AI projects in finance die between the demo and the audit; Adrian Capraru builds the ones that survive both, and then runs them. He built an Irish chartered accountancy firm's AI & Automation service line from zero, including a 20-module client platform live in 10 days behind 3,000+ automated checks, with EU-only AI processing enforced in code. As COO of a real-estate crowdfunding platform he was the lead on the ASF authorisation and audit that ended in an EU crowdfunding (ECSP) licence in March 2024. He founded 3Descu and grew it from five 3D printers in an apartment to a 200+ 3D printer factory, turnover x65 in three years at a 57% net margin. Co-Founder & Automation Architect at Systemartis. Clients and customers in 32+ countries on four continents. 6 years in FinTech product and operations plus 2 years shipping AI automation in production.",
     "location": {
       "city": "Bucharest",
       "countryCode": "RO"
@@ -68,7 +68,7 @@
       "startDate": "2022-06",
       "summary": "On-demand 3D printing manufacturer for engineering buyers across Europe, founded on an EU start-up grant with no outside equity. Runs strategy, P&L, pricing, production and sales, and wrote every line of the software.",
       "highlights": [
-        "Grew from 5 3D printers in an apartment (2022) to more than 200 in its own production hall; turnover x65 in three years to about EUR 190K in 2025 at a 57% net margin, up 75% year on year (public filings).",
+        "Grew from five 3D printers in an apartment (2022) to more than 200 in its own production hall; turnover x65 in three years to about EUR 190K in 2025 at a 57% net margin, up 75% year on year (public filings).",
         "2,000+ orders from 1,600+ buyers in 30 countries, including 26 of the 27 EU member states; 45% of orders ship to Germany; one in three orders from a returning customer; rated 4.7/5 by 200+ verified buyers.",
         "Hired and trained the team on site and remotely; wrote the SOPs and the ISO 9001 audit documentation. Hands-on with FDM and SLA production, 3D modelling and design for manufacturing.",
         "Shipped the quoting-to-fulfilment platform solo with AI coding agents in under five months: 929 commits, ~400 merged pull requests, 38 edge functions, 4 languages, 120+ release checkers (~260K assertions per run).",
