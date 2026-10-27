@@ -891,3 +891,9 @@ main { padding-top: var(--head); position: relative; }
 @media (min-width: 64rem) { .rcards.is-3 { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 48rem) { .cards-grid.is-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 80rem) { .cards-grid.is-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ---------- Case explainer film ---------- */
+.film { margin: 0; }
+.film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--ink); border: 1px solid var(--line); }
+@media (max-width: 600px) { .film video { aspect-ratio: 4 / 5; } }
+.film figcaption { margin-top: .8rem; color: var(--paper-2); }

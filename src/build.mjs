@@ -26,6 +26,13 @@ const count = (s) => (/\d/.test(s) && !/\b(19|20)\d\d\b/.test(s) ? ' data-count'
 const tick = '<svg class="tick" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/></svg>';
 const arrow = '<svg class="arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>';
 
+// Case explainer films (assets/videos/proof-engine renders): slug -> file stem in /video/.
+const FILMS = {
+  'accountancy-saas-live-in-10-days': '01-accountancy-platform-live-in-10-days',
+  'hubspot-to-xero-multi-entity-invoicing': '02-hubspot-to-xero-3-entities',
+  '3d-printing-factory-platform-mcp-server': '03-3descu-factory-platform-mcp',
+};
+
 // Capability icons: 48px blueprint line drawings, every stroke draws in on reveal (pathLength 1).
 const ICONS = {
   line: '<path d="M8 40h32"/><path d="M12 40V30h6v10"/><path d="M21 40V22h6v18"/><path d="M30 40V12h6v28"/><path d="M10 26l10-8 9 4 11-12"/><path d="M36 10h4v4"/>',
@@ -509,6 +516,8 @@ ${dgKey(w)}
 </figcaption></figure>`;
   const results = `<ul class="rcards" role="list">${w.results.map((r, k) => `<li class="rcard" data-reveal style="--d:${(k % 4) * 70}ms"><span class="num"${count(r.n)}>${esc(r.n)}</span><span class="rcard-l">${esc(r.l)}</span></li>`).join('')}</ul>
 ${w.before.length ? `<div class="ba" data-reveal><table class="ba-t"><caption>Before and after</caption><thead><tr><th scope="col">Measure</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody>${w.before.map(([m, b, a]) => `<tr><th scope="row">${esc(m)}</th><td data-l="Before">${esc(b)}</td><td data-l="After">${esc(a)}</td></tr>`).join('')}</tbody></table></div>` : ''}`;
+  const vid = FILMS[w.slug];
+  const film = vid ? `<figure class="film" data-reveal><video controls playsinline muted preload="none" poster="/video/${vid}-1920x1080-poster.jpg" data-poster-m="/video/${vid}-1080x1350-poster.jpg" aria-label="60-second explainer: ${esc(w.card)}"><source media="(max-width: 600px)" src="/video/${vid}-1080x1350.mp4" type="video/mp4"><source src="/video/${vid}-1920x1080.mp4" type="video/mp4"></video><figcaption class="mono">60 s, no sound. Drawn from the same figures as this page; client anonymised.</figcaption></figure>` : '';
   const pn = (x, kind) => `<a class="pn-a pn-${kind}" href="/work/${x.slug}/" data-cursor="${kind === 'prev' ? 'Previous' : 'Next case'}"><span class="pn-k mono">${kind === 'prev' ? 'Previous case' : 'Next case'}</span><span class="next-fig num">${esc(x.fig)}</span><span class="next-t">${esc(x.title)}</span>${arrow}</a>`;
   pages.push({
     path: `/work/${w.slug}/`, current: '/work/', title: w.title, description: w.summary, og: w.slug,
@@ -521,6 +530,7 @@ ${w.before.length ? `<div class="ba" data-reveal><table class="ba-t"><caption>Be
 </div>
 <dl class="facts hero-fade" style="--d:.7s">${facts}</dl>
 </div></section>
+${film ? wide('film', 'Film', 'The build in 60 seconds', film, 'film-sec') : ''}
 ${block('ctx', 'Context', 'Context and the problem', `<p data-reveal>${esc(w.context)}</p><h3 class="flow-h">What was broken</h3><p data-reveal>${esc(w.broken)}</p><h3 class="flow-h">What it cost</h3>${li(w.cost)}<h3 class="flow-h">The brief</h3><p data-reveal>${esc(w.problem)}</p>`)}
 ${block('cons', 'Constraints', 'Constraints and stakes', `${li(w.constraints)}<div class="stakes" data-reveal><p class="mono">What was at stake</p><p>${esc(w.stakes)}</p></div>`)}
 ${block('team', 'People', 'Adrian\'s role and team', li(w.team))}

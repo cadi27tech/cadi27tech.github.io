@@ -10,6 +10,9 @@
   const $ = (s, el = d) => el.querySelector(s);
   const $$ = (s, el = d) => Array.from(el.querySelectorAll(s));
 
+  // Case films: phones play the 4:5 cut, so show its poster too (a <video> poster cannot follow media queries).
+  if (matchMedia('(max-width: 600px)').matches) $$('video[data-poster-m]').forEach((v) => { v.poster = v.dataset.posterM; });
+
   // ---------- Preloader counter (the sheet itself is CSS-timed and always clears) ----------
   if (loading) {
     const out = $('.pre-count'), t0 = performance.now();
