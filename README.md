@@ -1,6 +1,6 @@
 # Adrian Capraru - personal site
 
-**[cadi27tech.github.io](https://cadi27tech.github.io)**: the portfolio of a Head of AI & Automation, built as an engineering drawing set that comes alive. Prussian blueprint sheets, drafting-white line work, mono annotations, title blocks, and one signal colour reserved for anything live in production.
+**[adriancapraru.com](https://adriancapraru.com)**: the portfolio of a Head of AI & Automation, built as an engineering drawing set that comes alive. Prussian blueprint sheets, drafting-white line work, mono annotations, title blocks, and one signal colour reserved for anything live in production.
 
 <img src="docs/home-desktop.jpg" alt="Home page at 1440 px: the headline 'Most AI projects in finance die between the demo and the audit. Adrian builds the ones that survive both.' beside the photo-to-blueprint portrait slider">
 
@@ -23,7 +23,7 @@ What is in it:
 
 ## Maintainer notes
 
-Static site with a motion layer. Live at https://cadi27tech.github.io/ (GitHub Pages, repo `cadi27tech/cadi27tech.github.io`). Design system, palette, type and motion rules: `DESIGN.md`.
+Static site with a motion layer. Live at https://adriancapraru.com/ (GitHub Pages, repo `cadi27tech/cadi27tech.github.io`). Design system, palette, type and motion rules: `DESIGN.md`.
 
 ## Where things live
 
@@ -73,7 +73,7 @@ npm run qa         # QA into qa/: see below
 1. Reduced motion: full-page screenshots of home, work, two case studies, about, press, CV and contact; checks status, horizontal overflow and console errors.
 2. Motion: the home page as a visitor sees it. Preloader clears, seam slider keyboard check, LCP and CLS, viewport screenshots down the whole scroll (pins, scrubs, counters), and a card-to-case navigation through the view transition.
 
-`node scripts/qa.mjs https://cadi27tech.github.io` runs the same QA against the live site.
+`node scripts/qa.mjs https://adriancapraru.com` runs the same QA against the live site.
 
 ## Deploy
 

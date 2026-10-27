@@ -4,7 +4,7 @@
     "name": "Adrian Capraru",
     "label": "Head of AI & Automation. Finance AI from first commit to production, built to survive an audit.",
     "email": "adriancapraru27@gmail.com",
-    "url": "https://cadi27tech.github.io/",
+    "url": "https://adriancapraru.com/",
     "summary": "Most AI projects in finance die between the demo and the audit; Adrian Capraru builds the ones that survive both, and then runs them. He built an Irish chartered accountancy firm's AI & Automation service line from zero, including a 20-module client platform live in 10 days behind 3,000+ automated checks, with EU-only AI processing enforced in code. As COO of a real-estate crowdfunding platform he was the lead on the ASF authorisation and audit that ended in an EU crowdfunding (ECSP) licence in March 2024. He founded 3Descu and grew it from five 3D printers in an apartment to a 200+ 3D printer factory, turnover x65 in three years at a 57% net margin. Co-Founder & Automation Architect at Systemartis. Clients and customers in 32+ countries on four continents. 6 years in FinTech product and operations plus 2 years shipping AI automation in production.",
     "location": {
       "city": "Bucharest",
@@ -165,7 +165,7 @@
       "date": "2025-09",
       "id": "cert_v1slc8sr",
       "group": "AI & product",
-      "url": "https://cadi27tech.github.io/certificates/product-school-aic-cert_v1slc8sr.pdf"
+      "url": "https://adriancapraru.com/certificates/product-school-aic-cert_v1slc8sr.pdf"
     },
     {
       "name": "Product-Led Growth Micro-Certification (PLGC)",
@@ -173,7 +173,7 @@
       "date": "2025-10",
       "id": "cert_2wflrqqv",
       "group": "AI & product",
-      "url": "https://cadi27tech.github.io/certificates/product-school-plgc-cert_2wflrqqv.pdf"
+      "url": "https://adriancapraru.com/certificates/product-school-plgc-cert_2wflrqqv.pdf"
     },
     {
       "name": "Product Strategy Micro-Certification (PSC)",
@@ -181,7 +181,7 @@
       "date": "2025-09",
       "id": "cert_8jnjnypt",
       "group": "AI & product",
-      "url": "https://cadi27tech.github.io/certificates/product-school-psc-cert_8jnjnypt.pdf"
+      "url": "https://adriancapraru.com/certificates/product-school-psc-cert_8jnjnypt.pdf"
     },
     {
       "name": "The Product Management for AI & Data Science Course",
@@ -430,7 +430,7 @@
   "projects": [],
   "meta": {
     "version": "v1.0.0",
-    "canonical": "https://cadi27tech.github.io/resume.json",
+    "canonical": "https://adriancapraru.com/resume.json",
     "lastModified": "2026-10-26"
   }
 }

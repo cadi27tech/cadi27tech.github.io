@@ -2,7 +2,7 @@
 // ASCII hyphen only. Clients are anonymized labels; never add client, staff or partner names.
 
 export const site = {
-  url: 'https://cadi27tech.github.io',
+  url: 'https://adriancapraru.com',
   name: 'Adrian Capraru',
   email: 'adriancapraru27@gmail.com',
   hook: 'Most AI projects in finance die between the demo and the audit. Adrian builds the ones that survive both.',
