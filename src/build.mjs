@@ -743,6 +743,10 @@ ${partners.packages.map((k) => `- ${k.name}: ${k.price} (${k.time}). ${k.covers}
 Safeguards: ${partners.safeguards.join(' ')}
 Details: ${abs('/partners/')}
 
+## MCP server
+- [adrian-capraru-mcp](https://github.com/cadi27tech/adrian-capraru-mcp): read-only MCP server with this profile, the 7 case studies, published prices, availability and contact routes. Run: npx -y github:cadi27tech/adrian-capraru-mcp
+- Official MCP Registry: io.github.cadi27tech/adrian-capraru
+
 ## Writing
 ${resume.publications.filter((x) => x.url).map((x) => `- [${x.name}](${x.url})${x.publisher ? `, ${x.publisher}` : ''}${x.releaseDate ? `, ${x.releaseDate}` : ''}`).join('\n')}
 
