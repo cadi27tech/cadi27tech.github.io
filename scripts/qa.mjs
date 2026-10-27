@@ -8,7 +8,7 @@ import { serve } from './serve.mjs';
 const base = process.argv[2] || 'http://localhost:4321';
 const server = process.argv[2] ? null : await serve(4321);
 mkdirSync('qa', { recursive: true });
-const pages = ['/', '/work/', '/work/accountancy-saas-live-in-10-days/', '/work/eu-crowdfunding-licence-asf-authorisation/', '/about/', '/press/', '/cv/', '/contact/'];
+const pages = ['/', '/work/', '/work/accountancy-saas-live-in-10-days/', '/work/eu-crowdfunding-licence-asf-authorisation/', '/about/', '/press/', '/cv/', '/contact/', '/partners/'];
 const views = { desktop: { width: 1440, height: 900 }, mobile: { width: 390, height: 844 } };
 const b = await chromium.launch({ channel: 'chrome' });
 let problems = 0;
