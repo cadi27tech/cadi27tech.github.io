@@ -644,14 +644,9 @@ ${certTable}
 </div></section>`,
 });
 
-// Partners: the accounting-firm partner channel (content in partners, content.mjs).
+// Partners: the white-label partner channel (content in partners, content.mjs).
 const P = partners;
-const pGets = `<ol class="sheets" role="list">${P.gets.map((g, i) => `<li data-reveal><div class="sheet-top"><span class="sheet-no mono">Sht ${pad(i + 1)}</span>${icon(g.icon)}</div><h3>${esc(g.h)}</h3><p>${esc(g.p)}</p><dl class="sheet-meta"><div><dt class="mono">Proof</dt><dd>${esc(g.proof)}</dd></div><div><dt class="mono">The firm keeps</dt><dd>${esc(g.keep)}</dd></div></dl></li>`).join('')}</ol>`;
-const pPkgs = `<div class="ct-wrap" data-reveal><table class="ct pk">
-<caption class="visually-hidden">Partner packages with what each covers, price and delivery time</caption>
-<thead><tr><th scope="col">Package</th><th scope="col">What it covers</th><th scope="col">Price</th><th scope="col">Delivery</th></tr></thead>
-<tbody>${P.packages.map((k) => `<tr><th scope="row">${esc(k.name)}</th><td data-l="Covers">${esc(k.covers)}</td><td data-l="Price" class="pk-p">${esc(k.price)}</td><td data-l="Delivery" class="pk-t mono">${esc(k.time)}</td></tr>`).join('')}</tbody>
-</table></div>`;
+const pGets = `<ol class="sheets" role="list">${P.gets.map((g, i) => `<li data-reveal><div class="sheet-top"><span class="sheet-no mono">Sht ${pad(i + 1)}</span>${icon(g.icon)}</div><h3>${esc(g.h)}</h3><p>${esc(g.p)}</p><dl class="sheet-meta"><div><dt class="mono">Proof</dt><dd>${esc(g.proof)}</dd></div><div><dt class="mono">You keep</dt><dd>${esc(g.keep)}</dd></div></dl></li>`).join('')}</ol>`;
 const pSteps = `<ol class="revs is-4" role="list">${P.steps.map((x, i) => `<li data-reveal><span class="rev mono">Rev ${'ABCD'[i]}</span><h3>${esc(x.tag)}</h3><p class="rev-when mono">${esc(x.when)}</p><p>${esc(x.p)}</p></li>`).join('')}</ol>`;
 const pCases = P.cases.map((sl) => { const k = work.findIndex((w) => w.slug === sl); if (k < 0) throw new Error(`partners: unknown case "${sl}"`); return card(work[k], k); }).join('');
 const pProof = `<ul class="rcards is-3" role="list">${P.proof.map((r, k) => `<li class="rcard" data-reveal style="--d:${(k % 3) * 70}ms"><span class="num"${count(r.n)}>${esc(r.n)}</span><span class="rcard-l">${esc(r.l)}</span></li>`).join('')}</ul>
@@ -659,24 +654,23 @@ const pProof = `<ul class="rcards is-3" role="list">${P.proof.map((r, k) => `<li
 <h3 class="flow-h">What clients said</h3>${qgrid(P.quotes.map((id) => qById[id]))}`;
 const pFaq = `<div class="faq">${P.faq.map((f) => `<details data-reveal><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')}</div>`;
 pages.push({
-  path: '/partners/', current: '/partners/', title: 'Partners: an AI and automation division for accounting firms',
-  description: 'For accounting and bookkeeping firms in Ireland, the UK and the EU: Adrian Capraru as your white-label or co-branded AI and automation division. Packages, how the partnership runs, safeguards and proof from a live Irish accountancy engagement.',
+  path: '/partners/', current: '/partners/', title: 'Partners: an AI and automation division for your firm',
+  description: 'For accounting practices, agencies, IT providers, consultancies and implementation partners: Adrian Capraru as your white-label or co-branded AI and automation division. How the partnership runs, safeguards and proof from a live engagement.',
   jsonld: [
-    { '@context': 'https://schema.org', '@type': 'Service', name: 'AI and automation division for accounting firms', serviceType: 'White-label or co-branded AI and automation for accounting and bookkeeping firms', provider: { '@id': abs('/#person'), '@type': 'Person', name: site.name, url: abs('/') }, areaServed: ['Ireland', 'United Kingdom', 'European Union'], audience: { '@type': 'BusinessAudience', audienceType: 'Accounting and bookkeeping firms' }, url: abs('/partners/') },
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'White-label AI and automation division', serviceType: 'White-label or co-branded AI and automation for firms that serve small and mid-size businesses', provider: { '@id': abs('/#person'), '@type': 'Person', name: site.name, url: abs('/') }, areaServed: 'Worldwide', audience: { '@type': 'BusinessAudience', audienceType: 'Accounting practices, agencies, IT and managed-service providers, consultancies, software implementation partners' }, url: abs('/partners/') },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: P.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
   ],
-  body: `${pageHero(P.h, esc(P.lede), `<div class="ctas hero-fade" style="--d:.6s">${btn('/contact/', 'Talk about a partnership', 'primary')}${btn('#pk-h', 'See the packages')}</div>`)}
-${sec({ id: 'gets-h', n: '01', tag: 'What the firm gets', h: 'What the firm gets', intro: 'Six things a firm gets from the division, each one already running at the reference firm.', inner: pGets })}
-${sec({ id: 'pk-h', n: '02', tag: 'Packages', h: 'The packages', intro: esc(P.packagesIntro), inner: pPkgs })}
-${sec({ id: 'runs-h', n: '03', tag: 'Method', h: 'How the partnership runs', intro: 'Discovery, a pilot on real documents, a rollout the firm can sell, then a handover. No step needs the next one to be signed.', inner: pSteps })}
-${sec({ id: 'safe-h', n: '04', tag: 'Safeguards', h: 'Safeguards', inner: `<div class="prose"><ul role="list">${P.safeguards.map((x) => `<li data-reveal>${esc(x)}</li>`).join('')}</ul><div class="stakes" data-reveal><p class="mono">Why it matters to a firm</p><p>${esc(P.stakes)}</p></div></div>` })}
-${sec({ id: 'proof-h', n: '05', tag: 'Proof', h: 'Proof from a live engagement', intro: 'An Irish chartered accountancy and audit firm had no AI offer in October 2025. These are the numbers from the service line Adrian built and runs there, plus the finance work and the regulated FinTech years behind it.', inner: pProof })}
-${sec({ id: 'faq-h', n: '06', tag: 'FAQ', h: 'Questions firms ask', inner: pFaq })}
+  body: `${pageHero(P.h, esc(P.lede), `<div class="ctas hero-fade" style="--d:.6s">${btn('/contact/', 'Talk about a partnership', 'primary')}${btn('#runs-h', 'How it runs')}</div>`)}
+${sec({ id: 'gets-h', n: '01', tag: 'What you get', h: 'What you get', intro: 'Six things a partner gets from the division, each one already running at the reference firm.', inner: pGets })}
+${sec({ id: 'runs-h', n: '02', tag: 'Method', h: 'How the partnership runs', intro: 'Discovery, a pilot on real documents, a rollout you can sell, then a handover. No step needs the next one to be signed.', inner: pSteps })}
+${sec({ id: 'safe-h', n: '03', tag: 'Safeguards', h: 'Safeguards', inner: `<div class="prose"><ul role="list">${P.safeguards.map((x) => `<li data-reveal>${esc(x)}</li>`).join('')}</ul><div class="stakes" data-reveal><p class="mono">Why it matters to you</p><p>${esc(P.stakes)}</p></div></div>` })}
+${sec({ id: 'proof-h', n: '04', tag: 'Proof', h: 'Proof from a live engagement', intro: 'An Irish chartered accountancy and audit firm had no AI offer in October 2025. These are the numbers from the service line Adrian built and runs there, plus the finance work and the regulated FinTech years behind it.', inner: pProof })}
+${sec({ id: 'faq-h', n: '05', tag: 'FAQ', h: 'Questions partners ask', inner: pFaq })}
 <section class="sec cta-sec" aria-labelledby="cta-h"><div class="wrap">
-${label('07', 'Contact')}
+${label('06', 'Contact')}
 <h2 id="cta-h" class="cta-h" data-reveal>Start with one client and one process</h2>
-<p class="cta-p" data-reveal>Send the firm's size, its stack and one client process that costs hours every month. One email is enough to start a discovery session.</p>
-<div class="ctas">${btn('/contact/', 'Go to the contact page', 'primary')}${btn(mailto('Accounting-firm partnership'), 'Email Adrian')}${copyBtn}</div>
+<p class="cta-p" data-reveal>Send your firm's size, its stack and one client process that costs hours every month. One email is enough to start a discovery session.</p>
+<div class="ctas">${btn('/contact/', 'Go to the contact page', 'primary')}${btn(mailto('Partnership'), 'Email Adrian')}${copyBtn}</div>
 </div></section>`,
 });
 
@@ -743,18 +737,16 @@ ${work.map((w) => `- [${w.title}](${abs(`/work/${w.slug}/`)}): ${w.summary}`).jo
 - [CV](${abs('/cv/')}): full CV in HTML
 - [resume.json](${abs('/resume.json')}): JSON Resume, the machine-readable source
 - [Press](${abs('/press/')}): ten articles from October 2026
-- [Partners](${abs('/partners/')}): for accounting and bookkeeping firms, a white-label or co-branded AI and automation division
+- [Partners](${abs('/partners/')}): a white-label or co-branded AI and automation division for firms that serve small and mid-size businesses
 - [Contact](${abs('/contact/')})
 
-## For accounting and bookkeeping firms (Ireland, UK, EU)
+## For partner firms (accounting practices, agencies, IT providers, consultancies)
 ${partners.lede}
-Packages (USD):
-${partners.packages.map((k) => `- ${k.name}: ${k.price} (${k.time}). ${k.covers}`).join('\n')}
 Safeguards: ${partners.safeguards.join(' ')}
 Details: ${abs('/partners/')}
 
 ## MCP server
-- [adrian-capraru-mcp](https://github.com/cadi27tech/adrian-capraru-mcp): read-only MCP server with this profile, the 7 case studies, published prices, availability and contact routes. Run: npx -y github:cadi27tech/adrian-capraru-mcp
+- [adrian-capraru-mcp](https://github.com/cadi27tech/adrian-capraru-mcp): read-only MCP server with this profile, the 7 case studies, availability and contact routes. Run: npx -y github:cadi27tech/adrian-capraru-mcp
 - Official MCP Registry: io.github.cadi27tech/adrian-capraru
 
 ## Writing
