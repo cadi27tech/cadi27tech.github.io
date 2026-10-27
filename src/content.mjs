@@ -8,7 +8,7 @@ export const site = {
   hook: 'Most AI projects in finance die between the demo and the audit. Adrian builds the ones that survive both.',
   identity: 'Head of AI & Automation who takes AI systems for finance and accounting from first commit to production, then runs them, with the controls a regulator and a finance director expect.',
   title: 'Head of AI & Automation. Finance AI from first commit to production.',
-  description: 'Adrian Capraru, Head of AI & Automation: built an Irish accountancy firm\'s AI service line from zero, led a regulated FinTech through its EU licence audit as COO, and grew a factory from 5 to 200+ printers. Clients and customers in 32+ countries on four continents.',
+  description: 'Adrian Capraru, Head of AI & Automation: built an Irish accountancy firm\'s AI service line from zero, led a regulated FinTech through its EU licence audit as COO, and grew a factory from 5 to 200+ 3D printers. Clients and customers in 32+ countries on four continents.',
   links: {
     linkedin: 'https://www.linkedin.com/in/adriancapraru27',
     github: 'https://github.com/cadi27tech',
@@ -22,7 +22,7 @@ export const mailto = (subject) => `mailto:${site.email}?subject=${encodeURIComp
 export const proof = [
   { fig: '10 days', what: 'An Irish accountancy firm\'s 20-module client platform, first commit to live production, inside an AI service line Adrian built from zero.', src: 'Build log, 23 Sep to 3 Oct 2026', href: '/work/accountancy-saas-live-in-10-days/' },
   { fig: 'Mar 2024', what: 'EU crowdfunding (ECSP) licence for the platform Adrian ran as COO, with him as lead on the authorisation and audit.', src: 'ASF register: Romania\'s 4th ECSP licence', href: '/work/eu-crowdfunding-licence-asf-authorisation/' },
-  { fig: 'x65', what: 'Factory turnover in three years, at a 57% net margin and no outside equity. Founded with 5 printers in an apartment.', src: 'Public filings, 2022 to 2025', href: '/work/3d-printing-factory-platform-mcp-server/' },
+  { fig: 'x65', what: 'Factory turnover in three years, at a 57% net margin and no outside equity. Founded with 5 3D printers in an apartment.', src: 'Public filings, 2022 to 2025', href: '/work/3d-printing-factory-platform-mcp-server/' },
   { fig: '32+', what: 'Countries with clients and customers, on four continents. Factory buyers in 26 of the 27 EU member states.', src: 'Order ledger and client contracts', href: '/about/' },
 ];
 
@@ -95,7 +95,7 @@ export const builds = [
   {
     icon: 'gear', when: 'now', wide: true,
     h: 'Operations run from 0 to 100',
-    p: 'The builder has also run the operation. A factory founded with an EU start-up grant and 5 printers, grown to 200+ printers with a hired and trained team, SOPs and ISO 9001:2015 certification, selling into 26 of the 27 EU member states. Before that, COO of a regulated FinTech through its licence.',
+    p: 'The builder has also run the operation. A factory founded with an EU start-up grant and 5 3D printers, grown to 200+ 3D printers with a hired and trained team, SOPs and ISO 9001:2015 certification, selling into 26 of the 27 EU member states. Before that, COO of a regulated FinTech through its licence.',
     proof: 'x65 turnover in three years at a 57% net margin, no outside equity',
     keep: 'An operator who knows what the system has to survive on a Monday morning',
   },
@@ -131,7 +131,7 @@ export const pipeline = {
 
 // Press: only articles with a verified URL get a link (research/05-press-awards-proof.md).
 export const press = [
-  { outlet: 'Profit.ro', date: '21 Oct 2026', lang: 'RO', title: 'Fabrica pornita intr-un apartament cu 5 imprimante de un tanar intors acasa a ajuns la afaceri de circa 1 milion lei', gloss: 'The original founder story: a factory started in an apartment with 5 printers, now near RON 1 million in turnover.', url: 'https://www.profit.ro/povesti-cu-profit/foto-fabrica-pornita-intr-un-apartament-cu-5-imprimante-de-un-tanar-intors-acasa-a-ajuns-la-afaceri-de-circa-1-milion-lei-toata-lumea-se-astepta-sa-plec-22863423' },
+  { outlet: 'Profit.ro', date: '21 Oct 2026', lang: 'RO', title: 'Fabrica pornita intr-un apartament cu 5 imprimante de un tanar intors acasa a ajuns la afaceri de circa 1 milion lei', gloss: 'The original founder story: a factory started in an apartment with 5 3D printers, now near RON 1 million in turnover.', url: 'https://www.profit.ro/povesti-cu-profit/foto-fabrica-pornita-intr-un-apartament-cu-5-imprimante-de-un-tanar-intors-acasa-a-ajuns-la-afaceri-de-circa-1-milion-lei-toata-lumea-se-astepta-sa-plec-22863423' },
   { outlet: 'Observator News', date: '21 Oct 2026', lang: 'RO', title: 'Afacerea pornita de la zero de un tanar din Gorj, intr-un apartament, a ajuns la aproape un milion de lei', gloss: 'National economic desk (Antena 1) on the business built from zero in Gorj.', url: 'https://observatornews.ro/economic/afacerea-pornita-de-la-zero-de-un-tanar-din-gorj-intrun-apartament-a-ajuns-la-aproape-un-milion-de-lei-669802.html' },
   { outlet: 'Click!', date: '21 Oct 2026', lang: 'RO', title: 'De la un apartament din Gorj, la o afacere de aproape un milion de lei', gloss: 'National coverage of the same story.', url: 'https://click.ro/actualitate/national/de-la-un-apartament-din-gorj-la-o-afacere-de-2565445.html' },
   { outlet: 'Gorjul Azi', date: '21 Oct 2026', lang: 'RO', title: 'Povestea de succes a unui gorjean: Adrian Capraru a pornit cu 5 imprimante 3D si a construit o fabrica ce produce pentru toata Europa', gloss: 'The fullest founder portrait: studies, FinTech career, the EU grant.', url: 'https://gorjulazi.ro/2026/10/21/povestea-de-succes-a-unui-gorjean-adrian-capraru-a-pornit-cu-5-imprimante-3d-si-a-construit-o-fabrica-ce-produce-pentru-toata-europa-foto.html' },
@@ -170,7 +170,7 @@ export const testimonials = [
   { id: 'press-3dpi', source: 'press', outlet: '3D Printing Industry', date: '24 Oct 2026', lang: 'en', text: '3Descu enables 3D printing quotes through ChatGPT and Claude', url: 'https://3dprintingindustry.com/news/3descu-enables-3d-printing-quotes-through-chatgpt-and-claude-255887/', case: '3d-printing-factory-platform-mcp-server' },
   { id: 'media-4', source: 'upwork', stars: 5, text: 'Amazing work once again, Adrian is very pro and reliable!', who: 'US app and media brand', type: 'AI video ad pipeline, fourth contract' },
   { id: 'press-asingorj', source: 'press', outlet: 'AS in Gorj', date: '25 Oct 2026', lang: 'ro', text: 'Afacere de succes, pornita la Targu Jiu de tanarul Adrian Capraru', en: 'A successful business, started in Targu Jiu by the young Adrian Capraru.', url: 'https://www.asingorj.ro/afacere-de-succes-pornita-la-targu-jiu-de-tanarul-adrian-capraru/', case: '3d-printing-factory-platform-mcp-server' },
-  { id: 'press-profit', source: 'press', outlet: 'Profit.ro', date: '21 Oct 2026', lang: 'ro', text: 'Fabrica pornita intr-un apartament cu 5 imprimante de un tanar intors acasa a ajuns la afaceri de circa 1 milion lei', en: 'A factory started in an apartment with 5 printers by a young man who came back home has reached a turnover of about 1 million lei.', url: 'https://www.profit.ro/povesti-cu-profit/foto-fabrica-pornita-intr-un-apartament-cu-5-imprimante-de-un-tanar-intors-acasa-a-ajuns-la-afaceri-de-circa-1-milion-lei-toata-lumea-se-astepta-sa-plec-22863423', case: '3d-printing-factory-platform-mcp-server' },
+  { id: 'press-profit', source: 'press', outlet: 'Profit.ro', date: '21 Oct 2026', lang: 'ro', text: 'Fabrica pornita intr-un apartament cu 5 imprimante de un tanar intors acasa a ajuns la afaceri de circa 1 milion lei', en: 'A factory started in an apartment with 5 3D printers by a young man who came back home has reached a turnover of about 1 million lei.', url: 'https://www.profit.ro/povesti-cu-profit/foto-fabrica-pornita-intr-un-apartament-cu-5-imprimante-de-un-tanar-intors-acasa-a-ajuns-la-afaceri-de-circa-1-milion-lei-toata-lumea-se-astepta-sa-plec-22863423', case: '3d-printing-factory-platform-mcp-server' },
   { id: 'press-gorjeanul', source: 'press', outlet: 'Gorjeanul', date: '23 Oct 2026', lang: 'ro', text: 'Fabrica din Targu Jiu care produce piese pentru diferite utilaje cu ajutorul Inteligentei Artificiale. Antreprenorul a demarat afacerea cand era student', en: 'The Targu Jiu factory that makes parts for various machines with the help of artificial intelligence. The entrepreneur started the business as a student.', url: 'https://www.gorjeanul.ro/actualitate/fabrica-din-targu-jiu-care-produce-piese-pentru-diferite-utilaje-cu-ajutorul-inteligentei-artificiale-antreprenorul-a-demarat-afacerea-cand-era-student/', case: '3d-printing-factory-platform-mcp-server' },
 ];
 
@@ -233,18 +233,18 @@ export const cvArcs = {
   },
   '3Descu (TREIDESCUPRINT SRL)': {
     where: 'On-demand 3D printing manufacturer, Targu Jiu, Romania. Founder, 100% founder-owned.',
-    start: "2022: a business plan written for a Master's in Entrepreneurship, an EU start-up grant (the plan ranked first, about EUR 60K, non-repayable) and 5 printers in an apartment in Targu Jiu. No outside equity.",
+    start: "2022: a business plan written for a Master's in Entrepreneurship, an EU start-up grant (the plan ranked first, about EUR 60K, non-repayable) and 5 3D printers in an apartment in Targu Jiu. No outside equity.",
     built: [
-      'Jun 2022: registered the company and started production on 5 printers in the apartment.',
+      'Jun 2022: registered the company and started production on 5 3D printers in the apartment.',
       'Within a year: moved from consumers to engineering buyers, and became an approved production partner of one of the largest on-demand manufacturing platforms in the EU.',
       '2023 to 2024: hired and trained the team on site and remotely, wrote the SOPs and the ISO 9001 audit documentation, and moved production into a dedicated hall (2024). 3Descu is an ISO 9001:2015 certified company.',
-      'Scaled the fleet past 200 printers and built an export business: buyers in 26 of the 27 EU member states, 45% of orders shipping to Germany.',
+      'Scaled the fleet past 200 3D printers and built an export business: buyers in 26 of the 27 EU member states, 45% of orders shipping to Germany.',
       "Jun to Oct 2026: wrote all of the company's software alone with AI coding agents: an instant-quote to fulfilment platform in four languages (929 commits, ~400 merged pull requests, 38 edge functions, 120+ release checkers running ~260K assertions per run), a customer ledger unifying 5 sales channels (1,863 records reconciled to within EUR 1), e-Factura invoicing with EU VAT reverse charge, and a EUR 0 per month social publishing agent.",
       '18 Oct 2026: one of the first manufacturing MCP servers, listed in the official MCP Registry (io.github.cadi27tech/3descu-quote), on Glama and in 4 community directories through merged pull requests. Engineers get a real factory price inside ChatGPT or Claude.',
       '21 to 25 Oct 2026: a zero-budget press launch, 10 articles in national, regional and international trade press within a week.',
     ],
-    result: 'A 200+ printer factory in its own production hall, selling into 26 of the 27 EU member states. Turnover x65 in three years to about EUR 190K in 2025, up 75% year on year, at a 57% net margin (public filings). 2,000+ orders from 1,600+ buyers in 30 countries, one in three orders from a returning customer, rated 4.7/5 by 200+ verified buyers, and 1st in Gorj county in 3 Topul Firmelor 2026 categories.',
-    goals: [['Turnover', 'x65 in 3 years'], ['2025 turnover', 'about EUR 190K'], ['Net margin', '57%'], ['Growth', '+75% year on year'], ['Capacity', '5 to 200+ printers'], ['Orders', '2,000+'], ['Buyers', '1,600+'], ['Countries', '30, incl. 26 of 27 EU'], ['Germany', '45% of orders'], ['Loyalty', '1 in 3 orders repeat'], ['Rating', '4.7/5 from 200+ buyers'], ['Quality', 'ISO 9001:2015 certified'], ['Funding', 'EU grant, plan ranked 1st'], ['Press', '10 articles, EUR 0 ads']],
+    result: 'A 200+ 3D printer factory in its own production hall, selling into 26 of the 27 EU member states. Turnover x65 in three years to about EUR 190K in 2025, up 75% year on year, at a 57% net margin (public filings). 2,000+ orders from 1,600+ buyers in 30 countries, one in three orders from a returning customer, rated 4.7/5 by 200+ verified buyers, and 1st in Gorj county in 3 Topul Firmelor 2026 categories.',
+    goals: [['Turnover', 'x65 in 3 years'], ['2025 turnover', 'about EUR 190K'], ['Net margin', '57%'], ['Growth', '+75% year on year'], ['Capacity', '5 to 200+ 3D printers'], ['Orders', '2,000+'], ['Buyers', '1,600+'], ['Countries', '30, incl. 26 of 27 EU'], ['Germany', '45% of orders'], ['Loyalty', '1 in 3 orders repeat'], ['Rating', '4.7/5 from 200+ buyers'], ['Quality', 'ISO 9001:2015 certified'], ['Funding', 'EU grant, plan ranked 1st'], ['Press', '10 articles, EUR 0 ads']],
     team: [
       'Runs strategy, P&L, pricing, production and sales.',
       'Hired and trained the staff, on site and digitally, with the SOPs and the ISO 9001 audit documentation he wrote. A team of 4 including contractors, plus external production, logistics, certification and creative partners.',
@@ -575,9 +575,9 @@ export const work = [
   },
   {
     slug: '3d-printing-factory-platform-mcp-server',
-    title: 'From 5 printers in an apartment to a 200+ printer factory selling into 26 of the 27 EU member states',
+    title: 'From 5 3D printers in an apartment to a 200+ 3D printer factory selling into 26 of the 27 EU member states',
     card: '3Descu: factory, platform and MCP server',
-    summary: 'A 0-to-100 story. An EU start-up grant and 5 printers in 2022; today an ISO 9001:2015 certified company with 200+ printers, buyers in 26 of the 27 EU member states, a 57% net margin with no outside equity, its own quoting platform in four languages, and one of the first manufacturing MCP servers.',
+    summary: 'A 0-to-100 story. An EU start-up grant and 5 3D printers in 2022; today an ISO 9001:2015 certified company with 200+ 3D printers, buyers in 26 of the 27 EU member states, a 57% net margin with no outside equity, its own quoting platform in four languages, and one of the first manufacturing MCP servers.',
     fig: 'x65', figLabel: 'turnover in three years, 57% net margin',
     facts: {
       Company: '3Descu (TREIDESCUPRINT SRL), on-demand 3D printing for engineering buyers',
@@ -585,7 +585,7 @@ export const work = [
       Timeline: 'Founded June 2022. Platform built June to October 2026.',
       Status: 'Operating and growing. Platform and MCP server live.',
     },
-    context: 'The business plan was written for a Master\'s in Entrepreneurship and won an EU start-up grant (about EUR 60K, ranked first among applicants). The factory started with 5 printers in a small apartment in Targu Jiu. Within a year it pivoted from consumers to engineering buyers, and it became an approved and audited production partner of one of the largest on-demand manufacturing platforms in the EU.',
+    context: 'The business plan was written for a Master\'s in Entrepreneurship and won an EU start-up grant (about EUR 60K, ranked first among applicants). The factory started with 5 3D printers in a small apartment in Targu Jiu. Within a year it pivoted from consumers to engineering buyers, and it became an approved and audited production partner of one of the largest on-demand manufacturing platforms in the EU.',
     problem: 'Sell custom manufacturing to engineers across Europe from a regional town, with a team of four. That means instant, trustworthy prices from a CAD file, a checkout that works in the buyer\'s language and currency, and operations that do not need a sales team to answer every request.',
     constraints: [
       'A team of 4 including contractors, so software has to replace headcount.',
@@ -603,7 +603,7 @@ export const work = [
     ],
     flow: ['Engineer uploads a CAD file, or asks an AI assistant', 'Mesh analysed in the browser', 'Price from the calibrated pricing engine', 'Payment and order confirmation', 'Production, shipping and portal tracking'],
     results: [
-      { n: '5 to 200+', l: 'printers, from an apartment (2022) to a dedicated production hall' },
+      { n: '5 to 200+', l: '3D printers, from an apartment (2022) to a dedicated production hall' },
       { n: 'x65', l: 'turnover in three years, about EUR 190K in 2025, up 75% year on year, at a 57% net margin (public filings)' },
       { n: '2,000+', l: 'orders from 1,600+ buyers in 30 countries, including 26 of the 27 EU member states; 45% of orders ship to Germany; one in three from a returning customer' },
       { n: '4.7/5', l: 'rating from 200+ verified B2B buyers' },
@@ -616,7 +616,7 @@ export const work = [
       'A public MCP server and a public social-publishing agent that others can inspect.',
     ],
     stack: ['React', 'TypeScript', 'Supabase (PostgreSQL, Edge Functions)', 'Stripe', 'Model Context Protocol', 'GitHub Actions', 'Meta Graph API'],
-    key: ['200+', 'printers, from 5 in an apartment'],
+    key: ['200+', '3D printers, from 5 in an apartment'],
     broken: 'A factory in a regional town, selling custom parts to engineers across Europe with a team of four. A buyer needed a trustworthy price from a CAD file without waiting for a person, customer records sat in five separate sales channels, and AI assistants had no way to ask the factory for a quote at all: a web form is not an interface a model can use.',
     cost: [
       'With a team of 4 including contractors, every request answered by hand is time taken from production.',
@@ -631,16 +631,16 @@ export const work = [
       'Sole engineer of the software, directing parallel AI coding agents behind tests and review gates.',
     ],
     timeline: [
-      ['2022', 'A business plan written for a Master\'s in Entrepreneurship wins an EU start-up grant (ranked first, about EUR 60K, non-repayable). 5 printers in an apartment in Targu Jiu. No outside equity.'],
-      ['Jun 2022', 'Company registered, production starts on 5 printers in the apartment.'],
+      ['2022', 'A business plan written for a Master\'s in Entrepreneurship wins an EU start-up grant (ranked first, about EUR 60K, non-repayable). 5 3D printers in an apartment in Targu Jiu. No outside equity.'],
+      ['Jun 2022', 'Company registered, production starts on 5 3D printers in the apartment.'],
       ['2023', 'From consumers to engineering buyers, and approved as a production partner of one of the largest on-demand manufacturing platforms in the EU.'],
       ['2023 to 2024', 'Team hired and trained on site and remotely, SOPs and ISO 9001 audit documentation written, production moved into a dedicated hall (2024). 3Descu is an ISO 9001:2015 certified company.'],
-      ['Scale', 'Fleet past 200 printers and an export business: buyers in 26 of the 27 EU member states, 45% of orders shipping to Germany.'],
+      ['Scale', 'Fleet past 200 3D printers and an export business: buyers in 26 of the 27 EU member states, 45% of orders shipping to Germany.'],
       ['1 Jun 2026', 'First commit of the quoting platform. 929 commits and ~400 merged pull requests follow in under five months.'],
       ['2 Oct 2026', 'The platform live in four languages: English, German, French and Dutch.'],
       ['18 Oct 2026', 'MCP server listed in the official MCP Registry; then Glama and 4 community directories through merged pull requests.'],
       ['21 to 25 Oct 2026', 'A zero-budget press launch: 10 articles in national, regional and international trade press within a week.'],
-      ['Today', 'A 200+ printer factory, turnover x65 in three years at a 57% net margin, 2,000+ orders from 1,600+ buyers in 30 countries, rated 4.7/5 by 200+ verified buyers.'],
+      ['Today', 'A 200+ 3D printer factory, turnover x65 in three years at a 57% net margin, 2,000+ orders from 1,600+ buyers in 30 countries, rated 4.7/5 by 200+ verified buyers.'],
     ],
     safeguards: [
       'ISO 9001:2015 certified company, with documented SOPs.',
@@ -651,7 +651,7 @@ export const work = [
       'The MCP server is keyless and rate-limited, with prices calibrated on measured parts.',
     ],
     before: [
-      ['Printers', '5, in an apartment (2022)', '200+, in a dedicated production hall'],
+      ['3D printers', '5, in an apartment (2022)', '200+, in a dedicated production hall'],
       ['Turnover', '2022, the founding year', 'x65 by 2025, about EUR 190K, at a 57% net margin'],
       ['Customer records', 'Five separate sales channels', 'One ledger of 1,863 records, reconciled to within EUR 1'],
       ['Quotes for AI assistants', 'No channel', 'MCP server in the official MCP Registry'],
@@ -669,7 +669,7 @@ export const work = [
         ['einv', 2, 3, 1, 'sys', 'e-Factura invoicing', 'EU VAT reverse charge'],
         ['pay', 3, 0, 1, 'sys', 'Checkout and offer', 'Card, bank or PayPal, PDF offer'],
         ['portal', 3, 1, 1, 'sys', 'Customer portal', 'Order status and files'],
-        ['prod', 4, 0, 2, 'live', 'Production', '200+ printers, FDM and SLA, ISO 9001:2015'],
+        ['prod', 4, 0, 2, 'live', 'Production', '200+ 3D printers, FDM and SLA, ISO 9001:2015'],
       ],
       edges: [['eng', 'mesh'], ['ai', 'mcp'], ['mesh', 'price'], ['mcp', 'price'], ['price', 'pay'], ['pay', 'portal'], ['pay', 'prod'], ['chan', 'ledger'], ['ledger', 'einv']],
       zones: [['Every release: 120+ checkers, about 260K assertions', ['mesh', 'mcp', 'ledger', 'price', 'einv', 'pay', 'portal']]],
