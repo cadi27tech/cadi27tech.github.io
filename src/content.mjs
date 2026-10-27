@@ -210,15 +210,15 @@ export const cvArcs = {
   },
   'Independent practice (Upwork)': {
     where: 'Upwork and direct clients in Europe, the US and Australia. Remote.',
-    start: 'December 2025: a new profile with no track record on the platform and small fixed-price n8n jobs, the first at USD 50. UI/UX design work since 2022; AI and automation engineering since 2025.',
+    start: 'December 2025: a new profile with no track record on the platform and small fixed-price n8n jobs. UI/UX design work since 2022; AI and automation engineering since 2025.',
     built: [
       'Small n8n automations first, each delivered with documentation and a handover.',
       'AI builds next: a WhatsApp AI sales assistant for a Spanish tour operator, synced to HubSpot and refined on real conversations (rehired); an AI video ad pipeline (the client came back for three more contracts); a self-improving LLM pipeline that migrates safety-critical PLC code for a Danish industrial-automation team (five stars plus a bonus).',
       'Then finance and regulated work: daily revenue reporting for a five-hotel group in Spain and Romania, extended to Romanian e-Factura guest invoicing, and an EU-sovereign multi-tenant financial reporting platform for the Dutch education sector.',
       'The same controls on every build: human approval before any write to a ledger or an ad budget, audit logs, and tests against the figures the client already trusts.',
     ],
-    result: 'Top Rated with a 100% Job Success Score within a year: 22 contracts, 12 of 12 rated contracts five stars, USD 13K+ in 12 months, one client hired four times, all inbound or repeat.',
-    goals: [['Job Success', '100%'], ['Status', 'Top Rated'], ['Contracts', '22'], ['Rated five-star', '12 of 12'], ['Earnings', 'USD 13K+ in 12 months'], ['Repeat work', 'one client hired 4 times'], ['Pipeline', 'all inbound or repeat'], ['Budget', 'each Dutch phase at or under']],
+    result: 'Top Rated with a 100% Job Success Score within a year: 22 contracts, 12 of 12 rated contracts five stars, one client hired four times, all inbound or repeat.',
+    goals: [['Job Success', '100%'], ['Status', 'Top Rated'], ['Contracts', '22'], ['Rated five-star', '12 of 12'], ['Repeat work', 'one client hired 4 times'], ['Pipeline', 'all inbound or repeat'], ['Budget', 'each Dutch phase at or under']],
     team: [
       'Owns each engagement alone, from discovery and fixed-price scoping to build and handover.',
       'Designed the Dutch pilot across three organisation types (a bookkeeping firm, an audit firm and school boards); both firms approved, and the follow-on module was won at a fixed price.',
@@ -392,7 +392,7 @@ export const work = [
       '<strong>AI assistant with confirm-first actions.</strong> A tool-registry agent that runs under the user\'s own session permissions, proposes an action, and executes only after the user confirms. Per-tenant cost caps. A daily staff brief went live on 7 Oct.',
       '<strong>Numbers computed, words generated.</strong> The fee engine computes every figure deterministically and lets AI compose only the wording, a rule written down with reference to model non-determinism and Irish DPC guidance.',
       '<strong>Security by default.</strong> Row-level tenant isolation, CSP and HSTS, masked PPS and IBAN numbers, 192-bit recipient tokens, an audit log and automatic retention purge. SSL Labs grade A.',
-      '<strong>A service the firm can sell.</strong> A five-tier price ladder (Free, Essentials EUR 59, Pro EUR 129, Business EUR 249, Practice Bookkeeping EUR 149) with add-ons, and an AI for Accountants session that trained the full team (10+ people) with live demos, backed by an AI Academy of 8 lessons and 48 prompts.',
+      '<strong>A service the firm can sell.</strong> A five-tier price ladder (Free, Essentials, Pro, Business and Practice Bookkeeping) with add-ons, and an AI for Accountants session that trained the full team (10+ people) with live demos, backed by an AI Academy of 8 lessons and 48 prompts.',
     ],
     flow: ['Client uploads a bill or receipt', 'Two EU-hosted models extract every field and must agree', 'VAT number checked against VIES', 'Bill drafted in Xero for review', 'Approved payments exported as a SEPA file'],
     results: [
