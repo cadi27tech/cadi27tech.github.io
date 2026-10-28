@@ -8,7 +8,7 @@ export const site = {
   hook: 'Most AI projects in finance die between the demo and the audit. Adrian builds the ones that survive both.',
   identity: 'Head of AI & Automation who takes AI systems for finance and accounting from first commit to production, then runs them, with the controls a regulator and a finance director expect.',
   title: 'Head of AI & Automation. Finance AI from first commit to production.',
-  description: 'Adrian Capraru, Head of AI & Automation: built an Irish accountancy firm\'s AI service line from zero, led a regulated FinTech through its EU licence audit as COO, and grew a factory from 5 to 200+ 3D printers. Clients and customers in 32+ countries on four continents.',
+  description: 'Adrian Capraru, Head of AI & Automation. Founder of 3Descu, one of the largest 3D printing factories in Eastern Europe (Romania Journal): 5 to 200+ 3D printers, turnover x65 in three years, about 80% of non-physical work automated with AI. Built an Irish accountancy firm\'s AI service line from zero and led a regulated FinTech through its EU licence audit as COO.',
   links: {
     linkedin: 'https://www.linkedin.com/in/adriancapraru27',
     github: 'https://github.com/cadi27tech',
@@ -20,9 +20,9 @@ export const mailto = (subject) => `mailto:${site.email}?subject=${encodeURIComp
 
 // Hero evidence ledger: figure, what it is, where the number comes from.
 export const proof = [
+  { fig: 'x65', what: '3Descu turnover in three years at a 57% net margin: 5 to 200+ 3D printers, about 80% of non-physical work automated with AI, one of Eastern Europe\'s largest.', src: 'Public filings 2022 to 2025; Romania Journal, Oct 2026', href: '/work/3d-printing-factory-platform-mcp-server/' },
   { fig: '10 days', what: 'An Irish accountancy firm\'s 20-module client platform, first commit to live production, inside an AI service line Adrian built from zero.', src: 'Build log, 23 Sep to 3 Oct 2026', href: '/work/accountancy-saas-live-in-10-days/' },
   { fig: 'Mar 2024', what: 'EU crowdfunding (ECSP) licence for the platform Adrian ran as COO, with him as lead on the authorisation and audit.', src: 'ASF register: Romania\'s 4th ECSP licence', href: '/work/eu-crowdfunding-licence-asf-authorisation/' },
-  { fig: 'x65', what: 'Factory turnover in three years, at a 57% net margin and no outside equity. Founded with five 3D printers in an apartment.', src: 'Public filings, 2022 to 2025', href: '/work/3d-printing-factory-platform-mcp-server/' },
   { fig: '32+', what: 'Countries with clients and customers, on four continents. Factory buyers in 26 of the 27 EU member states.', src: 'Order ledger and client contracts', href: '/about/' },
 ];
 
@@ -243,11 +243,11 @@ export const cvArcs = {
       '18 Oct 2026: one of the first manufacturing MCP servers, listed in the official MCP Registry (io.github.cadi27tech/3descu-quote), on Glama and in 4 community directories through merged pull requests. Engineers get a real factory price inside ChatGPT or Claude.',
       '21 to 25 Oct 2026: a zero-budget press launch, 10 articles in national, regional and international trade press within a week.',
     ],
-    result: 'A 200+ 3D printer factory in its own production hall, selling into 26 of the 27 EU member states. Turnover x65 in three years to about EUR 190K in 2025, up 75% year on year, at a 57% net margin (public filings). 2,000+ orders from 1,600+ buyers in 30 countries, one in three orders from a returning customer, rated 4.7/5 by 200+ verified buyers, and 1st in Gorj county in 3 Topul Firmelor 2026 categories.',
-    goals: [['Turnover', 'x65 in 3 years'], ['2025 turnover', 'about EUR 190K'], ['Net margin', '57%'], ['Growth', '+75% year on year'], ['Capacity', '5 to 200+ 3D printers'], ['Orders', '2,000+'], ['Buyers', '1,600+'], ['Countries', '30, incl. 26 of 27 EU'], ['Germany', '45% of orders'], ['Loyalty', '1 in 3 orders repeat'], ['Rating', '4.7/5 from 200+ buyers'], ['Quality', 'ISO 9001:2015 certified'], ['Funding', 'EU grant, plan ranked 1st'], ['Press', '10 articles, EUR 0 ads']],
+    result: 'A 200+ 3D printer factory in its own production hall, one of the largest 3D printing factories in Eastern Europe (Romania Journal) and one of Romania\'s top 3D printing factories, selling into 26 of the 27 EU member states. About 80% of non-physical work is automated with AI. Turnover x65 in three years to about EUR 190K in 2025, up 75% year on year, at a 57% net margin (public filings). 2,000+ orders from 1,600+ buyers in 30 countries, one in three orders from a returning customer, rated 4.7/5 by 200+ verified buyers, and 1st in Gorj county in 3 Topul Firmelor 2026 categories.',
+    goals: [['Turnover', 'x65 in 3 years'], ['2025 turnover', 'about EUR 190K'], ['Net margin', '57%'], ['Growth', '+75% year on year'], ['Capacity', '5 to 200+ 3D printers'], ['Automation', 'about 80% of non-physical work, with AI'], ['Team', 'cross-functional, 5'], ['Standing', 'one of the largest in Eastern Europe'], ['Orders', '2,000+'], ['Buyers', '1,600+'], ['Countries', '30, incl. 26 of 27 EU'], ['Germany', '45% of orders'], ['Loyalty', '1 in 3 orders repeat'], ['Rating', '4.7/5 from 200+ buyers'], ['Quality', 'ISO 9001:2015 certified'], ['Funding', 'EU grant, plan ranked 1st'], ['Press', '10 articles, EUR 0 ads']],
     team: [
       'Runs strategy, P&L, pricing, production and sales.',
-      'Hired and trained the staff, on site and digitally, with the SOPs and the ISO 9001 audit documentation he wrote. A team of 4 including contractors, plus external production, logistics, certification and creative partners.',
+      'Hired and trained the staff, on site and digitally, with the SOPs and the ISO 9001 audit documentation he wrote. A cross-functional team of 5 (production, quality, design, sales and admin), plus external production, logistics, certification and creative partners.',
       'Hands-on across FDM and SLA production, 3D modelling, the full 3D workflow and design for manufacturing.',
       'Directs parallel AI coding agents behind tests and review gates as the software team.',
     ],
@@ -349,6 +349,7 @@ export const cvArcs = {
 
 // /cv "Achievements & recognition": real items only (V3-BRIEF s3, s3c; 09d s1d, s7, s9). Company awards are labelled as context.
 export const recognition = [
+  { tag: 'Press', when: 'Oct 2026', h: 'One of the largest 3D printing factories in Eastern Europe', p: 'Romania Journal on 3Descu, the factory he founded in 2022 with five 3D printers: today one of Romania\'s top 3D printing factories, with 200+ 3D printers.', url: '/press/', link: 'Press page' },
   { tag: 'Ranking', when: '2026', h: '1st in Gorj county in 3 Topul Firmelor 2026 categories', p: '3Descu, in the ListaFirme rankings built from filed 2025 accounts (professional and design services), plus 2nd in a fourth.' },
   { tag: 'Grant', when: '2022', h: 'EU start-up grant, business plan ranked first', p: "About EUR 60K, non-repayable, won with a business plan he wrote for his Master's. It founded 3Descu." },
   { tag: 'Licence', when: 'Mar 2024', h: 'EU crowdfunding (ECSP) licence', p: "Lead on the ASF authorisation and audit at HighCrowd. Romania's 4th ECSP licence, the 2nd for real estate.", url: 'https://data.asfromania.ro/registru/lista.php?sect=5801&lng=1', link: 'ASF register' },
@@ -577,7 +578,7 @@ export const work = [
     slug: '3d-printing-factory-platform-mcp-server',
     title: 'From five 3D printers in an apartment to a 200+ 3D printer factory selling into 26 of the 27 EU member states',
     card: '3Descu: factory, platform and MCP server',
-    summary: 'A 0-to-100 story. An EU start-up grant and five 3D printers in 2022; today an ISO 9001:2015 certified company with 200+ 3D printers, buyers in 26 of the 27 EU member states, a 57% net margin with no outside equity, its own quoting platform in four languages, and one of the first manufacturing MCP servers.',
+    summary: 'A 0-to-100 story. An EU start-up grant and five 3D printers in 2022; today one of the largest 3D printing factories in Eastern Europe (Romania Journal), an ISO 9001:2015 certified company with 200+ 3D printers, about 80% of non-physical work automated with AI, buyers in 26 of the 27 EU member states, a 57% net margin with no outside equity, its own quoting platform in four languages, and one of the first manufacturing MCP servers.',
     fig: 'x65', figLabel: 'turnover in three years, 57% net margin',
     facts: {
       Company: '3Descu (TREIDESCUPRINT SRL), on-demand 3D printing for engineering buyers',
@@ -586,9 +587,9 @@ export const work = [
       Status: 'Operating and growing. Platform and MCP server live.',
     },
     context: 'The business plan was written for a Master\'s in Entrepreneurship and won an EU start-up grant (about EUR 60K, ranked first among applicants). The factory started with five 3D printers in a small apartment in Targu Jiu. Within a year it pivoted from consumers to engineering buyers, and it became an approved and audited production partner of one of the largest on-demand manufacturing platforms in the EU.',
-    problem: 'Sell custom manufacturing to engineers across Europe from a regional town, with a team of four. That means instant, trustworthy prices from a CAD file, a checkout that works in the buyer\'s language and currency, and operations that do not need a sales team to answer every request.',
+    problem: 'Sell custom manufacturing to engineers across Europe from a regional town, with a cross-functional team of 5. That means instant, trustworthy prices from a CAD file, a checkout that works in the buyer\'s language and currency, and operations that do not need a sales team to answer every request.',
     constraints: [
-      'A team of 4 including contractors, so software has to replace headcount.',
+      'A cross-functional team of 5, so software has to replace headcount.',
       'Prices must be right: every quote is a commitment the factory has to honour at a margin.',
       'Export-led: about half of all orders go to German-speaking markets.',
       'Customer data from five sales channels, with GDPR and marketplace contract rules on who may be contacted.',
@@ -606,6 +607,7 @@ export const work = [
       { n: '5 to 200+', l: '3D printers, from an apartment (2022) to a dedicated production hall' },
       { n: 'x65', l: 'turnover in three years, about EUR 190K in 2025, up 75% year on year, at a 57% net margin (public filings)' },
       { n: '2,000+', l: 'orders from 1,600+ buyers in 30 countries, including 26 of the 27 EU member states; 45% of orders ship to Germany; one in three from a returning customer' },
+      { n: 'about 80%', l: 'of non-physical work automated with AI: quoting, orders, invoicing, the customer ledger and social publishing' },
       { n: '4.7/5', l: 'rating from 200+ verified B2B buyers' },
       { n: '~400', l: 'merged pull requests and 929 commits in under five months, solo, with 38 edge functions' },
       { n: '10', l: 'press articles within a week of the AI quoting launch, at zero ad spend' },
@@ -617,21 +619,21 @@ export const work = [
     ],
     stack: ['React', 'TypeScript', 'Supabase (PostgreSQL, Edge Functions)', 'Stripe', 'Model Context Protocol', 'GitHub Actions', 'Meta Graph API'],
     key: ['200+', '3D printers, from 5 in an apartment'],
-    broken: 'A factory in a regional town, selling custom parts to engineers across Europe with a team of four. A buyer needed a trustworthy price from a CAD file without waiting for a person, customer records sat in five separate sales channels, and AI assistants had no way to ask the factory for a quote at all: a web form is not an interface a model can use.',
+    broken: 'A factory in a regional town, selling custom parts to engineers across Europe with a cross-functional team of 5. A buyer needed a trustworthy price from a CAD file without waiting for a person, customer records sat in five separate sales channels, and AI assistants had no way to ask the factory for a quote at all: a web form is not an interface a model can use.',
     cost: [
-      'With a team of 4 including contractors, every request answered by hand is time taken from production.',
+      'With a cross-functional team of 5, every request answered by hand is time taken from production.',
       'Five sales channels with different GDPR and marketplace contract rules on who may be contacted.',
       'No channel at all for the engineers who already ask AI assistants for help.',
     ],
     stakes: 'A wrong price either loses the order or loses money on it, and across 2,000+ orders the error compounds. The buyers are engineers who come back when the part and the price are right: one in three orders is from a returning customer.',
     team: [
       'Founder: strategy, P&L, pricing, production and sales.',
-      'Hired and trained the staff, on site and digitally, with the SOPs and the ISO 9001 audit documentation he wrote. A team of 4 including contractors, plus external production, logistics, certification and creative partners.',
+      'Hired and trained the staff, on site and digitally, with the SOPs and the ISO 9001 audit documentation he wrote. A cross-functional team of 5 (production, quality, design, sales and admin), plus external production, logistics, certification and creative partners.',
       'Hands-on across FDM and SLA production, 3D modelling, the full 3D workflow and design for manufacturing.',
       'Sole engineer of the software, directing parallel AI coding agents behind tests and review gates.',
     ],
     timeline: [
-      ['2022', 'A business plan written for a Master\'s in Entrepreneurship wins an EU start-up grant (ranked first, about EUR 60K, non-repayable). five 3D printers in an apartment in Targu Jiu. No outside equity.'],
+      ['2022', 'A business plan written for a Master\'s in Entrepreneurship wins an EU start-up grant (ranked first, about EUR 60K, non-repayable). Five 3D printers in an apartment in Targu Jiu. No outside equity.'],
       ['Jun 2022', 'Company registered, production starts on five 3D printers in the apartment.'],
       ['2023', 'From consumers to engineering buyers, and approved as a production partner of one of the largest on-demand manufacturing platforms in the EU.'],
       ['2023 to 2024', 'Team hired and trained on site and remotely, SOPs and ISO 9001 audit documentation written, production moved into a dedicated hall (2024). 3Descu is an ISO 9001:2015 certified company.'],
@@ -640,7 +642,7 @@ export const work = [
       ['2 Oct 2026', 'The platform live in four languages: English, German, French and Dutch.'],
       ['18 Oct 2026', 'MCP server listed in the official MCP Registry; then Glama and 4 community directories through merged pull requests.'],
       ['21 to 25 Oct 2026', 'A zero-budget press launch: 10 articles in national, regional and international trade press within a week.'],
-      ['Today', 'A 200+ 3D printer factory, turnover x65 in three years at a 57% net margin, 2,000+ orders from 1,600+ buyers in 30 countries, rated 4.7/5 by 200+ verified buyers.'],
+      ['Today', 'A 200+ 3D printer factory, one of the largest 3D printing factories in Eastern Europe (Romania Journal), turnover x65 in three years at a 57% net margin, 2,000+ orders from 1,600+ buyers in 30 countries, rated 4.7/5 by 200+ verified buyers.'],
     ],
     safeguards: [
       'ISO 9001:2015 certified company, with documented SOPs.',
