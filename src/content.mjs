@@ -145,17 +145,17 @@ export const press = [
 
 export const upwork = {
   line: 'Top Rated on Upwork: 100% Job Success, 22 contracts for clients across Europe, the US and Australia, 12 of 12 rated contracts five stars, one client hired four times. All work inbound.',
-  quote: { text: 'Adrian is a total pro... The automation runs perfectly.', who: 'Nicolas P., Upwork client' },
+  quote: { text: 'Adrian is a total pro... The automation runs perfectly.', who: 'Upwork client, workflow set-up' },
   // Endorsement tags Upwork clients gave, with counts (research/06, live scan 26 Oct 2026).
   tags: [['Committed to Quality', 7], ['Professional', 6], ['Clear Communicator', 3], ['Detail Oriented', 3], ['Collaborative', 2], ['Reliable', 2], ['Solution Oriented', 2], ['Accountable', 1]],
 };
 
 // Testimonials: every published review and every press line about Adrian, quoted as published (typos included).
-// Upwork reviews: research/06 "Public review quotes"; reviewers appear as anonymised client labels (only Nicolas P. by first name + initial).
+// Upwork reviews: research/06 "Public review quotes"; reviewers appear as anonymised client labels, never by name (owner rule: no client staff names).
 // Buyer review: research/09g s5 (3Descu fact sheet). Press: research/05, headlines as published; `en` is a translation.
 // source: 'upwork' | 'buyer' | 'press' | 'linkedin'. case = the slug of the case study for that same client or company.
 export const testimonials = [
-  { id: 'nicolas', source: 'upwork', stars: 5, text: "Adrian is a total pro. Just looking at his CV you can tell he's not the average freelancer on here, and the work really proved it. The automation runs perfectly...", who: 'Nicolas P.', type: 'Workflow set-up' },
+  { id: 'nicolas', source: 'upwork', stars: 5, text: "Adrian is a total pro. Just looking at his CV you can tell he's not the average freelancer on here, and the work really proved it. The automation runs perfectly...", who: 'Upwork client', type: 'Workflow set-up' },
   { id: 'uk-marketing', source: 'upwork', stars: 5, text: 'Capraru was extremely knowledgable in N8N, AI and general automation. He put together an excellent workflow that helped us achieve human scoring, automated content. We are hiring him for our next AI automation project.', who: 'UK internet-marketing firm', type: 'AI workflow automation, n8n' },
   { id: 'buyer', source: 'buyer', text: 'The precision of the parts were astonishingly good', who: 'Verified B2B buyer, 3Descu', type: 'Custom 3D-printed parts', case: '3d-printing-factory-platform-mcp-server' },
   { id: 'plc', source: 'upwork', stars: 5, text: "The Prompt Optimizer workflow is solid... By unifying the architecture, you've stopped the AI from getting 'identity confusion' between different PLC vendors. It's now perfectly modular... That's why I gave him a bonus because he exceeded... Clean, professional, and future-proof.", who: 'Danish industrial-automation team', type: 'Self-improving LLM pipeline for PLC code' },
