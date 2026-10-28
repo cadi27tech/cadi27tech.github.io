@@ -341,8 +341,8 @@ export const cvArcs = {
       'Owned and improved the secondary market, where investors trade positions before maturity; ran release cycles with engineering from idea to launch and managed the catalogue CMS across partner platforms.',
       'Wrote the SOPs for critical processes and produced the platform explainer video.',
     ],
-    result: 'Product Manager within 8 months at an aggregator serving 6,700 investors with EUR 4M+ invested (company figures); SOPs that cut onboarding time for new hires; an explainer video at 25K+ views.',
-    goals: [['Promotion', 'CM to PM in 8 months'], ['Investors served', '6,700'], ['Invested', 'EUR 4M+'], ['Explainer video', '25K+ views'], ['Community', '2,200+ members brought in']],
+    result: 'Product Manager within 8 months at an aggregator serving 6,700 investors with EUR 7M+ invested (company figures); SOPs that cut onboarding time for new hires; an explainer video at 25K+ views.',
+    goals: [['Promotion', 'CM to PM in 8 months'], ['Investors served', '6,700'], ['Invested', 'EUR 7M+'], ['Explainer video', '25K+ views'], ['Community', '2,200+ members brought in']],
     team: ['The link between investors, engineering, marketing and operations: what investors asked for became features the team could ship.'],
   },
 };
